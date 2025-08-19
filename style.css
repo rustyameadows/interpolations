@@ -31,12 +31,68 @@ body {
     background: #0e1c2b;
 }
 
+/* Hide text but keep it accessible */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 1px, 1px);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* Hero section */
 .hero {
     min-height: 100vh; /* full viewport height */
-    background: #0e1c2b; /* solid bg for the hero */
+    /* Solid base color with image pinned left. The image fills 100% of section height. */
+    background-color: #0e1c2b;
+    background-image: url("interpolations-hero-illustration-portal-sorbet.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 100%;
     display: grid; /* easy vertical centering */
     align-items: center;
+}
+
+/* Wordmark mask over image */
+.hero__logo {
+    margin-top: 12px;
+}
+
+/* Use width var + computed height as a fallback if aspect-ratio acts up */
+.hero__logo-mask {
+    --logo-w: clamp(320px, 48vw, 980px);
+    width: var(--logo-w);
+    height: calc(var(--logo-w) * 0.1375);
+    display: block;
+
+    background-image: url("interpolations-text-bg-portal-sorbet.png");
+    background-size: cover;
+    background-position: center;
+
+    /* Use the white-filled SVG */
+    -webkit-mask-image: url("interpolations-wordmark-mask-white.svg");
+    mask-image: url("interpolations-wordmark-mask-white.svg");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+
+    -webkit-mask-mode: luminance;
+    mask-mode: luminance;
+}
+
+/* Fallback if mask unsupported: show the plain SVG */
+@supports not (-webkit-mask-image: url("x")) {
+    .hero__logo-mask {
+        background: center / contain no-repeat
+            url("interpolations-wordmark-mask-white");
+    }
 }
 
 /* Full width 12 column grid */
@@ -48,36 +104,174 @@ body {
     width: 100%;
 }
 
-/* Temporary demo blocks to visualize the grid while we build */
-.demo-block {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 8px;
-    padding: 16px;
+/* Right-side content area */
+.hero__content {
+    grid-column: 7 / span 6; /* right half on desktop */
+    padding-block: 24px;
+    align-self: center; /* vertical centering within the grid cell */
+    display: flex; /* center and stack inner content */
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    max-width: 760px; /* keeps line lengths readable */
+    margin-inline: auto; /* centers within its grid area */
+}
+.hero__content > * + * {
+    margin-top: 16px;
 }
 
-/* Simple span utilities (optional) */
-.span-3 {
-    grid-column: span 3;
-}
-.span-6 {
-    grid-column: span 6;
-}
-.span-12 {
-    grid-column: span 12;
+/* Hero content element spacing and actions */
+.hero__actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
 }
 
-/* Basic responsive stacking for now */
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 1;
+    border: 1px solid transparent;
+    transition:
+        transform 120ms ease,
+        box-shadow 120ms ease,
+        background-color 120ms ease,
+        color 120ms ease,
+        border-color 120ms ease;
+}
+.btn:focus {
+    outline: none;
+}
+.btn:focus-visible {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
+}
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn--primary {
+    /* keeping for future use */
+    background: #f4f7fb;
+    color: #0e1c2b;
+}
+.btn--primary:hover {
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.btn--ghost {
+    /* keeping for future use */
+    background: transparent;
+    color: #f4f7fb;
+    border-color: rgba(244, 247, 251, 0.6);
+}
+.btn--ghost:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* CTA pill button styled like the mock */
+.btn--cta {
+    background: linear-gradient(90deg, #ff8a4b 0%, #f2c94c 45%, #9edfe0 100%);
+    color: #0e1c2b;
+    border: 0;
+    border-radius: 999px;
+    padding: 14px 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.btn--cta:hover {
+    filter: brightness(1.06);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Icon sizing */
+.hero__mark {
+    width: 215px;
+    height: 215px;
+    object-fit: contain;
+}
+/* To make the icon responsive instead, replace the two lines above with:
+   width: clamp(160px, 12vw, 215px);
+   height: auto;
+*/
+
+/* Hero typography - starter styling
+   Add your final font choices in the placeholders below. */
+.hero__logo {
+    /* FONT: display serif */
+    /* font-family: "Your Display Serif", serif; */
+    font-weight: 700; /* adjust later */
+    font-size: clamp(48px, 8vw, 140px);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    margin-top: 12px;
+    /* Optional gradient text starter - replace with image-mask later if needed */
+    background: linear-gradient(90deg, #f3b35e 0%, #e8ecd3 45%, #a7c5d7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero__kicker {
+    /* FONT: small caps sans */
+    /* font-family: "Your Sans", sans-serif; */
+    font-weight: 700;
+    font-size: clamp(12px, 1.2vw, 16px);
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: #7cc6bd;
+    margin-top: 10px;
+}
+
+.hero__lede {
+    /* FONT: body serif */
+    /* font-family: "Your Serif", serif; */
+    margin-top: 36px;
+    max-width: 720px;
+    font-size: clamp(18px, 1.7vw, 22px);
+    line-height: 1.7;
+    color: rgba(244, 247, 251, 0.9);
+}
+
+.hero__date {
+    /* FONT: sans bold */
+    /* font-family: "Your Sans", sans-serif; */
+    margin-top: 56px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: clamp(14px, 1.2vw, 16px);
+    color: #f4f7fb;
+}
+
+.hero__note {
+    /* FONT: serif italic */
+    /* font-family: "Your Serif", serif; */
+    margin-top: 6px;
+    font-style: italic;
+    color: rgba(244, 247, 251, 0.7);
+}
+
+.hero__actions {
+    margin-top: 28px;
+}
+
+/* Basic responsive stacking */
 @media (max-width: 960px) {
     .hero__grid {
         grid-template-columns: repeat(6, 1fr);
     }
-    .span-6 {
-        grid-column: span 6;
-    }
-    .span-3 {
-        grid-column: span 3;
+    .hero__content {
+        grid-column: 1 / -1;
     }
 }
 
@@ -85,8 +279,7 @@ body {
     .hero__grid {
         grid-template-columns: repeat(4, 1fr);
     }
-    .span-6,
-    .span-3 {
-        grid-column: span 4;
+    .hero__content {
+        grid-column: 1 / -1;
     }
 }
