@@ -120,6 +120,38 @@ body {
     margin-top: 16px;
 }
 
+/* Rail wrapper: obeys grid padding and clips any spill */
+.logo-rail {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+
+    /* Exact width of the right 6 columns in a 12-col grid:
+     50vw minus left/right grid padding and half a gap */
+    max-width: calc(50vw - var(--grid-pad) - 0.5 * var(--grid-gap));
+}
+
+/* Make just the logo align to the left rail, keep other items centered */
+.hero__logo {
+    justify-self: start;
+    width: 100%;
+    margin-top: 12px;
+}
+
+/* Wordmark never exceeds the rail */
+.hero__logo-mask {
+    width: min(100%, clamp(320px, 48vw, 980px));
+    aspect-ratio: 1600 / 220; /* match your SVG viewBox */
+    display: block;
+}
+
+/* On narrower layouts where columns change, let it fill */
+@media (max-width: 960px) {
+    .logo-rail {
+        max-width: 100%;
+    }
+}
+
 /* Hero content element spacing and actions */
 .hero__actions {
     display: flex;
