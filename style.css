@@ -1,0 +1,92 @@
+/* Layout variables */
+:root {
+    --grid-pad: 48px; /* left/right padding for the grid */
+    --grid-gap: 24px; /* gap between columns */
+}
+
+/* Base reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family:
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Ubuntu,
+        Cantarell,
+        "Helvetica Neue",
+        Arial,
+        "Noto Sans",
+        sans-serif;
+    color: #f4f7fb;
+    background: #0e1c2b;
+}
+
+/* Hero section */
+.hero {
+    min-height: 100vh; /* full viewport height */
+    background: #0e1c2b; /* solid bg for the hero */
+    display: grid; /* easy vertical centering */
+    align-items: center;
+}
+
+/* Full width 12 column grid */
+.hero__grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--grid-gap);
+    padding-inline: var(--grid-pad);
+    width: 100%;
+}
+
+/* Temporary demo blocks to visualize the grid while we build */
+.demo-block {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+}
+
+/* Simple span utilities (optional) */
+.span-3 {
+    grid-column: span 3;
+}
+.span-6 {
+    grid-column: span 6;
+}
+.span-12 {
+    grid-column: span 12;
+}
+
+/* Basic responsive stacking for now */
+@media (max-width: 960px) {
+    .hero__grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .span-6 {
+        grid-column: span 6;
+    }
+    .span-3 {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .span-6,
+    .span-3 {
+        grid-column: span 4;
+    }
+}
