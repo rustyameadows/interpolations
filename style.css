@@ -1,332 +1,661 @@
-/* Layout variables */
-:root {
-    --grid-pad: 48px; /* left/right padding for the grid */
-    --grid-gap: 24px; /* gap between columns */
-}
-
-/* Base reset */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
+
 html,
 body {
-    height: 100%;
-}
-body {
     margin: 0;
-    font-family:
-        system-ui,
-        -apple-system,
-        Segoe UI,
-        Roboto,
-        Ubuntu,
-        Cantarell,
-        "Helvetica Neue",
-        Arial,
-        "Noto Sans",
-        sans-serif;
-    color: #f4f7fb;
-    background: #0e1c2b;
-}
-
-/* Hide text but keep it accessible */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
     padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 1px, 1px);
-    white-space: nowrap;
-    border: 0;
 }
 
-/* Hero section */
-.hero {
-    min-height: 100vh; /* full viewport height */
-    /* Solid base color with image pinned left. The image fills 100% of section height. */
-    background-color: #0e1c2b;
-    background-image: url("interpolations-hero-illustration-portal-sorbet.png");
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: auto 100%;
-    display: grid; /* easy vertical centering */
-    align-items: center;
+body {
+    font-family: sans-serif;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
 }
 
-/* Wordmark mask over image */
-.hero__logo {
-    margin-top: 12px;
-}
-
-/* Use width var + computed height as a fallback if aspect-ratio acts up */
-.hero__logo-mask {
-    --logo-w: clamp(320px, 48vw, 980px);
-    width: var(--logo-w);
-    height: calc(var(--logo-w) * 0.1375);
-    display: block;
-
-    background-image: url("interpolations-text-bg-portal-sorbet.png");
-    background-size: cover;
-    background-position: center;
-
-    /* Use the white-filled SVG */
-    -webkit-mask-image: url("interpolations-wordmark-mask-white.svg");
-    mask-image: url("interpolations-wordmark-mask-white.svg");
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    -webkit-mask-size: contain;
-    mask-size: contain;
-
-    -webkit-mask-mode: luminance;
-    mask-mode: luminance;
-}
-
-/* Fallback if mask unsupported: show the plain SVG */
-@supports not (-webkit-mask-image: url("x")) {
-    .hero__logo-mask {
-        background: center / contain no-repeat
-            url("interpolations-wordmark-mask-white");
-    }
-}
-
-/* Full width 12 column grid */
-.hero__grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--grid-gap);
-    padding-inline: var(--grid-pad);
-    width: 100%;
-}
-
-/* Right-side content area */
-.hero__content {
-    grid-column: 7 / span 6; /* right half on desktop */
-    padding-block: 24px;
-    align-self: center; /* vertical centering within the grid cell */
-    display: flex; /* center and stack inner content */
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 760px; /* keeps line lengths readable */
-    margin-inline: auto; /* centers within its grid area */
-}
-.hero__content > * + * {
-    margin-top: 16px;
-}
-
-/* Rail wrapper: obeys grid padding and clips any spill */
-.logo-rail {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-
-    /* Exact width of the right 6 columns in a 12-col grid:
-     50vw minus left/right grid padding and half a gap */
-    max-width: calc(50vw - var(--grid-pad) - 0.5 * var(--grid-gap));
-}
-
-/* Make just the logo align to the left rail, keep other items centered */
-.hero__logo {
-    justify-self: start;
-    width: 100%;
-    margin-top: 12px;
-}
-
-/* Wordmark never exceeds the rail */
-.hero__logo-mask {
-    width: min(100%, clamp(320px, 48vw, 980px));
-    aspect-ratio: 1600 / 220; /* match your SVG viewBox */
+img {
+    max-width: 100%;
     display: block;
 }
 
-/* On narrower layouts where columns change, let it fill */
-@media (max-width: 960px) {
-    .logo-rail {
-        max-width: 100%;
-    }
-}
-
-/* Hero content element spacing and actions */
-.hero__actions {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 24px;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 12px 18px;
-    border-radius: 10px;
-    font-weight: 600;
+a {
+    color: inherit;
     text-decoration: none;
-    line-height: 1;
-    border: 1px solid transparent;
-    transition:
-        transform 120ms ease,
-        box-shadow 120ms ease,
-        background-color 120ms ease,
-        color 120ms ease,
-        border-color 120ms ease;
-}
-.btn:focus {
-    outline: none;
-}
-.btn:focus-visible {
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
-}
-.btn:active {
-    transform: translateY(1px);
 }
 
-.btn--primary {
-    /* keeping for future use */
-    background: #f4f7fb;
-    color: #0e1c2b;
-}
-.btn--primary:hover {
-    background: #ffffff;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
-.btn--ghost {
-    /* keeping for future use */
-    background: transparent;
-    color: #f4f7fb;
-    border-color: rgba(244, 247, 251, 0.6);
-}
-.btn--ghost:hover {
-    border-color: #ffffff;
-    background: rgba(255, 255, 255, 0.06);
+.header {
+    background: #0e1c2b;
+    color: #e6f2f2;
+    padding: 72px 0 56px;
+    text-align: center;
 }
 
-/* CTA pill button styled like the mock */
-.btn--cta {
-    background: linear-gradient(90deg, #ff8a4b 0%, #f2c94c 45%, #9edfe0 100%);
-    color: #0e1c2b;
-    border: 0;
-    border-radius: 999px;
-    padding: 14px 28px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-}
-.btn--cta:hover {
-    filter: brightness(1.06);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+.logo {
+    margin: 0 0 10px;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(38px, 6vw, 64px);
+    letter-spacing: 0.08em;
 }
 
-/* Icon sizing */
-.hero__mark {
-    width: 215px;
-    height: 215px;
-    object-fit: contain;
-}
-/* To make the icon responsive instead, replace the two lines above with:
-   width: clamp(160px, 12vw, 215px);
-   height: auto;
-*/
-
-/* Hero typography - starter styling
-   Add your final font choices in the placeholders below. */
-.hero__logo {
-    /* FONT: display serif */
-    /* font-family: "Your Display Serif", serif; */
-    font-weight: 700; /* adjust later */
-    font-size: clamp(48px, 8vw, 140px);
-    line-height: 0.95;
-    letter-spacing: 0.01em;
-    margin-top: 12px;
-    /* Optional gradient text starter - replace with image-mask later if needed */
-    background: linear-gradient(90deg, #f3b35e 0%, #e8ecd3 45%, #a7c5d7 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: -5px;
-}
-
-.hero__kicker {
-    /* FONT: small caps sans */
-    /* font-family: "Your Sans", sans-serif; */
-    font-weight: 700;
-    font-size: clamp(12px, 1.2vw, 16px);
-    letter-spacing: 0.38em;
-    text-transform: uppercase;
-    color: #7cc6bd;
-    margin-top: 0px;
-
+.conference-title {
+    margin: 0 0 28px;
     font-family:
         "Manrope",
         system-ui,
         -apple-system,
         Segoe UI,
         Roboto,
-        "Helvetica Neue",
         Arial,
         sans-serif;
     font-weight: 800;
+    font-size: clamp(12px, 1.6vw, 16px);
+    letter-spacing: 0.28em;
+}
+
+.event-date,
+.event-location {
+    margin: 0;
+    display: inline-block;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.event-date + .event-location::before {
+    content: "•";
+    padding: 0 8px;
+    opacity: 0.6;
+}
+
+.section-intro {
+    background: #fff;
+    color: #111;
+    padding: 96px 24px;
+    text-align: center;
+}
+
+.section-intro .section-heading {
+    margin: 0;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    line-height: 1.15;
+    font-size: clamp(32px, 5.6vw, 72px);
+    letter-spacing: 0.01em;
+}
+
+.section-intro .accent {
+    display: inline-block;
+    font-family:
+        "Manrope",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+    font-weight: 800;
+    font-size: 0.42em;
+    letter-spacing: 0.18em;
+    vertical-align: middle;
+    margin: 0 10px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.section-why {
+    position: relative;
+    background: #f3f1ee;
+    padding: 72px 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 28px 64px;
+    align-items: start;
+}
+
+.section-why::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 1px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.15);
+    height: 72%;
+    top: 14%;
+}
+
+.section-why .section-heading {
+    margin: 0 0 12px;
+    font-family:
+        "Manrope",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.section-why .section-heading:first-of-type {
+    grid-column: 1;
+}
+
+.section-why .section-heading:nth-of-type(2) {
+    grid-column: 2;
+}
+
+.body-copy {
+    margin: 0;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #2b2b2b;
+    text-align: center;
+    max-width: 48ch;
+    justify-self: center;
+}
+
+.section-why .body-copy:nth-of-type(1),
+.section-why .body-copy:nth-of-type(2) {
+    grid-column: 1;
+}
+
+.section-why .body-copy:nth-of-type(3),
+.section-why .body-copy:nth-of-type(4) {
+    grid-column: 2;
+}
+
+.section-why .body-copy + .body-copy {
+    margin-top: 14px;
+}
+
+.section-speakers {
+    background: #ffffff;
+    color: #111;
+    padding: 96px 24px 72px;
+    text-align: center;
+}
+
+.section-speakers .section-heading {
+    margin: 0 0 8px;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 54px);
+    line-height: 1.1;
+    background: linear-gradient(
+        90deg,
+        #7fd8d2 0%,
+        #7fd8d2 25%,
+        #f3c46c 60%,
+        #f19a68 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-speakers .section-tagline {
+    margin: 0 0 48px;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #6f6f6f;
+}
+
+.speaker-grid {
+    display: grid;
+    gap: 40px 56px;
+}
+
+.speaker {
+    margin: 0;
+}
+
+.speaker-name {
+    margin: 0 0 6px;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.2;
+}
+
+.speaker-role {
+    margin: 0 0 12px;
+    font-family:
+        "Manrope",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #5a6a72;
+}
+
+.speaker-bio {
+    margin: 0 0 10px;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #2b2b2b;
+}
+
+.more-speakers {
+    margin: 40px 0 0;
+    font-family:
+        "Manrope",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7e8a92;
+    text-align: center;
+}
+
+.section-join {
+    background: #0e1c2b;
+    color: #e6f2f2;
+    text-align: center;
+    padding: 96px 24px 72px;
+}
+
+.section-join .section-heading {
+    margin: 0 0 16px;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.1;
+    background: linear-gradient(
+        90deg,
+        #7fd8d2 0%,
+        #a4e0c6 35%,
+        #f2c676 75%,
+        #f19a68 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-join .body-copy {
+    margin: 0 auto 40px;
+    max-width: 70ch;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #b6c5cc;
+}
+
+.section-join .ticket-grid {
+    display: grid;
+    gap: 40px;
+    margin-top: 24px;
+}
+
+.section-join .ticket-card {
+    background: linear-gradient(180deg, #0f2232, #0d1b29);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 28px 24px;
+    text-align: left;
+}
+
+.section-join .ticket-title {
+    margin: 0 0 8px;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: 22px;
+    color: #e6f2f2;
+}
+
+.section-join .ticket-price {
+    margin: 6px 0;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: 44px;
+    line-height: 1.1;
+    color: #f1e6b1;
+}
+
+.section-join .ticket-note,
+.section-join .ticket-offer,
+.section-join .ticket-availability {
+    margin: 4px 0;
+    font-family:
+        "Manrope",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #9ab0bd;
+}
+
+.section-join .ticket-offer {
+    color: #ff9fcf;
+}
+
+.section-join .ticket-details {
+    margin: 18px 0 22px;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #c6d1d7;
+}
+
+.section-join .btn {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-family:
+        "Manrope",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.section-join .btn-primary {
+    background: #7fd8d2;
+    color: #072432;
+}
+
+.section-join .btn-secondary {
+    background: transparent;
+    color: #e6f2f2;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.section-join .ticket-notes {
+    margin-top: 32px;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: #8fa4b1;
+    opacity: 0.9;
+}
+
+.section-footer-callout {
+    background: #ffffff;
+    text-align: center;
+    padding: 72px 24px 40px;
+}
+
+.footer-logo {
+    margin: 0 0 12px;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.06;
+    font-size: clamp(40px, 5.2vw, 72px);
+    background: url("interpolations-text-bg-portal-sorbet.png") center/cover
+        no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-tagline {
+    margin: 0 auto;
+    max-width: 60ch;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #6e6e6e;
+}
+
+.section-contact {
+    background: #ffffff;
+    padding: 44px 24px 38px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: clamp(36px, 10vw, 140px);
+}
+
+.contact-item {
+    margin: 0;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #222222;
+}
+
+.footer .copyright {
+    margin: 0;
+    padding: 20px 0;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 1.6;
+    color: #9a9fa4;
+    text-align: center;
+    background: #ffffff;
+}
+
+.hero__lede .underline-gather {
+    position: relative;
+}
+
+.hero__lede .underline-share {
+    position: relative;
+}
+
+.hero {
+    background:
+        url("interpolations-hero-illustration-portal-sorbet.png") left center /
+            auto 100% no-repeat,
+        #0e1c2b;
+    color: #e6f2f2;
+    text-align: left;
+    padding: 40px 4vw;
+    position: relative;
+    overflow: hidden;
+    height: 70vh;
+    min-height: 520px;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    grid-template-columns: minmax(280px, 33%) 1fr;
+    align-content: center;
+    justify-items: start;
+}
+
+.hero > * {
+    grid-column: 2;
+}
+
+.hero__icon {
+    display: block;
+    margin: 0 0 clamp(16px, 2vw, 24px) 0;
+    width: clamp(72px, 7vw, 120px);
+    height: auto;
+}
+
+.hero__logo {
+    --mask: url("interpolations-wordmark-mask-white.svg");
+    --fill: url("interpolations-text-bg-portal-sorbet.png");
+    display: block;
+    margin: 0 0 clamp(14px, 2vw, 22px) 0;
+    width: clamp(600px, 64vw, 1040px);
+    height: clamp(80px, 9vw, 160px);
+    position: relative;
+    background: var(--fill) center / cover no-repeat;
+    -webkit-mask: var(--mask) left center / contain no-repeat;
+    mask: var(--mask) left center / contain no-repeat;
+}
+
+.hero__tagline {
+    margin: 0 0 clamp(18px, 2.2vw, 28px) 0;
+    font-family:
+        "Manrope",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+    font-weight: 800;
+    font-size: clamp(16px, 2vw, 28px);
+    letter-spacing: 0.6em;
+    text-transform: uppercase;
+    color: #a7e1d7;
+}
+
+.hero .event-date,
+.hero .event-location {
+    margin: 6px 0;
+    display: block;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(15px, 1.8vw, 26px);
+    letter-spacing: 0.04em;
+    line-height: 1.42;
+    opacity: 0.9;
 }
 
 .hero__lede {
-    /* FONT: body serif */
-    /* font-family: "Your Serif", serif; */
-    margin-top: 36px;
-    max-width: 720px;
-    font-size: clamp(18px, 1.7vw, 22px);
-    line-height: 1.25;
-    color: rgba(244, 247, 251, 0.9);
+    background: #fff;
+    color: #111;
+    padding: clamp(64px, 7.5vw, 108px) 24px;
+    text-align: center;
+}
 
-    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+.hero__lede .section-heading {
+    margin: 0;
+    font-family: "Fraunces", serif;
     font-weight: 300;
+    font-size: clamp(48px, 10vw, 165px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
 }
 
-.hero__date {
-    /* FONT: sans bold */
-    /* font-family: "Your Sans", sans-serif; */
-    margin-top: 56px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
+.hero__lede .accent {
+    display: block;
+    margin: clamp(14px, 1.8vw, 18px) 0;
+    font-family:
+        "Manrope",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+    font-weight: 700;
+    font-size: clamp(13px, 1.5vw, 22px);
+    letter-spacing: 0.09em;
     text-transform: uppercase;
-    font-size: clamp(14px, 1.2vw, 16px);
-    color: #f4f7fb;
+    color: #2b2b2b;
+    opacity: 0.9;
 }
 
-.hero__note {
-    /* FONT: serif italic */
-    /* font-family: "Your Serif", serif; */
-    margin-top: 6px;
-    font-style: italic;
-    color: rgba(244, 247, 251, 0.7);
+.hero__lede .underline-gather,
+.hero__lede .underline-share {
+    position: relative;
 }
 
-.hero__actions {
-    margin-top: 28px;
+.hero__lede .underline-gather::after,
+.hero__lede .underline-share::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 4px;
 }
 
-/* Basic responsive stacking */
-@media (max-width: 960px) {
-    .hero__grid {
-        grid-template-columns: repeat(6, 1fr);
+.hero__lede .underline-gather::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #25c1dc, rgba(255, 255, 255, 0));
+}
+
+.hero__lede .underline-share::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #f2a93a, rgba(255, 255, 255, 0));
+}
+
+@media (max-width: 820px) {
+    .section-why {
+        grid-template-columns: 1fr;
+        gap: 22px;
     }
-    .hero__content {
-        grid-column: 1 / -1;
+
+    .section-why::after {
+        display: none;
+    }
+
+    .section-why .section-heading,
+    .section-why .body-copy {
+        grid-column: 1 !important;
+    }
+
+    .section-why .section-heading + .section-heading {
+        margin-top: 24px;
     }
 }
-
-@media (max-width: 600px) {
-    .hero__grid {
-        grid-template-columns: repeat(4, 1fr);
+@media (min-width: 960px) {
+    .speaker-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        text-align: left;
     }
-    .hero__content {
-        grid-column: 1 / -1;
+}
+@media (min-width: 860px) {
+    .section-join .ticket-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 56px;
     }
 }
