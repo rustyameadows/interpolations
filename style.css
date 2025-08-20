@@ -659,3 +659,306 @@ a {
         gap: 56px;
     }
 }
+
+/* HERO: 70vh with left-anchored illustration and right content column */
+.hero {
+    /* background illustration fills section height */
+    background:
+        url("interpolations-hero-illustration-portal-sorbet.png") left center /
+            auto 100% no-repeat,
+        #0e1c2b;
+    color: #e6f2f2;
+
+    /* layout: reserve ~30–35% for the art, 65–70% for content */
+    display: grid;
+    grid-template-columns: 32% 1fr;
+    align-items: center;
+    justify-items: start;
+
+    /* lock height and provide inner padding similar to comp */
+    height: 70vh;
+    min-height: 520px;
+    padding: 40px 4vw;
+    overflow: hidden;
+}
+
+/* Place all hero children in the right column */
+.hero > * {
+    grid-column: 2;
+}
+
+/* Standalone icon above the wordmark */
+.hero__icon {
+    display: block;
+    width: clamp(84px, 7.2vw, 120px);
+    height: auto;
+    margin: 0 0 clamp(14px, 1.8vw, 20px);
+}
+
+/* Wordmark rendered via mask + texture fill */
+.hero__logo {
+    /* assets: white SVG mask + textured PNG fill */
+    --mask: url("interpolations-wordmark-mask-white.svg");
+    --fill: url("interpolations-text-bg-portal-sorbet.png");
+
+    width: clamp(620px, 55vw, 1040px);
+    height: clamp(90px, 8.6vw, 160px);
+    margin: 0;
+
+    background: var(--fill) center / cover no-repeat;
+    -webkit-mask: var(--mask) left center / contain no-repeat;
+    mask: var(--mask) left center / contain no-repeat;
+}
+
+/* Kicker under the wordmark */
+.hero__tagline {
+    margin: clamp(12px, 1.6vw, 22px) 0 0;
+    font-family:
+        "Manrope",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+    font-weight: 800; /* ExtraBold per spec */
+    font-size: clamp(14px, 1.6vw, 20px);
+    letter-spacing: 0.42em; /* wide tracking like comp */
+    text-transform: uppercase;
+    color: #a7e1d7;
+}
+
+/* LEDE BLOCK BELOW HERO */
+.hero__lede {
+    background: #fff;
+    color: #111;
+    text-align: center;
+    padding: clamp(64px, 7.5vw, 108px) 24px;
+}
+
+/* Fraunces Light display type with precise spacing */
+.hero__lede .section-heading {
+    margin: 0;
+    font-family: "Fraunces", serif;
+    font-weight: 300; /* Light */
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    font-size: clamp(56px, 10vw, 165px);
+}
+
+/* Small Manrope interstitials “AND” and “TO” on their own lines */
+.hero__lede .accent {
+    display: block;
+    margin: clamp(10px, 1.2vw, 16px) 0;
+    font-family:
+        "Manrope",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+    font-weight: 800; /* ExtraBold for strong small caps */
+    font-size: clamp(12px, 1.4vw, 22px);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #2b2b2b;
+    opacity: 0.9;
+}
+
+/* Colored underlines for “Gather” and “Share” */
+.hero__lede .underline-gather,
+.hero__lede .underline-share {
+    position: relative;
+}
+
+.hero__lede .underline-gather::after,
+.hero__lede .underline-share::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 4px;
+}
+
+.hero__lede .underline-gather::after {
+    /* teal sweep left to right, fading out */
+    background: linear-gradient(
+        to right,
+        #25c1dc 0%,
+        rgba(37, 193, 220, 0) 100%
+    );
+}
+
+.hero__lede .underline-share::after {
+    /* warm gold/orange sweep */
+    background: linear-gradient(
+        to right,
+        #f2a93a 0%,
+        rgba(242, 169, 58, 0) 100%
+    );
+}
+
+.hero {
+    height: 75vh; /* was 70vh */
+    min-height: 520px;
+    display: grid;
+    grid-template-columns: 32% 1fr;
+    align-items: center;
+    justify-items: center; /* center content within right side */
+    padding: 40px 4vw;
+    background:
+        url("interpolations-hero-illustration-portal-sorbet.png") left center /
+            auto 100% no-repeat,
+        #0e1c2b;
+    color: #e6f2f2;
+}
+
+.hero > * {
+    grid-column: 2; /* right-hand column */
+    text-align: center; /* center-align content inside right side */
+}
+
+.hero__icon {
+    display: block;
+    width: clamp(84px, 7.2vw, 120px);
+    height: auto;
+    margin: 0 0 clamp(14px, 1.8vw, 20px);
+}
+
+.hero__logo {
+    --mask: url("interpolations-wordmark-mask-white.svg");
+    --fill: url("interpolations-text-bg-portal-sorbet.png");
+    width: clamp(620px, 55vw, 1040px);
+    height: clamp(90px, 8.6vw, 160px);
+    margin: 0 auto;
+    background: var(--fill) center / cover no-repeat;
+    -webkit-mask: var(--mask) center / contain no-repeat;
+    mask: var(--mask) center / contain no-repeat;
+}
+
+.hero__tagline {
+    margin: clamp(12px, 1.6vw, 22px) 0 0;
+    font-family: "Manrope", system-ui, sans-serif;
+    font-weight: 800;
+    font-size: clamp(14px, 1.6vw, 20px);
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: #a7e1d7;
+}
+
+/* Fix event date/city block */
+.hero__details {
+    font-family: "Manrope", system-ui, sans-serif;
+    font-weight: 400;
+    font-size: clamp(14px, 1.4vw, 20px);
+    line-height: 1.5;
+    color: #e6f2f2;
+    margin-top: clamp(12px, 1.6vw, 20px);
+    text-align: center;
+}
+
+/* SECTION WRAPPER */
+.speakers {
+    /* section spacing and overall width */
+    padding: clamp(56px, 7vw, 96px) clamp(16px, 4vw, 32px)
+        clamp(40px, 6vw, 72px);
+    max-width: 1120px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* TITLE */
+.speakers__title {
+    margin: 0 0 clamp(8px, 1.2vw, 12px);
+    font-family: "Fraunces", serif; /* Fraunces Light */
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    font-size: clamp(44px, 7.6vw, 116px);
+    background: linear-gradient(
+        90deg,
+        #7fd8d2 0%,
+        #7fd8d2 28%,
+        #f3c46c 60%,
+        #f19a68 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* GRID: two columns with generous gutter matching the comp */
+.speakers__grid {
+    margin: clamp(24px, 3vw, 36px) auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(32px, 4vw, 56px) clamp(40px, 5.2vw, 80px);
+    align-items: start;
+    text-align: left; /* content aligns left inside grid */
+}
+
+/* SPEAKER BLOCK: two columns, image + text */
+.speaker {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: clamp(18px, 2.6vw, 28px);
+    row-gap: 8px;
+    align-items: start;
+}
+
+/* CIRCULAR PORTRAIT */
+.speaker__image {
+    width: clamp(110px, 14vw, 168px);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    object-fit: cover; /* maintain crop proportionality */
+}
+
+/* NAME (Manrope Bold/ExtraBold per spec) */
+.speaker__name {
+    margin: 0;
+    align-self: end;
+    font-family:
+        "Manrope",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+    font-weight: 800; /* ExtraBold */
+    font-size: clamp(22px, 3.2vw, 34px);
+    line-height: 1.15;
+    letter-spacing: 0.005em;
+}
+
+/* ROLE (Manrope, small caps feel via uppercase + tracking) */
+.speaker__role {
+    margin: 0;
+    grid-column: 2; /* sit under name, right of image */
+    font-family:
+        "Manrope",
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+    font-weight: 800; /* Bold/ExtraBold */
+    font-size: clamp(10px, 1.2vw, 12px);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #4c5b62;
+}
+
+/* RESPONSIVE: single column stack on narrow screens */
+@media (max-width: 860px) {
+    .speakers__grid {
+        grid-template-columns: 1fr;
+        gap: clamp(28px, 6vw, 40px);
+    }
+}
