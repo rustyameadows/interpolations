@@ -56,7 +56,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 140px;
-    background: #FFF;
+    background: #fff;
 }
 
 .new-intro-hero {
@@ -64,42 +64,96 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background: #101E2D;
+    background: #101e2d;
     overflow: hidden;
     height: 75vh;
     min-height: 450px;
+    position: relative;
 }
 
 .new-intro-illustration-frame {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    flex: 1;
-    max-width: 50%;
-    /* Stretch to match hero height and crop overflow to the right */
-    align-self: stretch;
-    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: auto; /* allow image to define width */
+    overflow: visible; /* never clip on desktop/tablet */
+    z-index: 0;
+    pointer-events: none;
 }
 
 .new-intro-portal-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
     height: 100%;
-    width: auto;            /* lock aspect ratio */
-    max-width: none;        /* allow width to exceed column to fill height */
-    display: block;
+    width: auto; /* lock aspect ratio */
+    max-width: none; /* allow width to exceed */
+    object-fit: contain; /* never clip */
     object-position: left center; /* pin to left */
 }
 
 /* Mobile: revert to intrinsic image height/aspect */
 @media (max-width: 768px) {
+    /* Mobile hero: full viewport height */
+    .new-intro-hero {
+        height: 100svh;
+        min-height: 0;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    /* Content up top */
+    .new-intro-content-block {
+        order: 1;
+        width: 100%;
+        padding: 24px 20px;
+        height: 100%;
+        position: relative;
+        z-index: 2; /* above portal image */
+    }
+    /* Right-align date/city on mobile */
+    .new-intro-date-location {
+        width: 100%;
+        text-align: right;
+        position: absolute;
+        right: 20px;
+        left: auto;
+        bottom: 20px;
+        z-index: 3;
+    }
+
+    /* Portal block pinned bottom-left; ~60% of screen area */
     .new-intro-illustration-frame {
-        align-self: auto;
+        position: absolute;
+        left: 0;
+        top: auto;
+        bottom: 0;
+        width: 80%; /* wider footprint */
+        height: 75svh; /* taller footprint */
+        overflow: hidden;
+        z-index: 1; /* behind content */
+        pointer-events: none;
     }
     .new-intro-portal-image {
-        height: auto;
+        position: absolute;
+        left: 0;
+        top: auto;
+        bottom: 0;
         width: 100%;
-        max-width: 100%;
-        aspect-ratio: 4 / 5;
+        height: 100%;
+        max-width: none;
+        object-fit: contain; /* no clipping or stretching */
+        object-position: left bottom; /* bottom-left anchor */
+    }
+}
+
+/* Make the wordmark scale down only on narrower screens (<600px) */
+@media (max-width: 600px) {
+    .new-intro-wordmark {
+        max-width: 80vw;
     }
 }
 
@@ -108,15 +162,26 @@ body {
     padding: 80px 60px;
     flex-direction: column;
     align-items: center;
-    gap: 60px;
-    flex: 1;
+    gap: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Desktop/tablet: content in right 60% region, centered within that region */
+@media (min-width: 769px) {
+    .new-intro-content-block {
+        flex: 0 0 auto;
+        width: min(60vw, 690px);
+        margin-left: calc(40vw + max((60vw - 690px) / 2, 0px));
+        margin-right: auto;
+    }
 }
 
 .new-intro-logo-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 34px;
 }
 
 /* Wordmark image (simplified PNG approach) */
@@ -131,13 +196,14 @@ body {
 
 /* Crisp text subhead under wordmark */
 .new-intro-subhead {
-    color: #7FD1E1; /* solid blue */
+    color: #a6e9f6;
     text-align: center;
     font-family: var(--font-ui);
-    font-size: 26px;
+    font-size: 18px;
     font-weight: 700;
-    letter-spacing: 0.4em; /* ~40% of font size */
+    letter-spacing: 0.5em;
     text-transform: uppercase;
+    margin-top: -26px;
 }
 
 /* Restored icon sizing */
@@ -150,7 +216,7 @@ body {
 }
 
 .new-intro-date-location {
-    color: #FFF;
+    color: #fff;
     text-align: center;
     font-family: var(--font-display);
     font-size: 22px;
@@ -158,6 +224,15 @@ body {
     font-weight: 300;
     line-height: 32px;
     letter-spacing: 0.8px;
+}
+
+/* Ensure mobile left alignment wins over base rule */
+@media (max-width: 768px) {
+    .new-intro-hero .new-intro-date-location {
+        text-align: right;
+        right: 20px;
+        left: auto;
+    }
 }
 
 .new-intro-headline {
@@ -186,9 +261,18 @@ body {
     margin: 0;
 }
 
+/* Gradient underline for key words in the gather title */
+.new-intro-gather-title .gradient-underline {
+    background-image: linear-gradient(90deg, #7fd1e1 0%, #f25a7f 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 6px; /* thickness */
+    background-position: 0 calc(100% - 10px);
+    padding-bottom: 4px; /* spacing so underline is visible */
+}
+
 .new-intro-connector-and,
 .new-intro-connector-to {
-    color: #101E2D;
+    color: #101e2d;
     text-align: center;
     font-family: var(--font-ui);
     font-size: clamp(18px, 2vw, 22px);
@@ -211,7 +295,7 @@ body {
     align-items: flex-start;
     gap: 60px;
     position: relative;
-    background: #F6EFE7;
+    background: #f6efe7;
     padding: 80px 60px;
 }
 
@@ -245,7 +329,7 @@ body {
 }
 
 .new-intro-column-title {
-    color: #101E2D;
+    color: #101e2d;
     text-align: center;
     font-family: var(--font-ui);
     font-size: clamp(20px, 2.5vw, 26px);
@@ -266,7 +350,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-
 /* =================================
    SPEAKERS SECTION
    ================================= */
@@ -276,7 +359,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 80px;
-    background: #FFF;
+    background: #fff;
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
@@ -363,7 +446,7 @@ body {
 }
 
 .speaker-name {
-    color: #101E2D;
+    color: #101e2d;
     font-family: var(--font-display);
     font-size: clamp(32px, 5vw, 60px);
     font-style: normal;
@@ -374,7 +457,7 @@ body {
 }
 
 .speaker-role {
-    color: #101E2D;
+    color: #101e2d;
     font-family: var(--font-ui);
     font-size: clamp(14px, 1.5vw, 16px);
     font-style: normal;
@@ -399,7 +482,7 @@ body {
 }
 
 .speakers-more {
-    color: #101E2D;
+    color: #101e2d;
     text-align: center;
     font-family: var(--font-ui);
     font-size: clamp(18px, 2.5vw, 24px);
@@ -415,14 +498,14 @@ body {
 .pricing-footer-section {
     width: 100%;
     max-width: 100vw;
-    background: #FFF;
+    background: #fff;
     overflow-x: hidden;
 }
 
 /* Pricing Section */
 .pricing-section {
     width: 100%;
-    background: #101E2D;
+    background: #101e2d;
     padding: 80px 20px 120px 20px;
     display: flex;
     flex-direction: column;
@@ -437,7 +520,7 @@ body {
 }
 
 .join-us-title {
-    color: #FFF;
+    color: #fff;
     text-align: center;
     font-family: var(--font-display);
     font-size: clamp(40px, 8vw, 72px);
@@ -452,7 +535,7 @@ body {
 .pricing-subtitle {
     width: 100%;
     max-width: 700px;
-    color: #FFF;
+    color: #fff;
     text-align: center;
     font-family: var(--font-display);
     font-size: clamp(16px, 2vw, 18px);
@@ -469,6 +552,7 @@ body {
     width: 100%;
     max-width: 1200px;
     flex-wrap: wrap;
+    align-items: stretch; /* make cards equal height so buttons align */
 }
 
 .pricing-card {
@@ -481,8 +565,12 @@ body {
     padding: 30px 20px;
 }
 
+/* Push the register button to the bottom within each card */
+.pricing-card .register-button {
+    margin-top: auto;
+}
+
 .regular-ticket {
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
     padding-right: 40px;
     margin-right: 20px;
 }
@@ -499,11 +587,11 @@ body {
 }
 
 .regular-ticket .ticket-type {
-    color: #96D8CE;
+    color: #96d8ce;
 }
 
 .vip-ticket .ticket-type {
-    color: #FFBB10;
+    color: #ffbb10;
 }
 
 .price-section {
@@ -518,7 +606,7 @@ body {
 }
 
 .early-bird-price {
-    color: #F6EFE7;
+    color: #f6efe7;
     text-align: center;
     font-family: var(--font-display);
     font-size: clamp(60px, 10vw, 120px);
@@ -527,7 +615,7 @@ body {
     line-height: 100px;
     letter-spacing: -3px;
     text-transform: uppercase;
-    background: linear-gradient(135deg, #8B7355 0%, #D4C4A8 50%, #F6EFE7 100%);
+    background: linear-gradient(135deg, #8b7355 0%, #d4c4a8 50%, #f6efe7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -538,14 +626,14 @@ body {
 }
 
 .regular-ticket .early-bird-price {
-    background: linear-gradient(135deg, #4A9B8E 0%, #7FD1E1 50%, #B8E8F0 100%);
+    background: linear-gradient(135deg, #4a9b8e 0%, #7fd1e1 50%, #b8e8f0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .vip-ticket .early-bird-price {
-    background: linear-gradient(135deg, #B8730E 0%, #E9A13C 50%, #F4C573 100%);
+    background: linear-gradient(135deg, #b8730e 0%, #e9a13c 50%, #f4c573 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -563,7 +651,7 @@ body {
     top: -40px;
     right: 20px;
     text-decoration: line-through;
-    text-decoration-color: #FF0404;
+    text-decoration-color: #ff0404;
     text-decoration-thickness: 2px;
     z-index: 1;
 }
@@ -585,7 +673,7 @@ body {
 }
 
 .early-bird-label {
-    color: #FF0404;
+    color: #ff0404;
     text-align: center;
     font-family: var(--font-ui);
     font-size: clamp(11px, 1.5vw, 13px);
@@ -600,11 +688,11 @@ body {
     background: rgba(255, 4, 4, 0.1);
     padding: 8px 12px;
     border-radius: 4px;
-    border-left: 3px solid #FF0404;
+    border-left: 3px solid #ff0404;
 }
 
 .ticket-description {
-    color: #FFF;
+    color: #fff;
     text-align: center;
     font-family: var(--font-display);
     font-size: clamp(14px, 1.5vw, 15px);
@@ -625,16 +713,27 @@ body {
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    font-family: var(--font-ui);
-    font-size: clamp(12px, 1.5vw, 14px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Manrope, system-ui, sans-serif;
+    font-size: 20px;
+    font-style: normal;
     font-weight: 800;
-    letter-spacing: 1.2px;
+    line-height: normal;
+    letter-spacing: 2px;
     text-transform: uppercase;
     transition: opacity 0.2s ease;
 }
 
 .register-button:hover {
     opacity: 0.9;
+    text-decoration: none;
 }
 
 .register-button:active {
@@ -642,13 +741,13 @@ body {
 }
 
 .regular-button {
-    background: #7FD1E1;
+    background: #7fd1e1;
     color: #000;
 }
 
 .vip-button {
-    background: #E9A13C;
-    color: #FFF;
+    background: #e9a13c;
+    color: #fff;
 }
 
 .team-student-info {
@@ -671,7 +770,7 @@ body {
 /* Footer Section */
 .footer-section {
     width: 100%;
-    background: #FFF;
+    background: #fff;
     padding: 80px 20px;
     display: flex;
     flex-direction: column;
@@ -730,7 +829,7 @@ body {
 }
 
 .contact-email {
-    color: #0E1C2B;
+    color: #0e1c2b;
     text-align: center;
     font-family: var(--font-display);
     font-size: clamp(18px, 3vw, 28px);
@@ -741,10 +840,7 @@ body {
 }
 
 .contact-divider {
-    width: 80px;
-    height: 1px;
-    background: #E1E1E1;
-    flex-shrink: 0;
+    display: none;
 }
 
 .copyright {
@@ -766,21 +862,7 @@ body {
 
 /* Tablet and smaller desktop */
 @media (max-width: 1024px) {
-    .new-intro-hero {
-        flex-direction: column;
-        min-height: auto;
-    }
-
-    .new-intro-illustration-frame {
-        max-width: 100%;
-        order: 1;
-    }
-
-    .new-intro-content-block {
-        order: 2;
-        padding: 60px 40px;
-    }
-
+    /* Keep hero split layout until mobile; only adjust non-hero sections */
     .new-intro-info {
         flex-direction: column;
         gap: 40px;
@@ -931,5 +1013,28 @@ body {
     .register-button {
         width: 240px;
         height: 45px;
+    }
+}
+/* Center divider line between pricing cards on desktop/tablet */
+@media (min-width: 769px) {
+    .pricing-cards {
+        position: relative;
+    }
+    .pricing-cards::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateX(-0.5px);
+        pointer-events: none;
+    }
+    /* Remove old border-based divider on wide screens */
+    .regular-ticket {
+        border-right: none;
+        margin-right: 0;
+        padding-right: 0;
     }
 }
