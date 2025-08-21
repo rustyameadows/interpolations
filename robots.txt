@@ -1,0 +1,12 @@
+# robots.txt for iveseenthefuture.com
+
+User-agent: *
+Allow: /
+
+# Optional: block non-public build/preview assets if ever exposed
+Disallow: /preview/
+Disallow: /components/
+
+# Point crawlers to your sitemap (add it when available)
+Sitemap: https://iveseenthefuture.com/sitemap.xml
+
