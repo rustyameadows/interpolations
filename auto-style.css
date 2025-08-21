@@ -1,0 +1,1085 @@
+/* CSS Tokens */
+:root {
+    /* typography */
+    --font-display: "Fraunces", serif;
+    --font-ui: "Manrope", system-ui, sans-serif;
+
+    /* colors */
+    --bg: #ffffff;
+    --ink: #0a0a0a;
+    --muted: #6b7280;
+    --brand: #f25a7f;
+
+    /* spacing */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-6: 48px;
+    --space-8: 64px;
+
+    /* layout */
+    --container: 1200px;
+    --gutter: 24px;
+}
+
+/* Base Reset */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    line-height: 1.4;
+}
+
+/* Layout Helpers */
+.container {
+    width: min(100% - 2 * var(--gutter), var(--container));
+    margin-inline: auto;
+}
+
+/* =================================
+   NEW INTRO SECTION
+   ================================= */
+.new-intro-sections {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 140px;
+    background: #fff;
+}
+
+.new-intro-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: #101e2d;
+    overflow: hidden;
+    height: 75vh;
+    min-height: 450px;
+    position: relative;
+}
+
+.new-intro-illustration-frame {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: auto; /* allow image to define width */
+    overflow: visible; /* never clip on desktop/tablet */
+    z-index: 0;
+    pointer-events: none;
+}
+
+.new-intro-portal-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: auto; /* lock aspect ratio */
+    max-width: none; /* allow width to exceed */
+    object-fit: contain; /* never clip */
+    object-position: left center; /* pin to left */
+}
+
+/* Mobile: revert to intrinsic image height/aspect */
+@media (max-width: 768px) {
+    /* Mobile hero: full viewport height */
+    .new-intro-hero {
+        height: 100svh;
+        min-height: 0;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    /* Content up top */
+    .new-intro-content-block {
+        order: 1;
+        width: 100%;
+        padding: 24px 20px;
+        height: 100%;
+        position: relative;
+        z-index: 2; /* above portal image */
+    }
+    /* Right-align date/city on mobile */
+    .new-intro-date-location {
+        width: 100%;
+        text-align: right;
+        position: absolute;
+        right: 20px;
+        left: auto;
+        bottom: 20px;
+        z-index: 3;
+    }
+
+    /* Portal block pinned bottom-left; ~60% of screen area */
+    .new-intro-illustration-frame {
+        position: absolute;
+        left: 0;
+        top: auto;
+        bottom: 0;
+        width: 80%; /* wider footprint */
+        height: 75svh; /* taller footprint */
+        overflow: hidden;
+        z-index: 1; /* behind content */
+        pointer-events: none;
+    }
+    .new-intro-portal-image {
+        position: absolute;
+        left: 0;
+        top: auto;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        object-fit: contain; /* no clipping or stretching */
+        object-position: left bottom; /* bottom-left anchor */
+    }
+}
+
+/* Make the wordmark scale down only on narrower screens (<600px) */
+@media (max-width: 600px) {
+    .new-intro-wordmark {
+        max-width: 80vw;
+    }
+}
+
+.new-intro-content-block {
+    display: flex;
+    padding: 80px 60px;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Desktop/tablet: content in right 60% region, centered within that region */
+@media (min-width: 769px) {
+    .new-intro-content-block {
+        flex: 0 0 auto;
+        width: min(60vw, 690px);
+        margin-left: calc(40vw + max((60vw - 690px) / 2, 0px));
+        margin-right: auto;
+    }
+}
+
+.new-intro-logo-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 34px;
+}
+
+/* Wordmark image (simplified PNG approach) */
+.new-intro-wordmark {
+    width: 100%;
+    max-width: 977px;
+    height: auto;
+    display: block;
+}
+
+/* */
+
+/* Crisp text subhead under wordmark */
+.new-intro-subhead {
+    color: #a6e9f6;
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    margin-top: -26px;
+}
+
+/* Restored icon sizing */
+.new-intro-icon {
+    width: 180px;
+    height: 180px;
+    max-width: 180px;
+    max-height: 180px;
+    aspect-ratio: 1/1;
+}
+
+.new-intro-date-location {
+    color: #fff;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 25px;
+    letter-spacing: 0.8px;
+}
+
+/* Ensure mobile left alignment wins over base rule */
+@media (max-width: 768px) {
+    .new-intro-hero .new-intro-date-location {
+        text-align: right;
+        right: 20px;
+        left: auto;
+    }
+}
+
+.new-intro-headline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px;
+    text-align: center;
+    padding: 0 40px;
+}
+
+.new-intro-main-title,
+.new-intro-excited-title,
+.new-intro-gather-title {
+    color: #000;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(60px, 8vw, 120px);
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin: 0;
+    margin-top: -10px;
+}
+
+/* Gradient underline for key words in the gather title */
+.new-intro-gather-title .gradient-underline {
+    /*background-image: linear-gradient(90deg, #7fd1e1 0%, #f25a7f 100%);*/
+    background-repeat: no-repeat;
+    background-size: 100% 6px; /* thickness */
+    background-position: 0 calc(100% - 10px);
+    padding-bottom: 4px; /* spacing so underline is visible */
+}
+
+.new-intro-connector-and,
+.new-intro-connector-to {
+    color: #101e2d;
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: clamp(14px, 2vw, 16px);
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.new-intro-gather-container {
+    width: 100%;
+    margin-top: -30px;
+}
+
+.new-intro-info {
+    width: 100%;
+    max-width: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    position: relative;
+    background: #f6efe7;
+    padding: 80px 60px;
+}
+
+/* Center divider line for the info section */
+.new-intro-divider {
+    position: absolute;
+    left: 50%;
+    top: 60px;
+    bottom: 60px;
+    width: 1px;
+    background: #000;
+    pointer-events: none;
+}
+
+.new-intro-left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    flex: 1;
+    padding-right: 30px;
+}
+
+.new-intro-right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    flex: 1;
+    padding-left: 30px;
+}
+
+.new-intro-column-title {
+    color: #101e2d;
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.new-intro-column-text {
+    color: #000;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(12px, 1.8vw, 15px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+/* =================================
+   SPEAKERS SECTION
+   ================================= */
+.speakers-section {
+    display: flex;
+    padding: 120px 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    background: #fff;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.speakers-header {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.speakers-title-mask {
+    width: 100%;
+}
+
+.speakers-title {
+    color: #000;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(60px, 10vw, 120px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -5px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.speakers-subtitle {
+    width: 100%;
+    max-width: 500px;
+    color: #000;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(12px, 2vw, 15px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    margin-top: -6px;
+}
+
+.speakers-grid {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.speakers-column-left,
+.speakers-column-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 80px;
+    flex: 1;
+}
+
+.speaker-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+}
+
+.speaker-image {
+    width: 200px;
+    height: 200px;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.speaker-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    flex: 1;
+}
+
+.speaker-name {
+    color: #101e2d;
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 42px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.speaker-role {
+    color: #101e2d;
+    font-family: var(--font-ui);
+    font-size: clamp(14px, 1.5vw, 15px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.speaker-bio {
+    color: #000;
+    font-family: var(--font-display);
+    font-size: clamp(14px, 1.5vw, 15px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.underlined-text {
+    text-decoration: underline;
+}
+
+.speakers-more {
+    color: #101e2d;
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: clamp(18px, 2.5vw, 20px);
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* =================================
+   PRICING FOOTER SECTION
+   ================================= */
+.pricing-footer-section {
+    width: 100%;
+    max-width: 100vw;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+/* Pricing Section */
+.pricing-section {
+    width: 100%;
+    background: #101e2d;
+    padding: 80px 20px 120px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Wrapper for JOIN US title + subtitle with adjustable spacing */
+.join-us-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+}
+
+.join-us-title-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.join-us-title {
+    color: #fff;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(40px, 8vw, 72px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.pricing-subtitle {
+    width: 100%;
+    max-width: 500px;
+    color: #fff;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(12px, 2vw, 15px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    margin-top: -6px;
+}
+
+.pricing-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    align-items: stretch; /* make cards equal height so buttons align */
+}
+
+.pricing-card {
+    width: 100%;
+    max-width: 450px;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+/* Push the register button to the bottom within each card */
+.pricing-card .register-button {
+    margin-top: auto;
+}
+
+.regular-ticket {
+    padding-right: 40px;
+    margin-right: 20px;
+}
+
+.ticket-type {
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+.regular-ticket .ticket-type {
+    color: #96d8ce;
+}
+
+.vip-ticket .ticket-type {
+    color: #ffbb10;
+}
+
+.price-section {
+    position: relative;
+    height: 200px;
+    margin-bottom: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.early-bird-price {
+    color: #f6efe7;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(60px, 10vw, 120px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 100px;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #8b7355 0%, #d4c4a8 50%, #f6efe7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding: 20px 40px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.regular-ticket .early-bird-price {
+    background: linear-gradient(135deg, #4a9b8e 0%, #7fd1e1 50%, #b8e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.vip-ticket .early-bird-price {
+    background: linear-gradient(135deg, #b8730e 0%, #e9a13c 50%, #f4c573 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.regular-price {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: var(--font-display);
+    font-size: clamp(24px, 4vw, 36px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 40px;
+    letter-spacing: -1px;
+    position: absolute;
+    top: -40px;
+    right: 20px;
+    text-decoration: line-through;
+    text-decoration-color: #ff0404;
+    text-decoration-thickness: 2px;
+    z-index: 1;
+}
+
+.price-label {
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: absolute;
+    top: -60px;
+    right: 10px;
+    width: 80px;
+}
+
+.early-bird-label {
+    color: #ff0404;
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: clamp(11px, 1.5vw, 13px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 280px;
+    background: rgba(255, 4, 4, 0.1);
+    padding: 8px 12px;
+    border-radius: 4px;
+    border-left: 3px solid #ff0404;
+}
+
+.ticket-description {
+    color: #fff;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(14px, 1.5vw, 15px);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.register-button {
+    width: 280px;
+    height: 50px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Manrope, system-ui, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease;
+}
+
+.register-button:hover {
+    opacity: 0.9;
+    text-decoration: none;
+}
+
+.register-button:active {
+    transform: translateY(1px);
+}
+
+.regular-button {
+    background: #7fd1e1;
+    color: #000;
+}
+
+.vip-button {
+    background: #e9a13c;
+    color: #fff;
+}
+
+.team-student-info {
+    width: 100%;
+    max-width: 800px;
+    color: rgba(255, 255, 255, 0.83);
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(14px, 1.8vw, 16px);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+}
+
+.underlined-link {
+    text-decoration: underline;
+}
+
+/* Footer Section */
+.footer-section {
+    width: 100%;
+    background: #fff;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Wrapper for footer title + paragraph with zero gap */
+.footer-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+}
+
+.interpolations-title-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.interpolations-title {
+    color: #000;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(40px, 8vw, 72px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.footer-description {
+    width: 100%;
+    max-width: 500px;
+    color: #000;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(16px, 2vw, 18px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    margin-top: -6px;
+}
+
+.contact-info {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contact-item {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-email {
+    color: #0e1c2b;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(18px, 3vw, 28px);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+}
+
+.contact-divider {
+    display: none;
+}
+
+.copyright {
+    width: 100%;
+    max-width: 600px;
+    color: #000;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(14px, 1.5vw, 16px);
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+   ================================= */
+
+/* Tablet and smaller desktop */
+@media (max-width: 1024px) {
+    /* Keep hero split layout until mobile; only adjust non-hero sections */
+    .new-intro-info {
+        flex-direction: column;
+        gap: 40px;
+        padding: 60px 40px;
+    }
+
+    /* Hide the center divider when stacked */
+    .new-intro-divider {
+        display: none;
+    }
+
+    .new-intro-left-column {
+        border-right: none;
+        border-bottom: 1px solid #000;
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+
+    .new-intro-right-column {
+        padding-left: 0;
+        padding-top: 20px;
+    }
+
+    .speakers-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contact-divider {
+        width: 60px;
+    }
+
+    .pricing-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .regular-ticket {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding-right: 20px;
+        padding-bottom: 40px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .new-intro-sections {
+        gap: 80px;
+    }
+
+    .new-intro-content-block {
+        padding: 40px 20px;
+        gap: 40px;
+    }
+
+    .new-intro-icon {
+        width: 120px;
+        height: 120px;
+    }
+
+    .new-intro-info {
+        padding: 40px 20px;
+    }
+
+    .new-intro-headline {
+        padding: 0 20px;
+    }
+
+    .speakers-section {
+        padding: 80px 20px;
+        gap: 60px;
+    }
+
+    .speaker-card {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .speaker-image {
+        width: 250px;
+        height: 250px;
+        align-self: center;
+    }
+
+    .speaker-name,
+    .speaker-role {
+        width: 100%;
+    }
+
+    .speaker-info {
+        align-items: center;
+    }
+    .speaker-name,
+    .speaker-role,
+    .speaker-bio {
+        text-align: center;
+    }
+
+    .pricing-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-card {
+        min-width: 300px;
+        max-width: 400px;
+    }
+
+    .regular-ticket {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding-right: 20px;
+        padding-bottom: 40px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .pricing-section {
+        padding: 60px 15px 80px 15px;
+    }
+
+    .footer-section {
+        padding: 60px 15px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .new-intro-content-block {
+        padding: 30px 15px;
+        gap: 30px;
+    }
+
+    .new-intro-info {
+        padding: 30px 15px;
+    }
+
+    .new-intro-headline {
+        padding: 0 15px;
+    }
+
+    .speaker-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .pricing-card {
+        min-width: 280px;
+        max-width: 350px;
+        padding: 20px 15px;
+    }
+
+    .register-button {
+        width: 240px;
+        height: 45px;
+    }
+}
+/* Center divider line between pricing cards on desktop/tablet */
+@media (min-width: 769px) {
+    .pricing-cards {
+        position: relative;
+    }
+    .pricing-cards::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateX(-0.5px);
+        pointer-events: none;
+    }
+    /* Remove old border-based divider on wide screens */
+    .regular-ticket {
+        border-right: none;
+        margin-right: 0;
+        padding-right: 0;
+    }
+}
+/* Ensure larger speaker images kick in earlier (<=1024px) */
+@media (max-width: 1024px) {
+    .speaker-image {
+        width: 250px;
+        height: 250px;
+        display: block;
+    }
+}

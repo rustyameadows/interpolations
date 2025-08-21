@@ -1,116 +1,362 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Interpolations Conference</title>
-
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>INTERPOLATIONS - Design + AI Conference</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;1,300&family=Manrope:wght@800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;700;800&display=swap"
             rel="stylesheet"
         />
-
-        <!-- Step 1–2: minimal boilerplate + full-width 12-col hero grid
-         Tweak these custom properties to change layout spacing. -->
-        <link rel="stylesheet" href="style.css" />
-        <!-- Standard favicons -->
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="interpolations-favicon-32.png?v=2"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="interpolations-favicon-16.png?v=2"
-        />
-
-        <!-- iOS home screen -->
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="interpolations-apple-touch-icon.png?v=2"
-        />
-
-        <!-- Safari pinned tab (monochrome SVG) -->
-        <link
-            rel="mask-icon"
-            href="interpolations-pinned.svg"
-            color="#7cc6bd"
-        />
-
-        <!-- Browser UI color on mobile and some desktops -->
-        <meta name="theme-color" content="#0E1C2B" />
-
-        <link
-            rel="preload"
-            as="image"
-            href="interpolations-hero-illustration-portal-sorbet.png"
-            fetchpriority="high"
-        />
-        <link
-            rel="preload"
-            as="image"
-            href="interpolations-text-bg-portal-sorbet.png"
-        />
-        <link
-            rel="preload"
-            as="image"
-            href="interpolations-icon-portal-sorbet.png"
-        />
+        <link rel="stylesheet" href="auto-style.css" />
     </head>
     <body>
-        <section class="hero" role="region" aria-label="Hero">
-            <div class="hero__grid">
-                <div class="hero__content">
+        <!-- Hero/Intro Section -->
+        <section id="hero" class="new-intro-sections">
+            <header class="new-intro-hero">
+                <div class="new-intro-illustration-frame">
                     <img
-                        class="hero__mark"
-                        src="interpolations-icon-portal-sorbet.png"
-                        alt="Interpolations icon"
-                        decoding="async"
-                        width="215"
-                        height="215"
+                        class="new-intro-portal-image"
+                        src="interpolations-hero-illustration-portal-sorbet.png"
+                        alt="Design conference portal illustration"
                     />
+                </div>
+                <div class="new-intro-content-block">
+                    <div class="new-intro-logo-block">
+                        <img
+                            class="new-intro-icon"
+                            src="interpolations-icon-portal-sorbet.png"
+                            alt="Interpolations conference logo"
+                        />
+                        <img
+                            class="new-intro-wordmark"
+                            src="interpolations-wordmark@1x.png"
+                            srcset="
+                                interpolations-wordmark@2x.png 2x,
+                                interpolations-wordmark@3x.png 3x
+                            "
+                            width="977"
+                            height="100"
+                            alt="INTERPOLATIONS"
+                        />
+                        <p class="new-intro-subhead">Design + AI Conference</p>
+                    </div>
+                    <div class="new-intro-date-location">
+                        Friday October 24, 2025<br />
+                        New York City
+                    </div>
+                </div>
+            </header>
 
-                    <h1 class="hero__logo" aria-label="INTERPOLATIONS">
-                        <span class="sr-only">INTERPOLATIONS</span>
-
-                        <!-- Rail keeps the wordmark inside the right 6 columns -->
-                        <span class="logo-rail">
-                            <span
-                                class="hero__logo-mask"
-                                aria-hidden="true"
-                            ></span>
-                        </span>
-                    </h1>
-
-                    <p class="hero__kicker">DESIGN + AI CONFERENCE</p>
-
-                    <p class="hero__lede">
-                        A day of conversation and inspiration centered around
-                        <br />
-                        new AI creative tools and processes
-                    </p>
-                    <!--
-                    <p class="hero__date">
-                        FRIDAY OCTOBER 24, 2025 • NEW YORK CITY
-                    </p>
-
-                    <p class="hero__note">
-                        <em>Ticket sales and more details coming soon</em>
-                    </p>
-
-                    <div class="hero__actions">
-                        <a href="#updates" class="btn btn--cta"
-                            >Stay up to date</a
-                        >
-                    </div> -->
+            <div class="new-intro-headline">
+                <h1 class="new-intro-main-title">
+                    The Future of Design is Here
+                </h1>
+                <div class="new-intro-connector-and">AND</div>
+                <h2 class="new-intro-excited-title">We're Excited</h2>
+                <div class="new-intro-connector-to">to</div>
+                <div class="new-intro-gather-container">
+                    <h2 class="new-intro-gather-title">
+                        <span class="gradient-underline">Gather</span> and
+                        <span class="gradient-underline">Share</span>
+                    </h2>
                 </div>
             </div>
+
+            <div class="new-intro-info">
+                <div class="new-intro-left-column">
+                    <h3 class="new-intro-column-title">
+                        Why Are We Doing This?
+                    </h3>
+                    <p class="new-intro-column-text">
+                        Generative AI is now embedded in the tools creatives
+                        already use. It turns hours into minutes, expands
+                        exploration without expanding headcount, and makes rapid
+                        testing practical for every team. The result is more
+                        options, tighter craft, and faster paths from idea to
+                        launch.<br /><br />
+                        Now is the time to pilot, learn, and operationalize AI
+                        in your creative process.
+                    </p>
+                </div>
+
+                <div class="new-intro-divider" aria-hidden="true"></div>
+
+                <div class="new-intro-right-column">
+                    <h3 class="new-intro-column-title">WHO IS THIS FOR?</h3>
+                    <p class="new-intro-column-text">
+                        For working creatives and the teams around them:
+                        designers, art directors, producers, brand and product
+                        teams, agencies, and creative technologists.<br /><br />
+                        If you are building or adopting AI inside a real content
+                        pipeline, this is for you. In-house groups at larger
+                        orgs and full startup teams will find playbooks they can
+                        put to work on Monday.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speakers Section -->
+        <section id="speakers" class="speakers-section">
+            <header class="speakers-header">
+                <div class="speakers-title-mask">
+                    <h2 class="speakers-title">OUR Speakers</h2>
+                </div>
+                <p class="speakers-subtitle">
+                    Designers and leaders shaping the future of art, design and
+                    technology through emerging tools and ideas
+                </p>
+            </header>
+
+            <div class="speakers-grid">
+                <div class="speakers-column-left">
+                    <article class="speaker-card">
+                        <img
+                            class="speaker-image"
+                            src="interpolations-kelli-anderson.png"
+                            alt="Kelli Anderson"
+                        />
+                        <div class="speaker-info">
+                            <h3 class="speaker-name">Kelli Anderson</h3>
+                            <div class="speaker-role">
+                                Designer, Teacher +<br />Experimental Author
+                            </div>
+                            <p class="speaker-bio">
+                                Kelli Anderson is an award-winning designer
+                                known for transforming paper into devices that
+                                teach through play. Her interactive books, This
+                                Book Is a Planetarium and This Book Is a Camera,
+                                turn flat sheets into working tools, from
+                                projectors to cameras.<br /><br />
+                                Her residencies at Adobe and the Exploratorium,
+                                along with recognition from Ars Electronica and
+                                the Cooper-Hewitt Awards, highlight her impact.
+                                She is now completing Alphabet in Motion, an
+                                experimental pop-up book that expands her
+                                tactile exploration of design and science.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="speaker-card">
+                        <img
+                            class="speaker-image"
+                            src="interpolations-randy-hunt.png"
+                            alt="Randy Hunt"
+                        />
+                        <div class="speaker-info">
+                            <h3 class="speaker-name">Randy Hunt</h3>
+                            <div class="speaker-role">
+                                Head of Design, Notion<br />Chair, SVA MFA
+                                Design
+                            </div>
+                            <p class="speaker-bio">
+                                Randy Hunt is a design executive who leads
+                                design at Notion and chairs the MFA Design
+                                program at the School of Visual Arts in New
+                                York. He has spent over two decades building
+                                products, brands, and teams.<br /><br />His
+                                leadership helped shape platforms and identities
+                                at Etsy, Artsy, and Grab, and he continues to
+                                champion entrepreneurial design education.
+                                Recent interviews outline his approach to
+                                culture, craft, and tools.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="speakers-column-right">
+                    <article class="speaker-card">
+                        <img
+                            class="speaker-image"
+                            src="interpolations-emmett-shine.png"
+                            alt="Emmett Shine"
+                        />
+                        <div class="speaker-info">
+                            <h3 class="speaker-name">Emmett Shine</h3>
+                            <div class="speaker-role">
+                                Designer, Entrepreneur<br />Founder, Little
+                                Plains
+                            </div>
+                            <p class="speaker-bio">
+                                Emmett Shine is a designer and entrepreneur.
+                                Over the past decade, he's co-founded five
+                                companies and launched more than 50
+                                brands—backed by seven successful exits. Emmett
+                                is a co-founder of Gin Lane, Pattern Brands, and
+                                his current digital-focused agency, Little
+                                Plains.<br /><br />He has helped creatively
+                                shape and launch iconic names across the
+                                direct-to-consumer space, including Harry's,
+                                Hims & Hers, sweetgreen, Stadium Goods, Recess,
+                                Neuralink, and many more.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="speaker-card">
+                        <img
+                            class="speaker-image"
+                            src="interpolations-dan-batten.png"
+                            alt="Dan Batten"
+                        />
+                        <div class="speaker-info">
+                            <h3 class="speaker-name">Dan Batten</h3>
+                            <div class="speaker-role">
+                                Creative Innovation,<br />
+                                Little Plains & Infinite Garden
+                            </div>
+                            <p class="speaker-bio">
+                                Dan Batten is a creative leader focused on brand
+                                design, systems, and innovation. He previously
+                                led Studio Creative at Hims & Hers, following
+                                earlier roles helping build consumer brands at
+                                Pattern and Gin Lane.<br /><br />
+                                Currently, he is working with Little Plains and
+                                Infinite Garden on new models for how brands and
+                                creative agencies operate, exploring how
+                                strategy, design, and AI come together to scale
+                                personalized experiences.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <p class="speakers-more">And many more to come...</p>
+        </section>
+
+        <!-- Pricing and Registration Section -->
+        <section id="pricing" class="pricing-footer-section">
+            <div class="pricing-section">
+                <div class="join-us-header">
+                    <header class="join-us-title-container">
+                        <h2 class="join-us-title">JOIN US</h2>
+                    </header>
+                    <p class="pricing-subtitle">
+                        A day of talks, consultations and hands-on sessions to
+                        spark ideas and share practical tools for creative work
+                        with AI
+                    </p>
+                </div>
+
+                <div class="pricing-cards">
+                    <!-- Regular Ticket -->
+                    <article class="pricing-card regular-ticket">
+                        <h3 class="ticket-type">Regular Ticket</h3>
+                        <div class="price-section">
+                            <div class="early-bird-price">$295</div>
+                            <div class="regular-price">$395</div>
+                            <div class="price-label">Regular Price</div>
+                            <div class="early-bird-label">
+                                Early Bird Price - $100 off<br />Limited Seats
+                            </div>
+                        </div>
+                        <p class="ticket-description">
+                            Ticket for ONE for NYC event October 24th plus ONE
+                            one-on-one session + creative LAB access
+                        </p>
+                        <a
+                            class="register-button regular-button"
+                            href="https://buy.stripe.com/dRm6oJ2Ug6Hv0iL2fzbAs00?prefilled_promo_code=EARLYBIRD"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            REGISTER NOW
+                        </a>
+                    </article>
+
+                    <!-- VIP Ticket -->
+                    <article class="pricing-card vip-ticket">
+                        <h3 class="ticket-type">VIP Ticket</h3>
+                        <div class="price-section">
+                            <div class="early-bird-price">$595</div>
+                            <div class="regular-price">$695</div>
+                            <div class="price-label">Regular Price</div>
+                            <div class="early-bird-label">
+                                Early Bird Price - $100 off<br />Limited Seats
+                            </div>
+                        </div>
+                        <p class="ticket-description">
+                            VIP Ticket for ONE for NYC event October 24th plus
+                            THREE one-on-one sessions + premier creative LAB
+                            access
+                        </p>
+                        <a
+                            class="register-button vip-button"
+                            href="https://buy.stripe.com/8x29AV66s7Lz3uX9I1bAs01?prefilled_promo_code=EARLYBIRD"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            REGISTER NOW
+                        </a>
+                    </article>
+                </div>
+
+                <p class="team-student-info">
+                    Teams of 5 or more can
+                    <a
+                        href="mailto:hello@iveseenthefuture.com"
+                        class="underlined-link"
+                        >contact us</a
+                    >
+                    for a team rate. Students can
+                    <a
+                        href="mailto:hello@iveseenthefuture.com"
+                        class="underlined-link"
+                        >reach out</a
+                    >
+                    for a discount code.
+                </p>
+            </div>
+
+            <!-- Footer Section -->
+            <footer class="footer-section">
+                <div class="footer-header">
+                    <div class="interpolations-title-container">
+                        <h2 class="interpolations-title">INTERPOLATIONS</h2>
+                    </div>
+                    <p class="footer-description">
+                        Bringing together the people, ideas, and tools driving
+                        the next wave of creation in art, design, and beyond
+                    </p>
+                </div>
+
+                <nav class="contact-info" aria-label="Contact information">
+                    <div class="contact-item">
+                        <a
+                            href="mailto:hello@iveseenthefuture.com"
+                            class="contact-email"
+                        >
+                            hello@<br />iveseenthefuture.com
+                        </a>
+                    </div>
+                    <div class="contact-divider" aria-hidden="true"></div>
+                    <div class="contact-item">
+                        <a
+                            href="mailto:partner@iveseenthefuture.com"
+                            class="contact-email"
+                        >
+                            partner@<br />iveseenthefuture.com
+                        </a>
+                    </div>
+                    <div class="contact-divider" aria-hidden="true"></div>
+                    <div class="contact-item">
+                        <a
+                            href="mailto:speak@iveseenthefuture.com"
+                            class="contact-email"
+                        >
+                            speak@<br />iveseenthefuture.com
+                        </a>
+                    </div>
+                </nav>
+
+                <p class="copyright">©2025 I've Seen The Future, Inc.</p>
+            </footer>
         </section>
     </body>
 </html>
