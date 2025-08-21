@@ -415,21 +415,20 @@ body {
 }
 
 .speakers-grid {
-    display: flex;
+    display: grid;
     width: 100%;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 60px;
+    row-gap: 80px;
+    align-items: start; /* top-align items in each row */
 }
 
 .speakers-column-left,
 .speakers-column-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 80px;
-    flex: 1;
+    display: contents; /* flatten wrappers so cards auto-flow across grid */
 }
+
+/* (No explicit grid ordering; DOM order defines columns) */
 
 .speaker-card {
     display: flex;
@@ -1005,8 +1004,10 @@ body {
     }
 
     .speakers-grid {
-        flex-direction: column;
-        gap: 40px;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+        column-gap: 0;
     }
 
     .contact-info {
@@ -1030,6 +1031,15 @@ body {
         padding-bottom: 40px;
         margin-right: 0;
         margin-bottom: 20px;
+    }
+}
+
+/* Break speakers to 1 column ~100px earlier */
+@media (max-width: 1124px) {
+    .speakers-grid {
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+        column-gap: 0;
     }
 }
 
@@ -1066,6 +1076,7 @@ body {
         flex-direction: column;
         gap: 20px;
         text-align: center;
+        align-items: center; /* ensure <picture> wrapper and content are centered */
     }
 
     .speaker-image {
@@ -1130,10 +1141,30 @@ body {
         padding: 0 15px;
     }
 
-    .speaker-image {
-        width: 250px;
-        height: 250px;
+.speaker-image {
+    width: 250px;
+    height: 250px;
+}
+
+/* Desktop/tablet alignment for speakers: grid with explicit pairing */
+@media (min-width: 1025px) {
+    .speakers-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 60px;
+        row-gap: 80px;
+        align-items: start;
     }
+    .speakers-column-left,
+    .speakers-column-right {
+        display: contents;
+    }
+    /* Order: 1=Kelli (L1), 3=Emmett (R1), 2=Randy (L2), 4=Dan (R2) */
+    .speakers-grid .speaker-card:nth-of-type(1) { grid-column: 1; grid-row: 1; }
+    .speakers-grid .speaker-card:nth-of-type(3) { grid-column: 2; grid-row: 1; }
+    .speakers-grid .speaker-card:nth-of-type(2) { grid-column: 1; grid-row: 2; }
+    .speakers-grid .speaker-card:nth-of-type(4) { grid-column: 2; grid-row: 2; }
+}
 
     .pricing-card {
         flex: 0 0 100%;
