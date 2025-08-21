@@ -255,8 +255,8 @@
                     </article>
 
                     <!-- Move Emmett up so row 1 is Kelli (L) + Emmett (R) -->
-                    </div>
-                
+                </div>
+
                 <div class="speakers-column-right">
                     <article class="speaker-card">
                         <picture>
@@ -469,6 +469,61 @@
             </div>
 
             <!-- Footer Section -->
+            <!-- Newsletter Signup Section moved out to full-bleed strip -->
+            <section class="newsletter-signup">
+                <div class="newsletter-container">
+                    <header class="newsletter-header">
+                        <h2 class="newsletter-headline">
+                            Interpolations Newsletter
+                        </h2>
+                        <p class="newsletter-subhead">
+                            Stay up to date with all things Interpolations
+                        </p>
+                    </header>
+
+                    <form
+                        class="newsletter-form"
+                        action="https://app.loops.so/api/newsletter-form/cmelm4un726il1o0ic2f7immw"
+                        method="POST"
+                    >
+                        <input
+                            type="hidden"
+                            name="mailingLists"
+                            value="cmelmleqf13ux0izkh9jg976q"
+                        />
+
+                        <div class="newsletter-form-group">
+                            <div class="newsletter-input-container">
+                                <input
+                                    type="email"
+                                    name="email"
+                                    class="newsletter-email-input"
+                                    placeholder="pablo.picaso@gmail.com"
+                                    required
+                                    aria-label="Email address"
+                                />
+                                <div class="newsletter-underline"></div>
+                            </div>
+
+                            <button
+                                type="submit"
+                                class="newsletter-submit-button"
+                            >
+                                <span
+                                    class="newsletter-button-bg"
+                                    aria-hidden="true"
+                                ></span>
+                                <span class="newsletter-button-label"
+                                    >Subscribe</span
+                                >
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="newsletter-status" aria-live="polite"></div>
+                </div>
+            </section>
+
             <footer class="footer-section">
                 <div class="footer-header">
                     <div class="interpolations-title-container">
@@ -512,5 +567,133 @@
                 <p class="copyright">©2025 I've Seen The Future, Inc.</p>
             </footer>
         </section>
+        <script>
+            // Newsletter form handling
+            document.addEventListener("DOMContentLoaded", function () {
+                const form = document.querySelector(".newsletter-form");
+                const emailInput = document.querySelector(
+                    ".newsletter-email-input",
+                );
+                const statusDiv = document.querySelector(".newsletter-status");
+                const submitButton = document.querySelector(
+                    ".newsletter-submit-button",
+                );
+
+                if (!form || !emailInput || !statusDiv || !submitButton) return;
+
+                // Show status message
+                function showStatus(message, type) {
+                    statusDiv.textContent = message;
+                    statusDiv.className = `newsletter-status ${type}`;
+                }
+
+                // Clear status message
+                function clearStatus() {
+                    statusDiv.textContent = "";
+                    statusDiv.className = "newsletter-status";
+                }
+
+                // Handle form submission
+                form.addEventListener("submit", async function (e) {
+                    e.preventDefault();
+
+                    console.log("Raw value:", emailInput.value, {
+                        length: emailInput.value.length,
+                    });
+                    const fd = new FormData(form);
+                    console.log("FormData keys:", [...fd.keys()]);
+                    console.log("FormData email field:", fd.get("email"));
+
+                    const email = emailInput.value.trim();
+
+                    // Basic email validation
+                    if (!email) {
+                        showStatus("Please enter your email address", "error");
+                        return;
+                    }
+
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        showStatus(
+                            "Please enter a valid email address",
+                            "error",
+                        );
+                        return;
+                    }
+
+                    // Show loading state
+                    submitButton.disabled = true;
+                    showStatus("Subscribing...", "loading");
+
+                    try {
+                        // Build URL-encoded body with trimmed email
+                        const formData = new FormData(form);
+                        formData.set("email", email); // ensure trimmed email is used
+                        const params = new URLSearchParams();
+                        for (const [key, value] of formData.entries()) {
+                            params.append(key, typeof value === "string" ? value : String(value));
+                        }
+
+                        // Submit to Loops as x-www-form-urlencoded
+                        const response = await fetch(form.action, {
+                            method: "POST",
+                            headers: {
+                                Accept: "application/json",
+                                "Content-Type": "application/x-www-form-urlencoded",
+                            },
+                            body: params.toString(),
+                        });
+
+                        if (response.ok) {
+                            // Success
+                            showStatus(
+                                "Thank you! You've been subscribed to the Interpolations Newsletter.",
+                                "success",
+                            );
+                            emailInput.value = "";
+                            emailInput.placeholder = "Successfully subscribed!";
+                        } else {
+                            // Server error
+                            const rawText = await response.text().catch(() => "");
+                            console.log("Newsletter subscribe error:", {
+                                status: response.status,
+                                body: rawText,
+                            });
+                            let errorData = {};
+                            try {
+                                errorData = rawText ? JSON.parse(rawText) : {};
+                            } catch (_) {}
+                            const errorMessage =
+                                errorData.message ||
+                                "There was an error subscribing. Please try again.";
+                            showStatus(errorMessage, "error");
+                        }
+                    } catch (error) {
+                        // Network error
+                        showStatus(
+                            "There was an error subscribing. Please check your connection and try again.",
+                            "error",
+                        );
+                    } finally {
+                        // Re-enable button
+                        submitButton.disabled = false;
+                    }
+                });
+
+                // Clear status when user starts typing
+                emailInput.addEventListener("input", function () {
+                    if (statusDiv.textContent) {
+                        setTimeout(clearStatus, 3000);
+                    }
+                });
+
+                // Clear success message and reset placeholder after delay
+                emailInput.addEventListener("focus", function () {
+                    if (emailInput.placeholder === "Successfully subscribed!") {
+                        emailInput.placeholder = "pablo.picaso@gmail.com";
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
