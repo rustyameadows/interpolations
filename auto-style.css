@@ -66,7 +66,8 @@ body {
     width: 100%;
     background: #101E2D;
     overflow: hidden;
-    min-height: 600px;
+    height: 75vh;
+    min-height: 450px;
 }
 
 .new-intro-illustration-frame {
@@ -76,13 +77,30 @@ body {
     align-items: flex-start;
     flex: 1;
     max-width: 50%;
+    /* Stretch to match hero height and crop overflow to the right */
+    align-self: stretch;
+    overflow: hidden;
 }
 
 .new-intro-portal-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4/5;
-    object-fit: cover;
+    height: 100%;
+    width: auto;            /* lock aspect ratio */
+    max-width: none;        /* allow width to exceed column to fill height */
+    display: block;
+    object-position: left center; /* pin to left */
+}
+
+/* Mobile: revert to intrinsic image height/aspect */
+@media (max-width: 768px) {
+    .new-intro-illustration-frame {
+        align-self: auto;
+    }
+    .new-intro-portal-image {
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 4 / 5;
+    }
 }
 
 .new-intro-content-block {
@@ -101,6 +119,28 @@ body {
     gap: 30px;
 }
 
+/* Wordmark image (simplified PNG approach) */
+.new-intro-wordmark {
+    width: 100%;
+    max-width: 977px;
+    height: auto;
+    display: block;
+}
+
+/* */
+
+/* Crisp text subhead under wordmark */
+.new-intro-subhead {
+    color: #7FD1E1; /* solid blue */
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.4em; /* ~40% of font size */
+    text-transform: uppercase;
+}
+
+/* Restored icon sizing */
 .new-intro-icon {
     width: 180px;
     height: 180px;
@@ -165,7 +205,7 @@ body {
 
 .new-intro-info {
     width: 100%;
-    max-width: 1400px;
+    max-width: none;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -175,13 +215,23 @@ body {
     padding: 80px 60px;
 }
 
+/* Center divider line for the info section */
+.new-intro-divider {
+    position: absolute;
+    left: 50%;
+    top: 60px;
+    bottom: 60px;
+    width: 1px;
+    background: #000;
+    pointer-events: none;
+}
+
 .new-intro-left-column {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
     flex: 1;
-    border-right: 1px solid #000;
     padding-right: 30px;
 }
 
@@ -735,6 +785,11 @@ body {
         flex-direction: column;
         gap: 40px;
         padding: 60px 40px;
+    }
+
+    /* Hide the center divider when stacked */
+    .new-intro-divider {
+        display: none;
     }
 
     .new-intro-left-column {
