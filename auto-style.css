@@ -219,10 +219,10 @@ body {
     color: #fff;
     text-align: center;
     font-family: var(--font-display);
-    font-size: 22px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 300;
-    line-height: 32px;
+    line-height: 25px;
     letter-spacing: 0.8px;
 }
 
@@ -259,6 +259,7 @@ body {
     letter-spacing: -2px;
     line-height: 1.1;
     margin: 0;
+    margin-top: -10px;
 }
 
 /* Gradient underline for key words in the gather title */
@@ -275,16 +276,17 @@ body {
     color: #101e2d;
     text-align: center;
     font-family: var(--font-ui);
-    font-size: clamp(18px, 2vw, 22px);
+    font-size: clamp(14px, 2vw, 16px);
     font-style: normal;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    margin: 10px 0;
+    margin: 0;
 }
 
 .new-intro-gather-container {
     width: 100%;
+    margin-top: -30px;
 }
 
 .new-intro-info {
@@ -343,7 +345,7 @@ body {
     color: #000;
     text-align: center;
     font-family: var(--font-display);
-    font-size: clamp(16px, 1.8vw, 18px);
+    font-size: clamp(12px, 1.8vw, 15px);
     font-style: normal;
     font-weight: 300;
     line-height: 1.6;
@@ -371,7 +373,7 @@ body {
     max-width: 800px;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 0;
 }
 
 .speakers-title-mask {
@@ -393,15 +395,16 @@ body {
 
 .speakers-subtitle {
     width: 100%;
-    max-width: 700px;
+    max-width: 500px;
     color: #000;
     text-align: center;
     font-family: var(--font-display);
-    font-size: clamp(16px, 2vw, 20px);
+    font-size: clamp(12px, 2vw, 15px);
     font-style: normal;
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.5;
     letter-spacing: 0.5px;
+    margin-top: -6px;
 }
 
 .speakers-grid {
@@ -409,7 +412,7 @@ body {
     width: 100%;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 60px;
+    gap: 20px;
 }
 
 .speakers-column-left,
@@ -448,7 +451,7 @@ body {
 .speaker-name {
     color: #101e2d;
     font-family: var(--font-display);
-    font-size: clamp(32px, 5vw, 60px);
+    font-size: clamp(32px, 5vw, 42px);
     font-style: normal;
     font-weight: 300;
     line-height: 1.2;
@@ -459,10 +462,10 @@ body {
 .speaker-role {
     color: #101e2d;
     font-family: var(--font-ui);
-    font-size: clamp(14px, 1.5vw, 16px);
+    font-size: clamp(14px, 1.5vw, 15px);
     font-style: normal;
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 1.3;
     letter-spacing: 1.5px;
     text-transform: uppercase;
 }
@@ -470,10 +473,10 @@ body {
 .speaker-bio {
     color: #000;
     font-family: var(--font-display);
-    font-size: clamp(14px, 1.5vw, 17px);
+    font-size: clamp(14px, 1.5vw, 15px);
     font-style: normal;
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.5;
     margin: 0;
 }
 
@@ -485,7 +488,7 @@ body {
     color: #101e2d;
     text-align: center;
     font-family: var(--font-ui);
-    font-size: clamp(18px, 2.5vw, 24px);
+    font-size: clamp(18px, 2.5vw, 20px);
     font-style: normal;
     font-weight: 800;
     letter-spacing: 2px;
@@ -513,6 +516,15 @@ body {
     gap: 40px;
 }
 
+/* Wrapper for JOIN US title + subtitle with adjustable spacing */
+.join-us-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+}
+
 .join-us-title-container {
     width: 100%;
     max-width: 600px;
@@ -534,15 +546,16 @@ body {
 
 .pricing-subtitle {
     width: 100%;
-    max-width: 700px;
+    max-width: 500px;
     color: #fff;
     text-align: center;
     font-family: var(--font-display);
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: clamp(12px, 2vw, 15px);
     font-style: normal;
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.5;
     letter-spacing: 0.5px;
+    margin-top: -6px;
 }
 
 .pricing-cards {
@@ -778,9 +791,18 @@ body {
     gap: 40px;
 }
 
+/* Wrapper for footer title + paragraph with zero gap */
+.footer-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+}
+
 .interpolations-title-container {
     width: 100%;
-    max-width: 700px;
+    max-width: 600px;
     text-align: center;
 }
 
@@ -799,7 +821,7 @@ body {
 
 .footer-description {
     width: 100%;
-    max-width: 700px;
+    max-width: 500px;
     color: #000;
     text-align: center;
     font-family: var(--font-display);
@@ -808,6 +830,7 @@ body {
     font-weight: 300;
     line-height: 1.6;
     letter-spacing: 0.5px;
+    margin-top: -6px;
 }
 
 .contact-info {
