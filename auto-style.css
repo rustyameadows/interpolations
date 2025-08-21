@@ -41,6 +41,12 @@ body {
     line-height: 1.4;
 }
 
+/* Inline italics utility for bios and elsewhere */
+.italic {
+    font-family: var(--font-display);
+    font-style: italic;
+}
+
 /* Layout Helpers */
 .container {
     width: min(100% - 2 * var(--gutter), var(--container));
@@ -529,7 +535,6 @@ body {
 
 .join-us-title-container {
     width: 100%;
-    max-width: 600px;
     text-align: center;
 }
 
@@ -867,7 +872,6 @@ body {
 
 .interpolations-title-container {
     width: 100%;
-    max-width: 600px;
     text-align: center;
 }
 
