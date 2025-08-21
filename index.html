@@ -66,38 +66,36 @@
             name="twitter:image"
             content="https://iveseenthefuture.com/share%20card.png"
         />
-        
+
         <!-- JSON-LD: Event schema -->
         <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Event",
-          "name": "INTERPOLATIONS — Design + AI Conference",
-          "startDate": "2025-10-24",
-          "endDate": "2025-10-24",
-          "eventStatus": "https://schema.org/EventScheduled",
-          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-          "url": "https://iveseenthefuture.com/",
-          "image": [
-            "https://iveseenthefuture.com/share%20card.png"
-          ],
-          "description": "Join designers, producers, and creative technologists in NYC for talks, consultations, and hands‑on sessions that turn AI into Monday‑ready workflows.",
-          "location": {
-            "@type": "Place",
-            "name": "New York City",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "New York",
-              "addressRegion": "NY",
-              "addressCountry": "US"
+            {
+                "@context": "https://schema.org",
+                "@type": "Event",
+                "name": "INTERPOLATIONS — Design + AI Conference",
+                "startDate": "2025-10-24",
+                "endDate": "2025-10-24",
+                "eventStatus": "https://schema.org/EventScheduled",
+                "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                "url": "https://iveseenthefuture.com/",
+                "image": ["https://iveseenthefuture.com/share%20card.png"],
+                "description": "Join designers, producers, and creative technologists in NYC for talks, consultations, and hands‑on sessions that turn AI into Monday‑ready workflows.",
+                "location": {
+                    "@type": "Place",
+                    "name": "New York City",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "New York",
+                        "addressRegion": "NY",
+                        "addressCountry": "US"
+                    }
+                },
+                "organizer": {
+                    "@type": "Organization",
+                    "name": "I've Seen The Future, Inc.",
+                    "url": "https://iveseenthefuture.com/"
+                }
             }
-          },
-          "organizer": {
-            "@type": "Organization",
-            "name": "I've Seen The Future, Inc.",
-            "url": "https://iveseenthefuture.com/"
-          }
-        }
         </script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -531,7 +529,7 @@
                                     type="email"
                                     name="email"
                                     class="newsletter-email-input"
-                                    placeholder="pablo.picaso@gmail.com"
+                                    placeholder="pablo.picasso@gmail.com"
                                     required
                                     aria-label="Email address"
                                 />
@@ -664,7 +662,12 @@
                         formData.set("email", email); // ensure trimmed email is used
                         const params = new URLSearchParams();
                         for (const [key, value] of formData.entries()) {
-                            params.append(key, typeof value === "string" ? value : String(value));
+                            params.append(
+                                key,
+                                typeof value === "string"
+                                    ? value
+                                    : String(value),
+                            );
                         }
 
                         // Submit to Loops as x-www-form-urlencoded
@@ -672,7 +675,8 @@
                             method: "POST",
                             headers: {
                                 Accept: "application/json",
-                                "Content-Type": "application/x-www-form-urlencoded",
+                                "Content-Type":
+                                    "application/x-www-form-urlencoded",
                             },
                             body: params.toString(),
                         });
@@ -687,7 +691,9 @@
                             emailInput.placeholder = "Successfully subscribed!";
                         } else {
                             // Server error
-                            const rawText = await response.text().catch(() => "");
+                            const rawText = await response
+                                .text()
+                                .catch(() => "");
                             console.log("Newsletter subscribe error:", {
                                 status: response.status,
                                 body: rawText,
