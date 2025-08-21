@@ -295,10 +295,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 60px;
+    gap: 100px;
     position: relative;
     background: #f6efe7;
-    padding: 80px 60px;
+    padding: 80px 100px;
 }
 
 /* Center divider line for the info section */
@@ -316,7 +316,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 0;
     flex: 1;
     padding-right: 30px;
 }
@@ -325,7 +325,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 0;
     flex: 1;
     padding-left: 30px;
 }
@@ -350,6 +350,8 @@ body {
     font-weight: 300;
     line-height: 1.6;
     letter-spacing: 0.5px;
+    max-width: 40ch;
+    margin: 0 auto;
 }
 
 /* =================================
@@ -357,10 +359,10 @@ body {
    ================================= */
 .speakers-section {
     display: flex;
-    padding: 120px 40px;
+    padding: 80px 40px;
     flex-direction: column;
     align-items: center;
-    gap: 80px;
+    gap: 90px;
     background: #fff;
     width: 100%;
     max-width: 1400px;
@@ -384,7 +386,7 @@ body {
     color: #000;
     text-align: center;
     font-family: var(--font-display);
-    font-size: clamp(60px, 10vw, 120px);
+    font-size: clamp(60px, 10vw, 90px);
     font-style: normal;
     font-weight: 300;
     line-height: normal;
@@ -509,11 +511,11 @@ body {
 .pricing-section {
     width: 100%;
     background: #101e2d;
-    padding: 80px 20px 120px 20px;
+    padding: 80px 20px 60px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 90px;
 }
 
 /* Wrapper for JOIN US title + subtitle with adjustable spacing */
@@ -535,7 +537,7 @@ body {
     color: #fff;
     text-align: center;
     font-family: var(--font-display);
-    font-size: clamp(40px, 8vw, 72px);
+    font-size: clamp(40px, 8vw, 90px);
     font-style: normal;
     font-weight: 300;
     line-height: normal;
@@ -569,13 +571,11 @@ body {
 }
 
 .pricing-card {
-    width: 100%;
-    max-width: 450px;
-    min-width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px 20px;
+    flex: 0 0 calc(50% - 20px); /* 50/50 split accounting for 40px gap */
 }
 
 /* Push the register button to the bottom within each card */
@@ -609,13 +609,14 @@ body {
 
 .price-section {
     position: relative;
-    height: 200px;
-    margin-bottom: 80px;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: baseline; /* align numbers on their text baselines */
     justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* allow the label to sit below on its own line */
+    height: auto;
+    margin-bottom: 60px;
 }
 
 .early-bird-price {
@@ -625,16 +626,15 @@ body {
     font-size: clamp(60px, 10vw, 120px);
     font-style: normal;
     font-weight: 300;
-    line-height: 100px;
+    line-height: 1;
     letter-spacing: -3px;
     text-transform: uppercase;
     background: linear-gradient(135deg, #8b7355 0%, #d4c4a8 50%, #f6efe7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    padding: 20px 40px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    padding: 0;
+    margin: 0;
     z-index: 2;
 }
 
@@ -653,70 +653,134 @@ body {
 }
 
 .regular-price {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.75);
     font-family: var(--font-display);
-    font-size: clamp(24px, 4vw, 36px);
+    font-size: clamp(24px, 4vw, 44px);
     font-style: normal;
     font-weight: 300;
-    line-height: 40px;
+    line-height: 1;
     letter-spacing: -1px;
+    position: relative; /* scope pseudo-element */
+    display: inline-block;
+    text-decoration: none;
+}
+.regular-price::after {
+    content: "";
     position: absolute;
-    top: -40px;
-    right: 20px;
-    text-decoration: line-through;
-    text-decoration-color: #ff0404;
-    text-decoration-thickness: 2px;
-    z-index: 1;
+    left: -10%;
+    right: -10%;
+    top: 50%;
+    height: 2px;
+    background: #ff0404;
+    transform: translateY(-50%) rotate(-25deg);
+    transform-origin: center;
 }
 
 .price-label {
-    color: rgba(255, 255, 255, 0.5);
-    text-align: center;
-    font-family: var(--font-ui);
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 16px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    position: absolute;
-    top: -60px;
-    right: 10px;
-    width: 80px;
+    display: none;
 }
 
 .early-bird-label {
     color: #ff0404;
     text-align: center;
     font-family: var(--font-ui);
-    font-size: clamp(11px, 1.5vw, 13px);
+    font-size: clamp(11px, 1.5vw, 15px);
     font-style: normal;
     font-weight: 700;
-    line-height: 16px;
+    line-height: 1.4;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    margin-top: 10px;
+    margin: 0;
     width: 100%;
-    max-width: 280px;
-    background: rgba(255, 4, 4, 0.1);
-    padding: 8px 12px;
-    border-radius: 4px;
-    border-left: 3px solid #ff0404;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    flex: 0 0 100%; /* sit on its own row, spanning both numbers */
 }
 
 .ticket-description {
     color: #fff;
     text-align: center;
     font-family: var(--font-display);
-    font-size: clamp(14px, 1.5vw, 15px);
+    font-size: clamp(12px, 1.5vw, 14.5px);
     font-style: italic;
     font-weight: 300;
     line-height: 1.4;
     letter-spacing: 0.3px;
     width: 100%;
-    max-width: 350px;
+    max-width: 425px;
     margin-bottom: 30px;
     opacity: 0.9;
+}
+
+/* =============================
+   Reworked price-section layout
+   ============================= */
+.price-section {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: center;
+    column-gap: 12px;
+    row-gap: 12px;
+    height: auto;
+    margin-bottom: 60px;
+}
+
+.early-bird-price {
+    grid-row: 1;
+    grid-column: 1;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+}
+
+.regular-price {
+    grid-row: 1;
+    grid-column: 2;
+    position: relative; /* scope pseudo-element to this box */
+    display: inline-block;
+    align-self: center; /* ensure vertical centering vs big price */
+    text-decoration: none;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.55);
+}
+.regular-price::after {
+    content: "";
+    position: absolute;
+    left: -10%;
+    right: -10%;
+    top: 50%;
+    height: 2px;
+    background: #ff0404;
+    transform: translateY(-50%) rotate(-25deg);
+    transform-origin: center;
+}
+
+/* Superscript currency glyph on prices (uses OpenType 'sups' if available) */
+.early-bird-price::first-letter,
+.regular-price::first-letter {
+    font-variant-position: super; /* preferred, maps to 'sups' */
+    font-feature-settings: "sups" 1; /* explicit OpenType feature */
+    vertical-align: super; /* fallback for non-supporting UAs */
+    font-size: 0.6em; /* fallback size reduction */
+    line-height: 1;
+    margin-right: 0.05em;
+}
+
+.price-label {
+    display: none !important;
+}
+
+.early-bird-label {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1.4;
 }
 
 .register-button {
@@ -735,11 +799,11 @@ body {
     leading-trim: both;
     text-edge: cap;
     font-family: Manrope, system-ui, sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
     transition: opacity 0.2s ease;
 }
@@ -766,7 +830,7 @@ body {
 .team-student-info {
     width: 100%;
     max-width: 800px;
-    color: rgba(255, 255, 255, 0.83);
+    color: rgba(255, 255, 255, 1);
     text-align: center;
     font-family: var(--font-display);
     font-size: clamp(14px, 1.8vw, 16px);
@@ -778,6 +842,7 @@ body {
 
 .underlined-link {
     text-decoration: underline;
+    color: rgba(255, 255, 255, 1);
 }
 
 /* Footer Section */
@@ -788,7 +853,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 90px;
 }
 
 /* Wrapper for footer title + paragraph with zero gap */
@@ -810,7 +875,7 @@ body {
     color: #000;
     text-align: center;
     font-family: var(--font-display);
-    font-size: clamp(40px, 8vw, 72px);
+    font-size: clamp(40px, 8vw, 90px);
     font-style: normal;
     font-weight: 300;
     line-height: normal;
@@ -862,8 +927,34 @@ body {
     letter-spacing: -0.3px;
 }
 
+/* Default: hide generic dividers (overridden in footer) */
 .contact-divider {
     display: none;
+}
+
+/* Footer contact links: remove underline */
+.footer-section .contact-email {
+    text-decoration: none;
+}
+.footer-section .contact-email:hover {
+    text-decoration: none;
+}
+
+/* Footer dividers: vertical rules between addresses on desktop/tablet */
+.footer-section .contact-divider {
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: #E1E1E1;
+    flex-shrink: 0;
+}
+
+/* Switch to horizontal rules on mobile */
+@media (max-width: 768px) {
+    .footer-section .contact-divider {
+        width: 60px;
+        height: 1px;
+    }
 }
 
 .copyright {
@@ -890,6 +981,7 @@ body {
         flex-direction: column;
         gap: 40px;
         padding: 60px 40px;
+        align-items: center; /* center stacked columns horizontally */
     }
 
     /* Hide the center divider when stacked */
@@ -999,8 +1091,7 @@ body {
     }
 
     .pricing-card {
-        min-width: 300px;
-        max-width: 400px;
+        flex: 0 0 100%;
     }
 
     .regular-ticket {
@@ -1042,8 +1133,7 @@ body {
     }
 
     .pricing-card {
-        min-width: 280px;
-        max-width: 350px;
+        flex: 0 0 100%;
         padding: 20px 15px;
     }
 
