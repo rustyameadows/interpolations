@@ -378,7 +378,6 @@ body {
 .speakers-header {
     display: flex;
     width: 100%;
-    max-width: 800px;
     flex-direction: column;
     align-items: center;
     gap: 0;
