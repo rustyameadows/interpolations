@@ -245,6 +245,9 @@ body {
     .hero {
         min-height: 350px;
     }
+    .hero__logo {
+        max-width: 200px;
+    }
 
     .tools__grid {
         grid-template-columns: 1fr; /* break to single column earlier */
@@ -291,6 +294,15 @@ body {
         font-size: 10px;
         padding: 6px 8px;
     }
+}
+
+/* iOS-only fix to prevent focus zoom on inputs (applies to all iOS WebKit browsers) */
+@supports (-webkit-touch-callout: none) and (-webkit-overflow-scrolling: touch) {
+  @media (max-width: 768px) {
+    .filters__search .filter-input {
+      font-size: 16px;
+    }
+  }
 }
 
 .tool-card {
