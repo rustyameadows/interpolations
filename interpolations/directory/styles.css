@@ -1,0 +1,392 @@
+/* Basic resets */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #0e0f12;
+    --fg: #e7e9ee;
+    --muted: #b8bdc7;
+    --card: #1a1d24;
+    --accent: #7aa2ff;
+    --gap: 16px;
+    /* Directory page tokens */
+    --ink: #000000;
+    --blue-700: #0736c4;
+    --teal-900: #13343b;
+    --gray-300: #d9d9d9;
+    --border: #0f329a;
+    --white: #ffffff;
+    --space-28: 28px;
+    --space-48: 48px;
+    --space-80: 80px;
+    --space-127: 127px;
+    --hero-h: 300px;
+    --hero-pad: 50px;
+}
+
+body {
+    font-family:
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Helvetica,
+        Arial,
+        Apple Color Emoji,
+        Segoe UI Emoji,
+        Noto Color Emoji,
+        Liberation Sans,
+        sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    line-height: 1.5;
+}
+
+/* Hero */
+.hero {
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: none;
+}
+
+.hero__inner {
+    max-width: 960px;
+    text-align: center;
+}
+
+.hero h1 {
+    margin: 0 0 12px 0;
+    font-size: clamp(32px, 5vw, 56px);
+    letter-spacing: -0.02em;
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    color: var(--blue-700);
+}
+
+.hero p {
+    margin: 0 auto;
+    max-width: 70ch;
+    color: var(--teal-900);
+    font-size: clamp(16px, 2.2vw, 18px);
+    font-family: "Manrope", sans-serif;
+    font-weight: 300;
+}
+
+/* Tools grid */
+.tools {
+    width: 100%;
+}
+
+.tools__grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+  padding: 24px;
+}
+
+/* Filters bar */
+.tools__filters {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  background: var(--white);
+}
+
+.filters__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  background: var(--white);
+  color: var(--blue-700);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.filter-btn.is-active {
+  background: var(--blue-700);
+  color: var(--white);
+}
+
+.filters__search .filter-input {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--ink);
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+@media (min-width: 1024px) {
+    .tools__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.tool-card {
+    background: var(--white);
+    border-radius: 0;
+    border: 1px solid var(--border);
+    height: 300px;
+}
+
+/* Detailed card variant */
+.tool-card--detailed {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0; /* content will pad itself */
+}
+
+.tool-card__media {
+    position: relative;
+    height: 225px;
+    overflow: hidden;
+}
+
+.tool-card__video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: saturate(0.95);
+}
+
+.tool-card__logo {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    /*width: clamp(80px, 30%, 160px);*/
+    max-height: 70%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.tool-card__content {
+    padding: 14px 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pill {
+    align-self: flex-start;
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 0;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--fg);
+    background: color-mix(in oklab, var(--accent) 25%, #ffffff 0%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.tool-card__title {
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+}
+
+.tool-card__desc {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Directory Card styles (mapped to existing classes) */
+.tools .tool-card.tool-card--detailed {
+    display: flex;
+    width: 100%;
+    padding-bottom: var(--space-48);
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-48);
+    border: 1px solid var(--border);
+    background: var(--white);
+}
+
+.tools .tool-card--detailed .tool-card__media {
+    display: flex;
+    /*height: var(--hero-h);*/
+    /*padding: var(--hero-pad);*/
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.tools .tool-card--detailed .tool-card__logo {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    display: block;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.tools .tool-card--detailed .tool-card__content {
+  padding: var(--space-28);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Typography for detailed card */
+.tools .tool-card--detailed .pill {
+    color: var(--ink);
+    text-align: center;
+    align-self: center;
+    display: inline-block;
+    padding: 2px 10px;
+    border: 1px solid var(--gray-300);
+    background: var(--white);
+    border-radius: 0;
+    font-family: "Manrope", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.16;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.tools .tool-card--detailed .tool-card__title {
+    color: var(--blue-700);
+    text-align: center;
+    font-family: "Fraunces", serif;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1.16;
+    letter-spacing: -1.44px;
+}
+
+.tools .tool-card--detailed .tool-card__desc {
+    color: var(--teal-900);
+    text-align: center;
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0.56px;
+}
+
+/* Directory Card component (scoped; no global selectors) */
+/* Tokens: declared on .card and mapped to existing .tool-card--detailed */
+.card,
+.tools .tool-card--detailed {
+    --ink: #000000;
+    --blue-700: #0736c4;
+    --teal-900: #13343b;
+    --gray-300: #d9d9d9;
+    --border: #0f329a;
+    --white: #ffffff;
+    --space-28: 28px;
+    --space-48: 48px;
+    --space-80: 80px;
+    --space-127: 127px;
+    --hero-h: 300px;
+    --hero-pad: 50px;
+}
+
+/* Component layout (map to existing markup) */
+.card,
+.tools .tool-card--detailed {
+    display: flex;
+    width: 100%;
+    padding-bottom: var(--space-48);
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-48);
+    border: 1px solid var(--border);
+    background: var(--white);
+}
+
+.card__hero,
+.tools .tool-card--detailed .tool-card__media {
+    display: flex;
+    /*height: var(--hero-h);
+    padding: var(--hero-pad);*/
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.card__img,
+.tools .tool-card--detailed .tool-card__logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    padding: var(--hero-pad);
+}
+
+/* Typography (applied to existing classes within tools only) */
+.card__badge,
+.tools .tool-card--detailed .pill {
+    color: var(--ink);
+    text-align: center;
+    font-family: "Manrope", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.16;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.card__title,
+.tools .tool-card--detailed .tool-card__title {
+    color: var(--blue-700);
+    text-align: center;
+    font-family: "Fraunces", serif;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1.16;
+    letter-spacing: -1.44px;
+}
+
+.card__lead,
+.tools .tool-card--detailed .tool-card__desc {
+    color: var(--teal-900);
+    text-align: center;
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0.56px;
+}
