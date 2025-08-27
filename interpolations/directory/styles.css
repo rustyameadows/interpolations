@@ -42,7 +42,7 @@ input[type="search"]::-webkit-search-results-decoration {
     --container-pad: 24px; /* unified outer padding */
     /* Directory page tokens */
     --ink: #000000;
-    --blue-700: #0736c4;
+    --blue-700: #201CAB;
     --teal-900: #13343b;
     --gray-300: #d9d9d9;
     --border: #0f329a;
@@ -314,6 +314,7 @@ body {
 
 .tool-card a {
     text-decoration: none;
+    width: 100%;
 }
 
 /* Detailed card variant */
@@ -331,7 +332,8 @@ body {
     overflow: hidden;
 }
 
-.tool-card__video {
+.tool-card__video,
+.tool-card__bg__still {
     width: 100%;
     height: 100%;
     display: block;
