@@ -52,34 +52,77 @@ body {
 
 /* Hero */
 .hero {
-    min-height: 500px;
-    display: grid;
-    place-items: center;
-    padding: 24px;
-    background: none;
+  min-height: 500px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: center;
+  padding: 24px;
+  padding-left: 30px; /* align to 30px left edge */
+  background: var(--blue-700);
 }
 
 .hero__inner {
-    max-width: 960px;
-    text-align: center;
+  max-width: 960px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.hero__top {
+  width: 100%;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero__logo {
+  display: block;
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+}
+
+.hero__cta {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.hero__cta:hover,
+.hero__cta:focus-visible {
+  background: var(--blue-700);
+  color: var(--white);
+  border-color: var(--white);
+  outline: none;
 }
 
 .hero h1 {
-    margin: 0 0 12px 0;
-    font-size: clamp(32px, 5vw, 56px);
-    letter-spacing: -0.02em;
-    font-family: "Fraunces", serif;
-    font-weight: 300;
-    color: var(--blue-700);
+  margin: 0 0 12px 0;
+  font-size: clamp(32px, 5vw, 56px);
+  letter-spacing: -0.02em;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  color: var(--white);
 }
 
 .hero p {
-    margin: 0 auto;
-    max-width: 70ch;
-    color: var(--teal-900);
-    font-size: clamp(16px, 2.2vw, 18px);
-    font-family: "Manrope", sans-serif;
-    font-weight: 300;
+  margin: 0 auto;
+  max-width: 70ch;
+  color: var(--white);
+  font-size: clamp(16px, 2.2vw, 18px);
+  font-family: "Fraunces", serif;
+  font-weight: 300;
 }
 
 /* Tools grid */
@@ -93,6 +136,7 @@ body {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--gap);
   padding: 24px;
+  padding-left: 30px; /* align with hero logo */
 }
 
 /* Subtle transition for card show/hide */
@@ -108,6 +152,7 @@ body {
     gap: 24px 24px;
     align-items: center;
     padding: 24px;
+    padding-left: 30px; /* align with hero logo */
     border: 1px solid var(--border);
     background: var(--white);
 }
@@ -120,21 +165,29 @@ body {
 }
 
 .filter-btn {
-    font-family: "Manrope", sans-serif;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 8px 10px;
-    background: var(--white);
-    color: var(--blue-700);
-    border: 1px solid var(--border);
-    cursor: pointer;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  background: var(--white);
+  color: var(--blue-700);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
 }
 
 .filter-btn.is-active {
-    background: var(--blue-700);
-    color: var(--white);
+  background: var(--blue-700);
+  color: var(--white);
+}
+
+.filter-btn:hover:not(.is-active),
+.filter-btn:focus-visible:not(.is-active) {
+  background: color-mix(in oklab, var(--blue-700) 12%, var(--white));
+  border-color: var(--blue-700);
+  outline: none;
 }
 
 .filters__search {
