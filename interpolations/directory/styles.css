@@ -16,6 +16,7 @@ body {
     --card: #1a1d24;
     --accent: #7aa2ff;
     --gap: 16px;
+    --container-pad: 24px; /* unified outer padding */
     /* Directory page tokens */
     --ink: #000000;
     --blue-700: #0736c4;
@@ -56,8 +57,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr;
   align-items: center;
-  padding: 24px;
-  padding-left: 30px; /* align to 30px left edge */
+  padding: var(--container-pad);
   background: var(--blue-700);
 }
 
@@ -135,8 +135,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--gap);
-  padding: 24px;
-  padding-left: 30px; /* align with hero logo */
+  padding: var(--container-pad);
 }
 
 /* Subtle transition for card show/hide */
@@ -151,8 +150,7 @@ body {
     grid-template-columns: 2fr 1fr; /* 2/3 + 1/3 */
     gap: 24px 24px;
     align-items: center;
-    padding: 24px;
-    padding-left: 30px; /* align with hero logo */
+    padding: var(--container-pad);
     border: 1px solid var(--border);
     background: var(--white);
 }
@@ -218,6 +216,9 @@ body {
 
 /* Stack filters and center content on small screens */
 @media (max-width: 768px) {
+    :root {
+        --container-pad: 16px; /* compact padding on small screens */
+    }
     .tools__grid {
         grid-template-columns: 1fr; /* break to single column earlier */
     }
