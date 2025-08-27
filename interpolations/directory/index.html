@@ -502,7 +502,8 @@
                         const desc = card.querySelector('.tool-card__desc');
                         const text = ((title ? title.textContent : '') + ' ' + (desc ? desc.textContent : '')).toLowerCase();
                         const matchesText = !q || text.includes(q);
-                        card.classList.toggle('is-hidden', !(matchesCategory && matchesText));
+                        const shouldShow = matchesCategory && matchesText;
+                        card.classList.toggle('is-hidden', !shouldShow);
                     });
                 }
 
