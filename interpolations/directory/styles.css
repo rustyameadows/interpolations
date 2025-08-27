@@ -242,6 +242,10 @@ body {
     height: 300px;
 }
 
+.tool-card a {
+    text-decoration: none;
+}
+
 /* Detailed card variant */
 .tool-card--detailed {
     height: auto;
@@ -298,6 +302,7 @@ body {
     margin: 0;
     font-size: 18px;
     letter-spacing: -0.01em;
+    text-decoration: none;
 }
 
 .tool-card__desc {
@@ -372,6 +377,7 @@ body {
     font-weight: 300;
     line-height: 1.16;
     letter-spacing: -1.44px;
+    text-decoration: none;
 }
 
 .tools .tool-card--detailed .tool-card__desc {
@@ -458,6 +464,7 @@ body {
     font-weight: 300;
     line-height: 1.16;
     letter-spacing: -1.44px;
+    text-decoration: none;
 }
 
 .card__lead,
