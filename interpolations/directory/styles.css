@@ -218,6 +218,9 @@ body {
 
 /* Stack filters and center content on small screens */
 @media (max-width: 768px) {
+    .tools__grid {
+        grid-template-columns: 1fr; /* break to single column earlier */
+    }
     .tools__filters {
         grid-template-columns: 1fr;
     }
