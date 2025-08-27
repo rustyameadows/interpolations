@@ -148,7 +148,7 @@ body {
     z-index: 5;
     display: grid;
     grid-template-columns: 2fr 1fr; /* 2/3 + 1/3 */
-    gap: 24px 24px;
+    gap: var(--container-pad);
     align-items: center;
     padding: var(--container-pad);
     border: 1px solid var(--border);
@@ -224,9 +224,27 @@ body {
     }
     .tools__filters {
         grid-template-columns: 1fr;
+        /* subtract the 6px scrollbar padding from the vertical gap */
+        gap: calc(var(--container-pad) - 6px);
     }
     .filters__buttons {
-        justify-content: center;
+        /* compact, horizontal scroll list */
+        justify-content: flex-start;
+        gap: 8px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x proximity;
+        padding-bottom: 6px; /* room for hidden scrollbar */
+    }
+    .filters__buttons::-webkit-scrollbar { display: none; }
+    .filter-btn {
+        font-size: 10px;
+        padding: 6px 8px;
+        scroll-snap-align: start;
+        white-space: nowrap; /* keep text on one line */
+        flex: 0 0 auto; /* prevent shrinking causing wraps */
     }
     .filters__search {
         justify-self: stretch;
