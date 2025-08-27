@@ -31,29 +31,111 @@
 
         <main>
             <section class="tools" aria-label="Creative AI tools">
-                <div class="tools__filters" role="region" aria-label="Filter tools">
-                    <div class="filters__buttons" role="toolbar" aria-label="Categories">
-                        <button class="filter-btn is-active" data-filter="All" aria-pressed="true">All</button>
-                        <button class="filter-btn" data-filter="Multi-Tool Platform" aria-pressed="false">Multi-Tool Platform</button>
-                        <button class="filter-btn" data-filter="Image Generator" aria-pressed="false">Image Generator</button>
-                        <button class="filter-btn" data-filter="Video Generator" aria-pressed="false">Video Generator</button>
-                        <button class="filter-btn" data-filter="Discovery and Inspiration Platform" aria-pressed="false">Discovery and Inspiration Platform</button>
-                        <button class="filter-btn" data-filter="Music and Audio" aria-pressed="false">Music and Audio</button>
-                        <button class="filter-btn" data-filter="Upscaler" aria-pressed="false">Upscaler</button>
-                        <button class="filter-btn" data-filter="Image Editor" aria-pressed="false">Image Editor</button>
-                        <button class="filter-btn" data-filter="Image and Video Generator" aria-pressed="false">Image and Video Generator</button>
-                        <button class="filter-btn" data-filter="Conversational AI" aria-pressed="false">Conversational AI</button>
-                        <button class="filter-btn" data-filter="Uncategorized" aria-pressed="false">Uncategorized</button>
+                <div
+                    class="tools__filters"
+                    role="region"
+                    aria-label="Filter tools"
+                >
+                    <div
+                        class="filters__buttons"
+                        role="toolbar"
+                        aria-label="Categories"
+                    >
+                        <button
+                            class="filter-btn is-active"
+                            data-filter="All"
+                            aria-pressed="true"
+                        >
+                            All
+                        </button>
+                        <button
+                            class="filter-btn"
+                            data-filter="Multi-Tool Platform"
+                            aria-pressed="false"
+                        >
+                            Multi-Tool Platform
+                        </button>
+                        <button
+                            class="filter-btn"
+                            data-filter="Image Generator"
+                            aria-pressed="false"
+                        >
+                            Image Generator
+                        </button>
+                        <button
+                            class="filter-btn"
+                            data-filter="Video Generator"
+                            aria-pressed="false"
+                        >
+                            Video Generator
+                        </button>
+                        <button
+                            class="filter-btn"
+                            data-filter="Upscaler"
+                            aria-pressed="false"
+                        >
+                            Upscaler
+                        </button>
+                        <button
+                            class="filter-btn"
+                            data-filter="Discovery"
+                            aria-pressed="false"
+                        >
+                            Discovery
+                        </button>
+                        <button
+                            class="filter-btn"
+                            data-filter="Music and Audio"
+                            aria-pressed="false"
+                        >
+                            Music and Audio
+                        </button>
+                        <button
+                            class="filter-btn"
+                            data-filter="Image Editor"
+                            aria-pressed="false"
+                        >
+                            Image Editor
+                        </button>
+                        <button
+                            class="filter-btn"
+                            data-filter="Image and Video Generator"
+                            aria-pressed="false"
+                        >
+                            Image and Video Generator
+                        </button>
+                        <button
+                            class="filter-btn"
+                            data-filter="Conversational AI"
+                            aria-pressed="false"
+                        >
+                            Conversational AI
+                        </button>
+                        <button
+                            class="filter-btn"
+                            data-filter="Embedded AI"
+                            aria-pressed="false"
+                        >
+                            Embedded AI
+                        </button>
                     </div>
                     <div class="filters__search">
-                        <input class="filter-input" type="search" placeholder="Search tools…" aria-label="Search tools" />
+                        <input
+                            class="filter-input"
+                            type="search"
+                            placeholder="Search tools…"
+                            aria-label="Search tools"
+                        />
                     </div>
                 </div>
                 <div class="tools__grid">
                     <!-- First row (detailed cards) -->
+
+                    <!-- Replicated tool cards -->
                     <article
                         class="tool-card tool-card--detailed"
-                        aria-label="Palette Forge"
+                        aria-label="Visual Electric"
+                        data-tags="Multi-Tool Platform, Image Generator, Video Generator"
                     >
                         <div class="tool-card__media">
                             <video
@@ -67,443 +149,1035 @@
                             <img
                                 class="tool-card__logo"
                                 src="vs-logo-test.png"
-                                alt="Tool 1 logo"
+                                alt="Visual Electric logo"
                             />
-                        </div>
-                        <div class="tool-card__content">
-                            <span class="pill">Image Generation</span>
-                            <h3 class="tool-card__title">Palette Forge</h3>
-                            <p class="tool-card__desc">Generate concept art from prompts with controllable styles and palettes.</p>
-                        </div>
-                    </article>
-
-                    <!-- Replicated tool cards -->
-                    <article class="tool-card tool-card--detailed" aria-label="Visual Electric">
-                        <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Visual Electric logo" />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Multi-Tool Platform</span>
                             <h3 class="tool-card__title">Visual Electric</h3>
-                            <p class="tool-card__desc">A canvas built for designers to create and iterate visually using multiple generative AI models</p>
+                            <p class="tool-card__desc">
+                                A canvas built for designers to create and
+                                iterate visually using multiple generative AI
+                                models
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Flora Fauna">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Flora Fauna"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Flora Fauna logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Flora Fauna logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Multi-Tool Platform</span>
                             <h3 class="tool-card__title">Flora Fauna</h3>
-                            <p class="tool-card__desc">A node-based tool that lets creatives connect various AI models into visual, reusable workflows</p>
+                            <p class="tool-card__desc">
+                                A node-based tool that lets creatives connect
+                                various AI models into visual, reusable
+                                workflows
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Adobe Firefly">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Adobe Firefly"
+                        data-tags="Multi-Tool Platform, Image Generator"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Adobe Firefly logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Adobe Firefly logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Multi-Tool Platform</span>
                             <h3 class="tool-card__title">Adobe Firefly</h3>
-                            <p class="tool-card__desc">An AI-powered toolset within Creative Cloud for commercial-safe image and text generation</p>
+                            <p class="tool-card__desc">
+                                An AI-powered toolset within Creative Cloud for
+                                commercial-safe image and text generation
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Canva Magic Studio">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Canva Magic Studio"
+                        data-tags="Multi-Tool Platform, Image Generator"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Canva Magic Studio logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Canva Magic Studio logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Multi-Tool Platform</span>
                             <h3 class="tool-card__title">Canva Magic Studio</h3>
-                            <p class="tool-card__desc">A creative platform within Canva featuring multiple AI tools to streamline the design process</p>
+                            <p class="tool-card__desc">
+                                A creative platform within Canva featuring
+                                multiple AI tools to streamline the design
+                                process
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Midjourney">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Midjourney"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Midjourney logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Midjourney logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Image Generator</span>
                             <h3 class="tool-card__title">Midjourney</h3>
-                            <p class="tool-card__desc">An independant text-to-image AI generation tool known for its creative flexibilty and high quality visuals</p>
+                            <p class="tool-card__desc">
+                                An independant text-to-image AI generation tool
+                                known for its creative flexibilty and high
+                                quality visuals
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="DALL-E">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="DALL-E"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="DALL-E logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="DALL-E logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Image Generator</span>
                             <h3 class="tool-card__title">DALL-E</h3>
-                            <p class="tool-card__desc">An AI text-to-image model by OpenAI, offering versatility and powerful image editing tools</p>
+                            <p class="tool-card__desc">
+                                An AI text-to-image model by OpenAI, offering
+                                versatility and powerful image editing tools
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Stable Diffusion">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Stable Diffusion"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Stable Diffusion logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Stable Diffusion logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Image Generator</span>
                             <h3 class="tool-card__title">Stable Diffusion</h3>
-                            <p class="tool-card__desc">An AI image generator with open-source code, supporting diverse image creation and user-driven customization</p>
+                            <p class="tool-card__desc">
+                                An AI image generator with open-source code,
+                                supporting diverse image creation and
+                                user-driven customization
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Runway">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Runway"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Runway logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Runway logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Video Generator</span>
                             <h3 class="tool-card__title">Runway</h3>
-                            <p class="tool-card__desc">A leading AI video platform combining advanced editing and generative tools</p>
+                            <p class="tool-card__desc">
+                                A leading AI video platform combining advanced
+                                editing and generative tools
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Cosmos OS">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Cosmos OS"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Cosmos OS logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Cosmos OS logo"
+                            />
                         </div>
                         <div class="tool-card__content">
-                            <span class="pill">Discovery and Inspiration Platform</span>
+                            <span class="pill">Discovery</span>
                             <h3 class="tool-card__title">Cosmos OS</h3>
-                            <p class="tool-card__desc">A versatile visualization tool and exploration platform aimed at assisting with discovery and inspiration through image curation and intuitive browsing</p>
+                            <p class="tool-card__desc">
+                                A versatile visualization tool and exploration
+                                platform aimed at assisting with discovery and
+                                inspiration through image curation and intuitive
+                                browsing
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="ElevenLabs">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="ElevenLabs"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="ElevenLabs logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="ElevenLabs logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Music and Audio</span>
                             <h3 class="tool-card__title">ElevenLabs</h3>
-                            <p class="tool-card__desc">A text-to-speech platform enabling creators to generate professional-quality voice synthesis and access powerful customization tools</p>
+                            <p class="tool-card__desc">
+                                A text-to-speech platform enabling creators to
+                                generate professional-quality voice synthesis
+                                and access powerful customization tools
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Moonvalley">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Moonvalley"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Moonvalley logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Moonvalley logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Video Generator</span>
                             <h3 class="tool-card__title">Moonvalley</h3>
-                            <p class="tool-card__desc">An AI-powered tool providing copyright-safe professional video editing and image-to-video creation</p>
+                            <p class="tool-card__desc">
+                                An AI-powered tool providing copyright-safe
+                                professional video editing and image-to-video
+                                creation
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Topaz AI">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Topaz AI"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Topaz AI logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Topaz AI logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Upscaler</span>
                             <h3 class="tool-card__title">Topaz AI</h3>
-                            <p class="tool-card__desc">A specialized AI image and video enhancer known for sharpening, noise removal, and resolution upscaling</p>
+                            <p class="tool-card__desc">
+                                A specialized AI image and video enhancer known
+                                for sharpening, noise removal, and resolution
+                                upscaling
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="My Mind">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="My Mind"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="My Mind logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="My Mind logo"
+                            />
                         </div>
                         <div class="tool-card__content">
-                            <span class="pill">Discovery and Inspiration Platform</span>
+                            <span class="pill">Discovery</span>
                             <h3 class="tool-card__title">My Mind</h3>
-                            <p class="tool-card__desc">A smart personal archive that uses AI to save and sort your ideas, notes, and inspirations in a private, searchable space</p>
+                            <p class="tool-card__desc">
+                                A smart personal archive that uses AI to save
+                                and sort your ideas, notes, and inspirations in
+                                a private, searchable space
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Figma AI">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Figma AI"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Figma AI logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Figma AI logo"
+                            />
                         </div>
                         <div class="tool-card__content">
-                            <span class="pill"></span>
+                            <span class="pill">Embedded AI</span>
                             <h3 class="tool-card__title">Figma AI</h3>
-                            <p class="tool-card__desc">An integrated AI system for creating UI elements, placeholder content, and interactive prototypes without leaving Figma</p>
+                            <p class="tool-card__desc">
+                                An integrated AI system for creating UI
+                                elements, placeholder content, and interactive
+                                prototypes without leaving Figma
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Photoshop AI">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Photoshop AI"
+                        data-tags="Image Generator, Image Editor"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Photoshop AI logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Photoshop AI logo"
+                            />
                         </div>
                         <div class="tool-card__content">
-                            <span class="pill">Image Editor</span>
+                            <span class="pill">Image Generator</span>
                             <h3 class="tool-card__title">Photoshop AI</h3>
-                            <p class="tool-card__desc">An AI-powered extension of Photoshop designed to enhance and automate image editing tasks</p>
+                            <p class="tool-card__desc">
+                                An AI-powered extension of Photoshop designed to
+                                enhance and automate image editing tasks
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Sora">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Sora"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Sora logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Sora logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Image Generator</span>
                             <h3 class="tool-card__title">Sora</h3>
-                            <p class="tool-card__desc">An AI image generator with open-source code that prioritizes model customization and community-led innovation</p>
+                            <p class="tool-card__desc">
+                                An AI image generator with open-source code that
+                                prioritizes model customization and
+                                community-led innovation
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Flow">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Flow"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Flow logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Flow logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Video Generator</span>
                             <h3 class="tool-card__title">Flow</h3>
-                            <p class="tool-card__desc">A video generation and editing tool powered by Google Veo</p>
+                            <p class="tool-card__desc">
+                                A video generation and editing tool powered by
+                                Google Veo
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Whisk">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Whisk"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Whisk logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Whisk logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Image Generator</span>
                             <h3 class="tool-card__title">Whisk</h3>
-                            <p class="tool-card__desc">An image generation tool powered by Google Imagen</p>
+                            <p class="tool-card__desc">
+                                An image generation tool powered by Google
+                                Imagen
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Computer by Tldraw">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Computer by Tldraw"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Computer by Tldraw logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Computer by Tldraw logo"
+                            />
                         </div>
                         <div class="tool-card__content">
-                            <span class="pill"></span>
+                            <span class="pill">Embedded AI</span>
                             <h3 class="tool-card__title">Computer by Tldraw</h3>
-                            <p class="tool-card__desc">An infinite canvas playground built to explore AI models</p>
+                            <p class="tool-card__desc">
+                                An infinite canvas playground built to explore
+                                AI models
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Higgsfield AI">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Higgsfield AI"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Higgsfield AI logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Higgsfield AI logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Multi-Tool Platform</span>
                             <h3 class="tool-card__title">Higgsfield AI</h3>
-                            <p class="tool-card__desc">A cinematic AI video tool that enables dynamic camera movements, visual effects integration, and automated storyboard sequences</p>
+                            <p class="tool-card__desc">
+                                A cinematic AI video tool that enables dynamic
+                                camera movements, visual effects integration,
+                                and automated storyboard sequences
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Ideogram">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Ideogram"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Ideogram logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Ideogram logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Image Generator</span>
                             <h3 class="tool-card__title">Ideogram</h3>
-                            <p class="tool-card__desc">An AI image generator producing high-quality visuals with accurate text and consistent characters</p>
+                            <p class="tool-card__desc">
+                                An AI image generator producing high-quality
+                                visuals with accurate text and consistent
+                                characters
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Pollo AI">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Pollo AI"
+                        data-tags="Multi-Tool Platform, Image Generator, Video Generator"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Pollo AI logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Pollo AI logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Multi-Tool Platform</span>
                             <h3 class="tool-card__title">Pollo AI</h3>
-                            <p class="tool-card__desc">An AI platform for creating videos and images from text prompts, images, or clips, with flexible style transformation tools</p>
+                            <p class="tool-card__desc">
+                                An AI platform for creating videos and images
+                                from text prompts, images, or clips, with
+                                flexible style transformation tools
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Leonardo.ai">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Leonardo.ai"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Leonardo.ai logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Leonardo.ai logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Image and Video Generator</span>
                             <h3 class="tool-card__title">Leonardo.ai</h3>
-                            <p class="tool-card__desc">A versatile generative platform offering high-quality image and video creation, advanced style controls, and seamless integration into creative workflows</p>
+                            <p class="tool-card__desc">
+                                A versatile generative platform offering
+                                high-quality image and video creation, advanced
+                                style controls, and seamless integration into
+                                creative workflows
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Chat GPT">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Chat GPT"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Chat GPT logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Chat GPT logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Conversational AI</span>
                             <h3 class="tool-card__title">Chat GPT</h3>
-                            <p class="tool-card__desc">A conversational AI by OpenAI that enables natural language interaction, creative content generation, and advanced reasoning across tasks</p>
+                            <p class="tool-card__desc">
+                                A conversational AI by OpenAI that enables
+                                natural language interaction, creative content
+                                generation, and advanced reasoning across tasks
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Claude">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Claude"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Claude logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Claude logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Conversational AI</span>
                             <h3 class="tool-card__title">Claude</h3>
-                            <p class="tool-card__desc">Anthropic's conversational AI focused on intelligent dialogue, creative output, and strong safety principles</p>
+                            <p class="tool-card__desc">
+                                Anthropic's conversational AI focused on
+                                intelligent dialogue, creative output, and
+                                strong safety principles
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Perplexity AI">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Perplexity AI"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Perplexity AI logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Perplexity AI logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Conversational AI</span>
                             <h3 class="tool-card__title">Perplexity AI</h3>
-                            <p class="tool-card__desc">An AI-powered search and answer engine that combines conversational responses with real-time web information for accurate, sourced results</p>
+                            <p class="tool-card__desc">
+                                An AI-powered search and answer engine that
+                                combines conversational responses with real-time
+                                web information for accurate, sourced results
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Gemini">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Gemini"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Gemini logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Gemini logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Conversational AI</span>
                             <h3 class="tool-card__title">Gemini</h3>
-                            <p class="tool-card__desc">A versatile AI model enabling natural dialogue, content creation, and seamless integration with Google’s ecosystem</p>
+                            <p class="tool-card__desc">
+                                A versatile AI model enabling natural dialogue,
+                                content creation, and seamless integration with
+                                Google’s ecosystem
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Notion AI">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Notion AI"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Notion AI logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Notion AI logo"
+                            />
                         </div>
                         <div class="tool-card__content">
-                            <span class="pill"></span>
+                            <span class="pill">Embedded AI</span>
                             <h3 class="tool-card__title">Notion AI</h3>
-                            <p class="tool-card__desc">An AI-powered assistant built into Notion that helps users write, brainstorm, and automate tasks within their workspace</p>
+                            <p class="tool-card__desc">
+                                An AI-powered assistant built into Notion that
+                                helps users write, brainstorm, and automate
+                                tasks within their workspace
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Canva AI">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Canva AI"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Canva AI logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Canva AI logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Conversational AI</span>
                             <h3 class="tool-card__title">Canva AI</h3>
-                            <p class="tool-card__desc">An AI-powered design assistant within Canva that helps users generate text, create visuals, and streamline creative workflows</p>
+                            <p class="tool-card__desc">
+                                An AI-powered design assistant within Canva that
+                                helps users generate text, create visuals, and
+                                streamline creative workflows
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="LM Arena">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="LM Arena"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="LM Arena logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="LM Arena logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Multi-Tool Platform</span>
                             <h3 class="tool-card__title">LM Arena</h3>
-                            <p class="tool-card__desc">An interactive platform for exploring and comparing large language models through head-to-head evaluations and community feedback</p>
+                            <p class="tool-card__desc">
+                                An interactive platform for exploring and
+                                comparing large language models through
+                                head-to-head evaluations and community feedback
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="Krei AI">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="Krei AI"
+                        data-tags="Multi-Tool Platform, Image Generator"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="Krei AI logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="Krei AI logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Multi-Tool Platform</span>
                             <h3 class="tool-card__title">Krei AI</h3>
-                            <p class="tool-card__desc">A creative platform for real-time image generation, fine-tuning, and style exploration powered by AI</p>
+                            <p class="tool-card__desc">
+                                A creative platform for real-time image
+                                generation, fine-tuning, and style exploration
+                                powered by AI
+                            </p>
                         </div>
                     </article>
 
-                    <article class="tool-card tool-card--detailed" aria-label="HeyGen">
+                    <article
+                        class="tool-card tool-card--detailed"
+                        aria-label="HeyGen"
+                    >
                         <div class="tool-card__media">
-                            <video class="tool-card__video" autoplay muted loop playsinline poster="bg-still-test.png"></video>
-                            <img class="tool-card__logo" src="vs-logo-test.png" alt="HeyGen logo" />
+                            <video
+                                class="tool-card__video"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                poster="bg-still-test.png"
+                            ></video>
+                            <img
+                                class="tool-card__logo"
+                                src="vs-logo-test.png"
+                                alt="HeyGen logo"
+                            />
                         </div>
                         <div class="tool-card__content">
                             <span class="pill">Video Generator</span>
                             <h3 class="tool-card__title">HeyGen</h3>
-                            <p class="tool-card__desc">An AI-powered video platform that enables users to create realistic avatar videos, translate speech, and generate content with ease</p>
+                            <p class="tool-card__desc">
+                                An AI-powered video platform that enables users
+                                to create realistic avatar videos, translate
+                                speech, and generate content with ease
+                            </p>
                         </div>
                     </article>
                 </div>
             </section>
-    </main>
+        </main>
         <script>
             (function () {
-                const grid = document.querySelector('.tools__grid');
+                const grid = document.querySelector(".tools__grid");
                 if (!grid) return;
-                const cards = Array.from(grid.querySelectorAll('.tool-card.tool-card--detailed'));
+                const cards = Array.from(
+                    grid.querySelectorAll(".tool-card.tool-card--detailed"),
+                );
 
-                // Tag cards with data-category from pill text; default to 'Uncategorized'
-                cards.forEach(card => {
-                    if (!card.dataset.category) {
-                        const pill = card.querySelector('.pill');
-                        const cat = (pill && pill.textContent.trim()) || 'Uncategorized';
-                        card.dataset.category = cat;
-                    }
+                // Tag cards with data-category and data-tags (comma-separated).
+                // Defaults to the pill text, or 'Embedded AI' if missing.
+                cards.forEach((card) => {
+                    const pill = card.querySelector(".pill");
+                    let fallback =
+                        (pill && pill.textContent.trim()) || "Embedded AI";
+                    if (fallback === "Discovery and Inspiration Platform")
+                        fallback = "Discovery";
+                    if (!card.dataset.category)
+                        card.dataset.category = fallback;
+                    if (!card.dataset.tags) card.dataset.tags = fallback;
                 });
 
-                const btns = Array.from(document.querySelectorAll('.filter-btn'));
-                const input = document.querySelector('.filter-input');
+                const btns = Array.from(
+                    document.querySelectorAll(".filter-btn"),
+                );
+                const input = document.querySelector(".filter-input");
 
-                let activeCategory = 'All';
-                let query = '';
+                let activeCategory = "All";
+                let query = "";
+
+                // Category expansion: related categories included in a filter
+                const categoryExpansion = {
+                    All: ["*"],
+                    "Image Generator": [
+                        "Image Generator",
+                        "Image and Video Generator",
+                        "Image Editor",
+                    ],
+                    "Video Generator": [
+                        "Video Generator",
+                        "Image and Video Generator",
+                    ],
+                    "Multi-Tool Platform": ["Multi-Tool Platform"],
+                    "Discovery": ["Discovery"],
+                    "Music and Audio": ["Music and Audio"],
+                    Upscaler: ["Upscaler"],
+                    "Image Editor": ["Image Editor"],
+                    "Image and Video Generator": ["Image and Video Generator"],
+                    "Conversational AI": ["Conversational AI"],
+                    "Embedded AI": ["Embedded AI"],
+                };
 
                 function setActiveButton(target) {
-                    btns.forEach(b => {
+                    btns.forEach((b) => {
                         const isActive = b === target;
-                        b.classList.toggle('is-active', isActive);
-                        b.setAttribute('aria-pressed', String(isActive));
+                        b.classList.toggle("is-active", isActive);
+                        b.setAttribute("aria-pressed", String(isActive));
                     });
                 }
 
                 function applyFilters() {
                     const q = query.toLowerCase();
-                    cards.forEach(card => {
-                        const category = card.dataset.category || 'Uncategorized';
-                        const matchesCategory = activeCategory === 'All' || category === activeCategory;
-                        const title = card.querySelector('.tool-card__title');
-                        const desc = card.querySelector('.tool-card__desc');
-                        const text = ((title ? title.textContent : '') + ' ' + (desc ? desc.textContent : '')).toLowerCase();
+                    cards.forEach((card) => {
+                        const category =
+                            card.dataset.category || "Embedded AI";
+                        const tags = (card.dataset.tags || category)
+                            .split(",")
+                            .map((t) => t.trim());
+                        const expanded = categoryExpansion[activeCategory] || [
+                            activeCategory,
+                        ];
+                        const matchesCategory =
+                            expanded.includes("*") ||
+                            tags.some((t) => expanded.includes(t));
+                        const title = card.querySelector(".tool-card__title");
+                        const desc = card.querySelector(".tool-card__desc");
+                        const text = (
+                            (title ? title.textContent : "") +
+                            " " +
+                            (desc ? desc.textContent : "")
+                        ).toLowerCase();
                         const matchesText = !q || text.includes(q);
                         const shouldShow = matchesCategory && matchesText;
-                        card.classList.toggle('is-hidden', !shouldShow);
+                        card.classList.toggle("is-hidden", !shouldShow);
                     });
                 }
 
@@ -515,19 +1189,22 @@
                     };
                 };
 
-                btns.forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        activeCategory = btn.dataset.filter || 'All';
+                btns.forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        activeCategory = btn.dataset.filter || "All";
                         setActiveButton(btn);
                         applyFilters();
                     });
                 });
 
                 if (input) {
-                    input.addEventListener('input', debounce(e => {
-                        query = e.target.value.trim();
-                        applyFilters();
-                    }, 150));
+                    input.addEventListener(
+                        "input",
+                        debounce((e) => {
+                            query = e.target.value.trim();
+                            applyFilters();
+                        }, 150),
+                    );
                 }
 
                 // Initial pass
