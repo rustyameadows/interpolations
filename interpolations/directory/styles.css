@@ -305,6 +305,208 @@ body {
   }
 }
 
+/* Detail view (standalone + popup-ready) */
+.detail {
+  --ink: var(--ink);
+  --blue-700: var(--blue-700);
+  --border: var(--border);
+  --white: var(--white);
+  color: var(--ink);
+  background: var(--white);
+  min-height: 100dvh;
+}
+
+.detail__wrap {
+  /* Figma frame used 60px offsets and 1320px width */
+  max-width: 1320px;
+  margin: 60px auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  position: relative;
+  border: 1px solid var(--ink);
+}
+
+.detail__close {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  font-family: "Manrope", sans-serif;
+  font-weight: 200;
+  font-size: 36px;
+  line-height: 1;
+  background: transparent;
+  color: var(--ink);
+  border: 0;
+  padding: 8px;
+  cursor: pointer;
+}
+.detail__close:focus-visible { outline: 2px solid var(--border); outline-offset: 2px; }
+
+/* Media */
+.detail__media { display: flex; }
+.detail__media__inner {
+  position: relative;
+  width: 100%;
+  height: 670px; /* aligns with Figma block */
+  background: #000;
+}
+.detail__media-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.95);
+}
+.detail__media-logo {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  max-width: 80%;
+  max-height: 70%;
+  object-fit: contain;
+  z-index: 1;
+}
+.detail__overlay {
+  position: absolute;
+  width: 401px;
+  height: 300px;
+  background: var(--gray-300);
+  left: 130px;
+  top: 185px;
+  z-index: 0;
+}
+
+/* Content */
+.detail__body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-self: stretch;
+  padding: 60px 0;
+}
+
+.detail__title {
+  margin: 0;
+  text-align: center;
+  color: var(--border);
+  font-family: "Fraunces", serif;
+  font-weight: 300;
+  font-size: clamp(42px, 6vw, 78px);
+  letter-spacing: -0.04em;
+}
+.detail__desc {
+  margin: 10px auto 0;
+  max-width: 420px;
+  text-align: center;
+  font-family: "Manrope", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
+.detail__divider {
+  height: 1px;
+  width: 70px;
+  border: 0;
+  background: var(--ink);
+  margin: 0 auto;
+}
+
+.detail__features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.detail__features li {
+  text-align: center;
+  font-family: "Fraunces", serif;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 30px;
+}
+.detail__u { color: var(--border); text-decoration: underline; text-underline-position: from-font; }
+
+.detail__cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.detail__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 43px;
+  padding: 0 28px;
+  border-radius: 2000px;
+  background: var(--blue-700);
+  color: var(--white);
+  text-decoration: none;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+.detail__cta:hover, .detail__cta:focus-visible { outline: none; border-color: var(--ink); }
+
+.detail__recommend { display: flex; align-items: center; gap: 12px; }
+.detail__prompt {
+  font-family: "Fraunces", serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 17px;
+}
+.detail__btns { display: flex; gap: 15px; padding-left: 15px; }
+.detail__btn {
+  height: 43px;
+  min-width: 89px;
+  border-radius: 2000px;
+  background: var(--white);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.detail__btn:focus-visible { outline: 2px solid var(--border); outline-offset: 2px; }
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .detail__wrap { gap: 40px; }
+  .detail__media__inner { height: 560px; }
+}
+
+@media (max-width: 1024px) {
+  .detail__wrap { grid-template-columns: 2fr 3fr; }
+  .detail__overlay { left: 80px; top: 160px; width: 360px; height: 260px; }
+}
+
+@media (max-width: 768px) {
+  .detail__wrap {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin: 24px auto 48px;
+    border-width: 1px;
+  }
+  .detail__media__inner { height: 300px; }
+  .detail__overlay { display: none; }
+  .detail__body { padding: 0 16px 16px; gap: 28px; }
+  .detail__cta-row { flex-direction: column; gap: 16px; }
+  .detail__recommend { flex-direction: column; gap: 10px; }
+}
+
 .tool-card {
     background: var(--white);
     border-radius: 0;
