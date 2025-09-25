@@ -494,17 +494,57 @@ body {
 }
 
 @media (max-width: 768px) {
+  .detail {
+    padding: 16px;
+  }
   .detail__wrap {
     grid-template-columns: 1fr;
     gap: 24px;
-    margin: 24px auto 48px;
+    margin: 16px auto 40px;
     border-width: 1px;
+    border-radius: 18px;
+    padding: 20px;
   }
-  .detail__media__inner { height: 300px; }
+  .detail__media__inner {
+    height: 300px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
   .detail__overlay { display: none; }
-  .detail__body { padding: 0 16px 16px; gap: 28px; }
-  .detail__cta-row { flex-direction: column; gap: 16px; }
-  .detail__recommend { flex-direction: column; gap: 10px; }
+  .detail__body {
+    padding: 0;
+    gap: 24px;
+  }
+  .detail__cta-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .detail__cta {
+    width: 100%;
+  }
+  .detail__recommend {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(32, 28, 171, 0.06);
+    text-align: center;
+  }
+  .detail__prompt {
+    line-height: 1.4;
+  }
+  .detail__btns {
+    padding-left: 0;
+    justify-content: center;
+    gap: 12px;
+  }
+  .detail__close {
+    top: 12px;
+    right: 12px;
+    font-size: 30px;
+  }
 }
 
 .tool-card {
