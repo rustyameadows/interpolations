@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>INTERPOLATIONS Portal — Tickets</title>
+        <meta
+            name="description"
+            content="Review your INTERPOLATIONS tickets, transfer passes, and secure additional seats for your team."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../auto-style.css" />
+        <link rel="stylesheet" href="portal.css" />
+    </head>
+    <body class="portal-body">
+        <div class="portal-shell">
+            <header class="portal-nav" role="banner">
+                <a class="portal-brand" href="home.html">
+                    <img src="../../assets/interpolations-icon-portal-sorbet.png" alt="Interpolations icon" />
+                    <span>Interpolations Portal</span>
+                </a>
+                <nav class="portal-nav-links" aria-label="Portal navigation">
+                    <a href="home.html">Home</a>
+                    <a href="profile.html">My details</a>
+                    <a href="tickets.html" aria-current="page">My tickets</a>
+                    <a href="contact.html">Support</a>
+                    <a class="primary-link" href="index.html">Sign out</a>
+                </nav>
+            </header>
+
+            <section class="support-card" aria-labelledby="tickets-heading">
+                <h1 id="tickets-heading">Your passes &amp; upgrades</h1>
+                <p>
+                    Download your tickets, assign guest seats, or secure extra access for teammates. We'll
+                    email updated confirmations instantly.
+                </p>
+                <div class="ticket-list" role="list">
+                    <article class="ticket-list-item" role="listitem" aria-labelledby="primary-pass">
+                        <header>
+                            <div>
+                                <h2 id="primary-pass" style="margin: 0; font-family: var(--font-display);">
+                                    All-Access Conference Pass
+                                </h2>
+                                <p class="portal-subheading" style="color: rgba(16, 30, 45, 0.6);">
+                                    Primary attendee · Confirmation #A1X9-77
+                                </p>
+                            </div>
+                            <span class="ticket-status">Active</span>
+                        </header>
+                        <p>
+                            Includes general sessions, breakout labs, curated consultations, and closing
+                            reception.
+                        </p>
+                        <div class="ticket-actions">
+                            <a class="portal-button" href="#">Download PDF</a>
+                            <a class="portal-button" href="#">Send to Apple Wallet</a>
+                            <a class="portal-button" href="#">Transfer ticket</a>
+                        </div>
+                    </article>
+                    <article class="ticket-list-item" role="listitem" aria-labelledby="workshop-pass">
+                        <header>
+                            <div>
+                                <h2 id="workshop-pass" style="margin: 0; font-family: var(--font-display);">
+                                    Strategy Lab: AI Roadmaps Workshop
+                                </h2>
+                                <p class="portal-subheading" style="color: rgba(16, 30, 45, 0.6);">
+                                    Optional add-on · Confirmation #B4K2-18
+                                </p>
+                            </div>
+                            <span class="ticket-status" style="background: rgba(242, 90, 127, 0.15); color: #101e2d;">
+                                Waitlisted
+                            </span>
+                        </header>
+                        <p>
+                            We'll notify you if a seat opens up. Upgrade priority goes to early registrants —
+                            check your inbox for updates.
+                        </p>
+                        <a class="portal-button" href="#" style="justify-self: start;">Manage add-ons</a>
+                    </article>
+                </div>
+                <div class="info-grid">
+                    <article class="info-card">
+                        <h3>Need another pass?</h3>
+                        <p>
+                            Secure companion tickets for colleagues or clients at a preferred rate while
+                            inventory lasts.
+                        </p>
+                        <a class="portal-button" href="#">Purchase additional access</a>
+                    </article>
+                    <article class="info-card">
+                        <h3>Travel &amp; hotels</h3>
+                        <p>
+                            Bundle accommodations with your pass to access our partner hotel blocks and
+                            welcome dinner invitations.
+                        </p>
+                        <a class="portal-button" href="#">Explore travel bundles</a>
+                    </article>
+                </div>
+            </section>
+        </div>
+        <footer class="portal-footer">Questions about billing? billing@iveseenthefuture.com</footer>
+    </body>
+</html>
