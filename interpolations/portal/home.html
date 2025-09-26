@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>INTERPOLATIONS Portal — Event Hub</title>
+        <meta
+            name="description"
+            content="Review your INTERPOLATIONS ticket, countdown, personal details, and key event resources from one streamlined attendee hub."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../auto-style.css" />
+        <link rel="stylesheet" href="portal.css" />
+    </head>
+    <body class="portal-body">
+        <div class="portal-shell">
+            <header class="portal-nav" role="banner">
+                <a class="portal-brand" href="home.html">
+                    <img src="../../assets/interpolations-icon-portal-sorbet.png" alt="Interpolations icon" />
+                    <span>Interpolations Portal</span>
+                </a>
+                <nav class="portal-nav-links" aria-label="Portal navigation">
+                    <a href="#overview">Overview</a>
+                    <a href="#details">Your details</a>
+                    <a href="#actions">Event actions</a>
+                    <a href="#support">Support</a>
+                    <a class="portal-signout" href="index.html">Sign out</a>
+                </nav>
+            </header>
+
+            <main class="portal-main" id="overview">
+                <section class="portal-hero" aria-labelledby="hero-title">
+                    <p class="portal-hero-meta">October 24 · Spring Studios · New York City</p>
+                    <h1 id="hero-title">Welcome back, Jordan.</h1>
+                    <p class="portal-hero-copy">
+                        Everything you need for INTERPOLATIONS 2025 lives here. Check your ticket, confirm your arrival
+                        details, and feel prepared for the big day in just a few taps.
+                    </p>
+                    <div class="portal-hero-links" role="list">
+                        <a class="hero-link" role="listitem" href="#details">Review attendee info</a>
+                        <a class="hero-link" role="listitem" href="#support">Plan your travel</a>
+                    </div>
+                </section>
+
+                <section class="portal-section snapshot" aria-labelledby="snapshot-heading" id="snapshot">
+                    <div class="section-heading">
+                        <h2 id="snapshot-heading">Your event snapshot</h2>
+                        <p>Keep an eye on the countdown and your digital pass.</p>
+                    </div>
+                    <div class="snapshot-grid">
+                        <article class="portal-card countdown-card" aria-labelledby="countdown-title">
+                            <h3 id="countdown-title">Countdown to doors</h3>
+                            <div class="countdown" data-countdown="2025-10-24T09:00:00-04:00">
+                                <div class="time">
+                                    <strong data-countdown-days>180</strong>
+                                    <span>Days</span>
+                                </div>
+                                <div class="time">
+                                    <strong data-countdown-hours>12</strong>
+                                    <span>Hours</span>
+                                </div>
+                                <div class="time">
+                                    <strong data-countdown-minutes>00</strong>
+                                    <span>Minutes</span>
+                                </div>
+                                <div class="time">
+                                    <strong data-countdown-seconds>00</strong>
+                                    <span>Seconds</span>
+                                </div>
+                            </div>
+                            <p class="card-footnote">Doors open at 8:30 AM — arrive by 9:15 AM for keynote seating.</p>
+                        </article>
+                        <article class="portal-card ticket-card" aria-labelledby="ticket-heading">
+                            <div class="ticket-header">
+                                <div>
+                                    <p class="portal-subheading">Digital admission</p>
+                                    <h3 id="ticket-heading">All-Access Conference Pass</h3>
+                                </div>
+                                <div class="ticket-qr" aria-hidden="true">QR</div>
+                            </div>
+                            <dl class="ticket-meta">
+                                <div>
+                                    <dt>Attendee</dt>
+                                    <dd>Jordan Rivera</dd>
+                                </div>
+                                <div>
+                                    <dt>Email</dt>
+                                    <dd>jordan.rivera@email.com</dd>
+                                </div>
+                                <div>
+                                    <dt>Seat zone</dt>
+                                    <dd>Creative Ops</dd>
+                                </div>
+                                <div>
+                                    <dt>Check-in</dt>
+                                    <dd>Opens 08:30 AM ET</dd>
+                                </div>
+                            </dl>
+                            <a class="ticket-action" href="#">Add to wallet</a>
+                        </article>
+                        <article class="portal-card arrival-card" aria-labelledby="arrival-heading">
+                            <h3 id="arrival-heading">Day-of briefing</h3>
+                            <ul>
+                                <li>Badge pickup on level 5 — elevators to the right of the lobby.</li>
+                                <li>Breakfast and coffee available from 8:30–10:00 AM.</li>
+                                <li>Opening keynote begins promptly at 9:30 AM in Studio B.</li>
+                            </ul>
+                            <a class="inline-link" href="../../index.html#schedule">Preview full schedule</a>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="portal-section details" aria-labelledby="details-heading" id="details">
+                    <div class="section-heading">
+                        <h2 id="details-heading">Your details</h2>
+                        <p>Update preferences so our team can personalize your experience.</p>
+                    </div>
+                    <form class="details-form" action="#" method="post">
+                        <div class="form-grid">
+                            <label for="name">
+                                <span>Full name</span>
+                                <input type="text" id="name" name="name" value="Jordan Rivera" />
+                            </label>
+                            <label for="email">
+                                <span>Email</span>
+                                <input type="email" id="email" name="email" value="jordan.rivera@email.com" readonly />
+                            </label>
+                            <label for="pronouns">
+                                <span>Pronouns</span>
+                                <input type="text" id="pronouns" name="pronouns" placeholder="she/her, he/him, they/them" />
+                            </label>
+                            <label for="dietary">
+                                <span>Dietary notes</span>
+                                <input type="text" id="dietary" name="dietary" placeholder="Vegan, gluten-free, etc." />
+                            </label>
+                            <label for="phone">
+                                <span>Mobile number</span>
+                                <input type="tel" id="phone" name="phone" placeholder="(646) 555-0190" />
+                            </label>
+                            <label for="arrival">
+                                <span>Arrival window</span>
+                                <select id="arrival" name="arrival">
+                                    <option value="">Select an option</option>
+                                    <option value="early">08:30 – 09:00 AM</option>
+                                    <option value="standard">09:00 – 09:30 AM</option>
+                                    <option value="late">After 09:30 AM</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit">Save changes</button>
+                            <p>We'll email a confirmation if anything looks unusual.</p>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="portal-section actions" aria-labelledby="actions-heading" id="actions">
+                    <div class="section-heading">
+                        <h2 id="actions-heading">Event actions</h2>
+                        <p>Small but mighty shortcuts for popular tasks.</p>
+                    </div>
+                    <div class="action-grid" role="list">
+                        <a class="action-chip" role="listitem" href="../../index.html#tickets">Buy another ticket</a>
+                        <a class="action-chip" role="listitem" href="../../index.html#speakers">Meet the speakers</a>
+                        <a class="action-chip" role="listitem" href="#support">Contact concierge</a>
+                        <a class="action-chip" role="listitem" href="../../index.html#faq">View FAQ</a>
+                    </div>
+                </section>
+
+                <section class="portal-section support" aria-labelledby="support-heading" id="support">
+                    <div class="section-heading">
+                        <h2 id="support-heading">Support & logistics</h2>
+                        <p>Plan your trip and know who to reach before and during the event.</p>
+                    </div>
+                    <div class="support-grid">
+                        <article class="portal-card" aria-labelledby="venue-heading">
+                            <h3 id="venue-heading">Venue</h3>
+                            <p>Spring Studios · 50 Varick Street · New York, NY 10013</p>
+                            <p>Closest subway stops: Canal St (A/C/E) and Franklin St (1).</p>
+                            <a class="inline-link" href="https://maps.app.goo.gl/">Open in Maps</a>
+                        </article>
+                        <article class="portal-card" aria-labelledby="travel-heading">
+                            <h3 id="travel-heading">Travel help</h3>
+                            <p>Need hotel suggestions or accessibility accommodations? Our concierge team is on call.</p>
+                            <ul>
+                                <li>Email <a class="inline-link" href="mailto:concierge@iveseenthefuture.com">concierge@iveseenthefuture.com</a></li>
+                                <li>Text <a class="inline-link" href="tel:+16465550190">(646) 555-0190</a></li>
+                            </ul>
+                        </article>
+                        <article class="portal-card" aria-labelledby="community-heading">
+                            <h3 id="community-heading">Community</h3>
+                            <p>Join the attendee Slack to coordinate meetups and swap travel tips.</p>
+                            <a class="inline-link" href="#">Request Slack invite</a>
+                        </article>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <footer class="portal-footer">Interpolations 2025 · Questions? concierge@iveseenthefuture.com</footer>
+        <script>
+            const countdownEl = document.querySelector('[data-countdown]');
+            if (countdownEl) {
+                const target = new Date(countdownEl.dataset.countdown).getTime();
+                const parts = {
+                    days: countdownEl.querySelector('[data-countdown-days]'),
+                    hours: countdownEl.querySelector('[data-countdown-hours]'),
+                    minutes: countdownEl.querySelector('[data-countdown-minutes]'),
+                    seconds: countdownEl.querySelector('[data-countdown-seconds]'),
+                };
+
+                const tick = () => {
+                    const now = Date.now();
+                    const diff = Math.max(target - now, 0);
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                    const seconds = Math.floor((diff / 1000) % 60);
+
+                    if (parts.days) parts.days.textContent = String(days);
+                    if (parts.hours) parts.hours.textContent = String(hours).padStart(2, '0');
+                    if (parts.minutes) parts.minutes.textContent = String(minutes).padStart(2, '0');
+                    if (parts.seconds) parts.seconds.textContent = String(seconds).padStart(2, '0');
+
+                    if (diff > 0) {
+                        setTimeout(tick, 1000);
+                    }
+                };
+
+                tick();
+            }
+        </script>
+    </body>
+</html>

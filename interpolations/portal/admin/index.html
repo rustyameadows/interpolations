@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>INTERPOLATIONS Admin — Control Center</title>
+        <meta
+            name="description"
+            content="Monitor attendee activity, update event content, and manage communications from the INTERPOLATIONS admin control center."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../../auto-style.css" />
+        <link rel="stylesheet" href="../portal.css" />
+    </head>
+    <body class="portal-body admin-body">
+        <div class="portal-shell">
+            <header class="portal-nav admin-nav" role="banner">
+                <a class="portal-brand" href="../home.html">
+                    <img src="../../../assets/interpolations-icon-portal-sorbet.png" alt="Interpolations icon" />
+                    <span>Interpolations Admin</span>
+                </a>
+                <nav class="portal-nav-links" aria-label="Admin navigation">
+                    <a href="index.html" aria-current="page">Dashboard</a>
+                    <a href="attendees.html">Attendees</a>
+                    <a href="event.html">Event settings</a>
+                    <a class="portal-signout" href="../index.html">Back to portal</a>
+                </nav>
+            </header>
+
+            <main class="portal-main admin-main">
+                <section class="portal-section admin-section" aria-labelledby="admin-overview-heading">
+                    <div class="section-heading">
+                        <h1 id="admin-overview-heading">Control center</h1>
+                        <p>Real-time health of INTERPOLATIONS 2025 and the tasks your team needs to address today.</p>
+                    </div>
+                    <div class="admin-metric-grid" role="list">
+                        <article class="admin-metric" role="listitem" aria-labelledby="metric-registered">
+                            <p class="admin-metric-label">Registered attendees</p>
+                            <p id="metric-registered" class="admin-metric-value">482</p>
+                            <p class="admin-metric-footnote">+18 in the last 24 hours</p>
+                        </article>
+                        <article class="admin-metric" role="listitem" aria-labelledby="metric-checkins">
+                            <p class="admin-metric-label">Confirmed check-ins</p>
+                            <p id="metric-checkins" class="admin-metric-value">317</p>
+                            <p class="admin-metric-footnote">66% of capacity</p>
+                        </article>
+                        <article class="admin-metric" role="listitem" aria-labelledby="metric-health">
+                            <p class="admin-metric-label">Support queue</p>
+                            <p id="metric-health" class="admin-metric-value">4 open</p>
+                            <p class="admin-metric-footnote">Avg response time 42 min</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="portal-section admin-section" aria-labelledby="admin-quick-actions">
+                    <div class="section-heading">
+                        <h2 id="admin-quick-actions">Quick actions</h2>
+                        <p>Jump directly into the most common workflows for launch week.</p>
+                    </div>
+                    <div class="admin-action-grid" role="list">
+                        <a class="admin-action" role="listitem" href="attendees.html#roster">Review attendee roster</a>
+                        <a class="admin-action" role="listitem" href="event.html#hero">Update event hero copy</a>
+                        <a class="admin-action" role="listitem" href="event.html#notifications">Schedule reminder email</a>
+                        <a class="admin-action" role="listitem" href="attendees.html#checkins">Download check-in CSV</a>
+                    </div>
+                </section>
+
+                <section class="portal-section admin-section" aria-labelledby="admin-updates-heading">
+                    <div class="section-heading">
+                        <h2 id="admin-updates-heading">Team updates</h2>
+                        <p>Keep everyone aligned with the latest decisions and blockers.</p>
+                    </div>
+                    <div class="admin-updates">
+                        <article class="admin-update">
+                            <h3>Venue walkthrough complete</h3>
+                            <p>AV confirmed final stage lighting plot. Upload revised seating chart by Thursday.</p>
+                            <p class="admin-update-meta">Logged by Alex Chen · Today at 9:12 AM</p>
+                        </article>
+                        <article class="admin-update">
+                            <h3>Speaker travel check</h3>
+                            <p>All headliners have submitted itineraries. Concierge to distribute hotel welcome packets.</p>
+                            <p class="admin-update-meta">Logged by Priya Patel · Yesterday at 4:45 PM</p>
+                        </article>
+                        <article class="admin-update">
+                            <h3>Swag inventory</h3>
+                            <p>300 tote kits assembled. Reorder enamel pins to cover late ticket buyers.</p>
+                            <p class="admin-update-meta">Logged by Morgan Lee · Yesterday at 1:03 PM</p>
+                        </article>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <footer class="portal-footer">Organizer view · INTERPOLATIONS 2025</footer>
+    </body>
+</html>
