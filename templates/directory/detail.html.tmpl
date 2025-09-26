@@ -8,6 +8,28 @@
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#0736C4" />
 
+    <link rel="canonical" href="{{ CANONICAL_URL }}" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ OG_TITLE }}" />
+    <meta property="og:description" content="{{ OG_DESCRIPTION }}" />
+    <meta property="og:url" content="{{ CANONICAL_URL }}" />
+    <meta property="og:image" content="{{ OG_IMAGE }}" />
+    <meta property="og:image:secure_url" content="{{ OG_IMAGE }}" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{ OG_IMAGE_ALT }}" />
+    <meta property="og:site_name" content="INTERPOLATIONS" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@interpolationsx" />
+    <meta name="twitter:title" content="{{ OG_TITLE }}" />
+    <meta name="twitter:description" content="{{ OG_DESCRIPTION }}" />
+    <meta name="twitter:image" content="{{ OG_IMAGE }}" />
+    <meta name="twitter:image:alt" content="{{ OG_IMAGE_ALT }}" />
+
     <!-- Favicons (shared) -->
     <link rel="icon" type="image/png" sizes="32x32" href="../../interpolations-favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../../interpolations-favicon-16.png" />
@@ -19,6 +41,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300&family=Manrope:wght@300;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../styles.css" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+{{ STRUCTURED_DATA }}
+    </script>
   </head>
   <body>
     <main class="detail" aria-labelledby="detail-title">
@@ -55,14 +82,6 @@
 
           <div class="detail__cta-row">
             <a class="detail__cta" href="{{ TOOL_URL }}" target="_blank" rel="noopener">{{ TOOL_DOMAIN }}</a>
-
-            <div class="detail__recommend" aria-label="Recommendation">
-              <div class="detail__prompt">Would you<br />recommend?</div>
-              <div class="detail__btns">
-                <button class="detail__btn" type="button">Yes</button>
-                <button class="detail__btn" type="button">No</button>
-              </div>
-            </div>
           </div>
         </section>
       </div>
