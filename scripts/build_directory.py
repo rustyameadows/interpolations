@@ -3,6 +3,7 @@
 
 import csv
 import html
+import json
 import re
 import shutil
 from pathlib import Path
@@ -18,6 +19,11 @@ ASSET_DIR = OUTPUT_DIR / "assets"
 LOGO_DIR = ASSET_DIR / "logos"
 BG_WEBP_DIR = ASSET_DIR / "bg" / "webp"
 BG_PNG_DIR = ASSET_DIR / "bg" / "png"
+
+BASE_DIRECTORY_URL = "https://iveseenthefuture.com/interpolations/directory"
+SHARE_IMAGE_URL = (
+    f"{BASE_DIRECTORY_URL}/assets/interpolations-directory-share-card.png"
+)
 
 BACKGROUND_BASES = sorted({p.stem.rsplit('-', 1)[0] for p in BG_WEBP_DIR.glob('bg-still-*-550.webp')})
 BACKGROUND_BASES = [b for b in BACKGROUND_BASES if b != 'bg-still-test']
@@ -218,6 +224,40 @@ def build_detail_page(tool: dict, background_base: str, logo_base: str | None, t
     parsed = urlparse(tool["url"])
     domain = parsed.netloc or tool["url"].replace("https://", "").replace("http://", "")
     domain = domain.rstrip("/")
+    canonical_url = f"{BASE_DIRECTORY_URL}/{tool['slug']}/"
+    og_title = f"{tool['name']} — INTERPOLATIONS Tool Directory"
+    og_description = (
+        tool["short_description"]
+        or f"Learn more about {tool['name']} in the INTERPOLATIONS tool directory."
+    )
+    structured_data: dict[str, object] = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": tool["name"],
+        "description": tool["short_description"] or tool["name"],
+        "url": canonical_url,
+        "image": [SHARE_IMAGE_URL],
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "INTERPOLATIONS",
+            "url": "https://iveseenthefuture.com/",
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "INTERPOLATIONS",
+            "url": "https://iveseenthefuture.com/",
+        },
+    }
+    if tool["url"]:
+        structured_data["about"] = {
+            "@type": "SoftwareApplication",
+            "name": tool["name"],
+            "url": tool["url"],
+            "applicationCategory": tool["category"],
+            "operatingSystem": "Web",
+            "description": tool["short_description"] or tool["name"],
+        }
+    structured_json = json.dumps(structured_data, ensure_ascii=False, indent=8)
     replacements = {
         "{{ TOOL_NAME }}": html.escape(tool["name"]),
         "{{ META_DESCRIPTION }}": html.escape(f"{tool['name']} — {tool['short_description']}") if tool["short_description"] else html.escape(tool["name"]),
@@ -227,6 +267,14 @@ def build_detail_page(tool: dict, background_base: str, logo_base: str | None, t
         "{{ FEATURE_LIST }}": format_feature_list(tool["features"]),
         "{{ TOOL_URL }}": html.escape(tool["url"] or "#"),
         "{{ TOOL_DOMAIN }}": html.escape(domain),
+        "{{ CANONICAL_URL }}": html.escape(canonical_url),
+        "{{ OG_TITLE }}": html.escape(og_title),
+        "{{ OG_DESCRIPTION }}": html.escape(og_description),
+        "{{ OG_IMAGE }}": html.escape(SHARE_IMAGE_URL),
+        "{{ OG_IMAGE_ALT }}": html.escape(
+            "INTERPOLATIONS — AI Creative Tool Directory share card"
+        ),
+        "{{ STRUCTURED_DATA }}": indent(structured_json, 6) + "\n",
     }
     html_text = template
     for key, value in replacements.items():
