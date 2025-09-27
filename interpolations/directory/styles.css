@@ -55,6 +55,53 @@ input[type="search"]::-webkit-search-results-decoration {
     --hero-pad: 50px;
 }
 
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vt-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+@supports (view-transition-name: page) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  :root {
+    view-transition-name: page;
+  }
+
+  ::view-transition-old(page) {
+    animation: vt-fade-out 280ms ease forwards;
+  }
+
+  ::view-transition-new(page) {
+    animation: vt-fade-in 320ms ease forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(page),
+    ::view-transition-new(page) {
+      animation-duration: 1ms;
+    }
+  }
+}
+
 body {
     font-family:
         ui-sans-serif,
@@ -370,13 +417,7 @@ body {
   z-index: 1;
 }
 .detail__overlay {
-  position: absolute;
-  width: 401px;
-  height: 300px;
-  background: var(--gray-300);
-  left: 130px;
-  top: 185px;
-  z-index: 0;
+  display: none;
 }
 
 /* Content */
@@ -436,17 +477,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 28px;
 }
 
 .detail__cta {
+  --cta-shadow: rgba(15, 50, 154, 0.22);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 43px;
-  padding: 0 28px;
+  min-height: 43px;
+  padding: 0 32px;
   border-radius: 2000px;
   background: var(--blue-700);
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--blue-700) 85%, white 15%),
+      color-mix(in srgb, var(--blue-700) 92%, black 8%));
   color: var(--white);
   text-decoration: none;
   font-family: "Manrope", sans-serif;
@@ -455,32 +499,22 @@ body {
   letter-spacing: 0.09em;
   text-transform: uppercase;
   border: 1px solid transparent;
+  border: 1px solid color-mix(in srgb, var(--blue-700) 65%, white 35%);
+  box-shadow: 0 14px 26px var(--cta-shadow);
+  transition: transform 220ms ease, box-shadow 220ms ease,
+    background 220ms ease, border-color 220ms ease;
 }
-.detail__cta:hover, .detail__cta:focus-visible { outline: none; border-color: var(--ink); }
+.detail__cta:hover,
+.detail__cta:focus-visible {
+  outline: none;
+  transform: translateY(-2px);
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--blue-700) 65%, white 35%),
+      color-mix(in srgb, var(--blue-700) 95%, black 5%));
+  border-color: var(--ink);
+  box-shadow: 0 18px 32px rgba(15, 50, 154, 0.28);
+}
 
-.detail__recommend { display: flex; align-items: center; gap: 12px; }
-.detail__prompt {
-  font-family: "Fraunces", serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 17px;
-}
-.detail__btns { display: flex; gap: 15px; padding-left: 15px; }
-.detail__btn {
-  height: 43px;
-  min-width: 89px;
-  border-radius: 2000px;
-  background: var(--white);
-  color: var(--ink);
-  border: 1px solid var(--border);
-  font-family: "Manrope", sans-serif;
-  font-weight: 800;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.detail__btn:focus-visible { outline: 2px solid var(--border); outline-offset: 2px; }
 
 /* Responsive */
 @media (max-width: 1200px) {
@@ -490,21 +524,41 @@ body {
 
 @media (max-width: 1024px) {
   .detail__wrap { grid-template-columns: 2fr 3fr; }
-  .detail__overlay { left: 80px; top: 160px; width: 360px; height: 260px; }
 }
 
 @media (max-width: 768px) {
+  .detail {
+    padding: 16px;
+  }
   .detail__wrap {
     grid-template-columns: 1fr;
     gap: 24px;
-    margin: 24px auto 48px;
+    margin: 16px auto 40px;
     border-width: 1px;
+    border-radius: 18px;
+    padding: 20px;
   }
-  .detail__media__inner { height: 300px; }
-  .detail__overlay { display: none; }
-  .detail__body { padding: 0 16px 16px; gap: 28px; }
-  .detail__cta-row { flex-direction: column; gap: 16px; }
-  .detail__recommend { flex-direction: column; gap: 10px; }
+  .detail__media__inner {
+    height: 300px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .detail__body {
+    padding: 0;
+    gap: 24px;
+  }
+  .detail__cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .detail__cta {
+    width: 100%;
+  }
+  .detail__close {
+    top: 12px;
+    right: 12px;
+    font-size: 30px;
+  }
 }
 
 .tool-card {

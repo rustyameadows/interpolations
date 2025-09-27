@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>AI Creative Tool Directory</title>
+        <meta
+            name="description"
+            content="Explore a curated directory of AI-powered creative tools for designers, artists, writers, and makers—discover new ways to ideate, prototype, and produce your next project."
+        />
+        <meta name="robots" content="index,follow" />
+        <meta name="theme-color" content="#0736C4" />
+
+        <!-- Favicons -->
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../../interpolations-favicon-32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../../interpolations-favicon-16.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../../interpolations-apple-touch-icon.png"
+        />
+        <link rel="icon" href="../../interpolations-favicon.png" />
+
+        <!-- Canonical -->
+        <link
+            rel="canonical"
+            href="https://iveseenthefuture.com/interpolations/directory/"
+        />
+
+        <!-- Open Graph / Twitter -->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="AI Creative Tool Directory" />
+        <meta
+            property="og:description"
+            content="Explore a curated directory of AI-powered creative tools for designers, artists, writers, and makers."
+        />
+        <meta
+            property="og:url"
+            content="https://iveseenthefuture.com/interpolations/directory/"
+        />
+        <meta
+            property="og:image"
+            content="https://iveseenthefuture.com/interpolations/directory/assets/interpolations-directory-share-card.png"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta
+            property="og:image:secure_url"
+            content="https://iveseenthefuture.com/interpolations/directory/assets/interpolations-directory-share-card.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="INTERPOLATIONS — AI Creative Tool Directory"
+        />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="INTERPOLATIONS" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@interpolationsx" />
+        <meta name="twitter:title" content="AI Creative Tool Directory" />
+        <meta
+            name="twitter:description"
+            content="Explore a curated directory of AI-powered creative tools for designers, artists, writers, and makers."
+        />
+        <meta
+            name="twitter:image"
+            content="https://iveseenthefuture.com/interpolations/directory/assets/interpolations-directory-share-card.png"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="INTERPOLATIONS — AI Creative Tool Directory"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300&family=Manrope:wght@300;800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./styles.css" />
+
+        <!-- JSON-LD: WebPage schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": "AI Creative Tool Directory",
+                "url": "https://iveseenthefuture.com/interpolations/directory/",
+                "description": "Explore a curated directory of AI-powered creative tools for designers, artists, writers, and makers.",
+                "image": [
+                    "https://iveseenthefuture.com/interpolations/directory/assets/interpolations-directory-share-card.png"
+                ],
+                "isPartOf": {
+                    "@type": "WebSite",
+                    "name": "INTERPOLATIONS",
+                    "url": "https://iveseenthefuture.com/"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <header class="hero">
+            <div class="hero__top">
+                <img
+                    class="hero__logo"
+                    src="./INTERPOLATIONS-logo-white.png"
+                    alt="INTERPOLATIONS"
+                    width="220"
+                    height="32"
+                    decoding="async"
+                />
+                <a class="hero__cta" href="/index.html">Join us this Oct</a>
+            </div>
+            <div class="hero__inner">
+                <h1>AI Creative Tool Directory</h1>
+                <p>
+                    A growing list of AI tools that amplify creative work—from
+                    sketch to final output. Browse categories, compare
+                    capabilities, and find the right assistants for your
+                    process.
+                </p>
+            </div>
+        </header>
+
+        <main id="main">
+            <section class="tools" aria-label="Creative AI tools">
+                <div
+                    class="tools__filters"
+                    role="region"
+                    aria-label="Filter tools"
+                >
+                    <div
+                        class="filters__buttons"
+                        role="toolbar"
+                        aria-label="Categories"
+                    >
+                        {{ FILTER_BUTTONS }}
+                    </div>
+                    <div class="filters__search">
+                        <input
+                            class="filter-input"
+                            type="search"
+                            placeholder="Search tools…"
+                            aria-label="Search tools"
+                        />
+                    </div>
+                </div>
+                <div class="tools__grid">
+                    <!-- First row (detailed cards) -->
+
+                    <!-- Replicated tool cards -->
+                    {{ TOOL_CARDS }}
+                
+                </div>
+            </section>
+        </main>
+        <script>
+            (function () {
+                const grid = document.querySelector(".tools__grid");
+                if (!grid) return;
+                const cards = Array.from(
+                    grid.querySelectorAll(".tool-card.tool-card--detailed"),
+                );
+
+                // Tag cards with data-category and data-tags (comma-separated).
+                // Defaults to the pill text, or 'Embedded AI' if missing.
+                cards.forEach((card) => {
+                    const pill = card.querySelector(".pill");
+                    let fallback =
+                        (pill && pill.textContent.trim()) || "Embedded AI";
+                    if (fallback === "Discovery and Inspiration Platform")
+                        fallback = "Discovery";
+                    if (!card.dataset.category)
+                        card.dataset.category = fallback;
+                    if (!card.dataset.tags) card.dataset.tags = fallback;
+                });
+
+                const btns = Array.from(
+                    document.querySelectorAll(".filter-btn"),
+                );
+                const input = document.querySelector(".filter-input");
+
+                let activeCategory = "All";
+                let query = "";
+
+                // Category expansion: related categories included in a filter
+                const categoryExpansion = {
+                    All: ["*"],
+                    "Image Generator": [
+                        "Image Generator",
+                        "Image and Video Generator",
+                        "Image Editor",
+                    ],
+                    "Video Generator": [
+                        "Video Generator",
+                        "Image and Video Generator",
+                    ],
+                    "Multi-Tool Platform": ["Multi-Tool Platform"],
+                    Discovery: ["Discovery"],
+                    "Music and Audio": ["Music and Audio"],
+                    Upscaler: ["Upscaler"],
+                    "Image Editor": ["Image Editor"],
+                    "Image and Video Generator": ["Image and Video Generator"],
+                    "Conversational AI": ["Conversational AI"],
+                    "Embedded AI": ["Embedded AI"],
+                };
+
+                function setActiveButton(target) {
+                    btns.forEach((b) => {
+                        const isActive = b === target;
+                        b.classList.toggle("is-active", isActive);
+                        b.setAttribute("aria-pressed", String(isActive));
+                    });
+                }
+
+                function applyFilters() {
+                    const q = query.toLowerCase();
+                    cards.forEach((card) => {
+                        const category = card.dataset.category || "Embedded AI";
+                        const tags = (card.dataset.tags || category)
+                            .split(",")
+                            .map((t) => t.trim());
+                        const expanded = categoryExpansion[activeCategory] || [
+                            activeCategory,
+                        ];
+                        const matchesCategory =
+                            expanded.includes("*") ||
+                            tags.some((t) => expanded.includes(t));
+                        const title = card.querySelector(".tool-card__title");
+                        const desc = card.querySelector(".tool-card__desc");
+                        const text = (
+                            (title ? title.textContent : "") +
+                            " " +
+                            (desc ? desc.textContent : "")
+                        ).toLowerCase();
+                        const matchesText = !q || text.includes(q);
+                        const shouldShow = matchesCategory && matchesText;
+                        card.classList.toggle("is-hidden", !shouldShow);
+                    });
+                }
+
+                const debounce = (fn, delay = 200) => {
+                    let t;
+                    return (...args) => {
+                        clearTimeout(t);
+                        t = setTimeout(() => fn(...args), delay);
+                    };
+                };
+
+                btns.forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        activeCategory = btn.dataset.filter || "All";
+                        setActiveButton(btn);
+                        applyFilters();
+                    });
+                });
+
+                if (input) {
+                    input.addEventListener(
+                        "input",
+                        debounce((e) => {
+                            query = e.target.value.trim();
+                            applyFilters();
+                        }, 150),
+                    );
+                }
+
+                // Initial pass
+                applyFilters();
+            })();
+        </script>
+    </body>
+</html>

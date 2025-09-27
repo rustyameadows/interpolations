@@ -2,6 +2,16 @@
 
 This project uses modern image delivery for fast, crisp rendering across devices. Below are the conventions and commands we use to prepare and serve images.
 
+## Directory build workflow
+
+The creative tool directory is now generated from `data/tools.csv`. Update this file to edit copy, categories, or links for each tool. Then regenerate the landing page and detail views with:
+
+```bash
+python scripts/build_directory.py
+```
+
+The script refreshes `interpolations/directory/index.html` and creates a folder for each tool (e.g. `interpolations/directory/visual-electric/`) containing its detail page. Background images rotate through the existing assets automatically, and logos are pulled in when matching files exist in `interpolations/directory/assets/logos`.
+
 ## Conventions
 
 - Prefer WebP (or AVIF) with a PNG fallback.
