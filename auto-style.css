@@ -578,17 +578,14 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 30px 20px;
-    flex: 0 0 calc(50% - 20px); /* 50/50 split accounting for 40px gap */
+    width: 100%;
+    max-width: 420px;
+    flex: 0 1 420px;
 }
 
 /* Push the register button to the bottom within each card */
 .pricing-card .register-button {
     margin-top: auto;
-}
-
-.regular-ticket {
-    padding-right: 40px;
-    margin-right: 20px;
 }
 
 .ticket-type {
@@ -841,6 +838,58 @@ body {
     font-weight: 300;
     line-height: 1.4;
     letter-spacing: 0.5px;
+}
+
+.partners-section {
+    width: 100%;
+    background: #fff;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.partners-container {
+    width: min(100%, 640px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 28px;
+    color: #0a0a0a;
+}
+
+.partners-title {
+    margin-top: 0;
+    margin-bottom: 26px;
+}
+
+.partners-logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.partners-logo img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.partners-description {
+    font-family: var(--font-display);
+    font-size: clamp(14px, 1.7vw, 16px);
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.partners-link {
+    font-family: var(--font-display);
+    font-size: clamp(14px, 1.7vw, 16px);
+    font-weight: 300;
+    color: #0a0a0a;
+    text-decoration: underline;
 }
 
 .underlined-link {
@@ -1203,15 +1252,6 @@ body {
         flex-direction: column;
         align-items: center;
     }
-
-    .regular-ticket {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        padding-right: 20px;
-        padding-bottom: 40px;
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
 }
 
 /* Break speakers to 1 column ~100px earlier */
@@ -1471,29 +1511,6 @@ body {
 
     .newsletter-button-label {
         font-size: inherit; /* keep 20px like register */
-    }
-}
-/* Center divider line between pricing cards on desktop/tablet */
-@media (min-width: 769px) {
-    .pricing-cards {
-        position: relative;
-    }
-    .pricing-cards::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        width: 1px;
-        background: rgba(255, 255, 255, 0.3);
-        transform: translateX(-0.5px);
-        pointer-events: none;
-    }
-    /* Remove old border-based divider on wide screens */
-    .regular-ticket {
-        border-right: none;
-        margin-right: 0;
-        padding-right: 0;
     }
 }
 /* Ensure larger speaker images kick in earlier (<=1024px) */
