@@ -475,6 +475,16 @@ body {
     letter-spacing: 1.5px;
     text-transform: uppercase;
 }
+.speaker-role a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+.speaker-role a:hover,
+.speaker-role a:focus-visible {
+    color: #3c46ff;
+}
 
 .speaker-bio {
     color: #000;
