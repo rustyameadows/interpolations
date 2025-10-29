@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>INTERPOLATIONS Portal — Your Event Hub</title>
+        <meta
+            name="description"
+            content="View your INTERPOLATIONS event ticket, countdown, and resources. Update your attendee profile and explore key event actions."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../auto-style.css" />
+        <link rel="stylesheet" href="portal.css" />
+    </head>
+    <body class="portal-body">
+        <div class="portal-shell">
+            <header class="portal-nav" role="banner">
+                <a class="portal-brand" href="home.html">
+                    <img src="../../assets/interpolations-icon-portal-sorbet.png" alt="Interpolations icon" />
+                    <span>Interpolations Portal</span>
+                </a>
+                <nav class="portal-nav-links" aria-label="Portal navigation">
+                    <a href="home.html" aria-current="page">Home</a>
+                    <a href="profile.html">My details</a>
+                    <a href="tickets.html">My tickets</a>
+                    <a href="contact.html">Support</a>
+                    <a class="primary-link" href="index.html">Sign out</a>
+                </nav>
+            </header>
+
+            <main class="portal-main-card" aria-labelledby="dashboard-title">
+                <div class="portal-intro">
+                    <p class="portal-subheading">Friday · October 24 · New York City</p>
+                    <h1 id="dashboard-title">Welcome back! You're confirmed for INTERPOLATIONS 2025.</h1>
+                    <p>
+                        Doors open at 8:30 AM at Spring Studios in Tribeca. Use this portal to keep your
+                        details current, download your ticket, and find everything you need before showtime.
+                    </p>
+                    <section aria-labelledby="countdown-title">
+                        <h2 id="countdown-title" class="visually-hidden">Event countdown</h2>
+                        <div class="countdown" data-countdown="2025-10-24T09:00:00-04:00">
+                            <div class="time">
+                                <strong data-countdown-days>180</strong>
+                                <span>Days</span>
+                            </div>
+                            <div class="time">
+                                <strong data-countdown-hours>12</strong>
+                                <span>Hours</span>
+                            </div>
+                            <div class="time">
+                                <strong data-countdown-minutes>00</strong>
+                                <span>Minutes</span>
+                            </div>
+                            <div class="time">
+                                <strong data-countdown-seconds>00</strong>
+                                <span>Seconds</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <aside class="ticket-card" aria-labelledby="ticket-heading">
+                    <header class="ticket-header">
+                        <div>
+                            <p class="portal-subheading">Digital admission</p>
+                            <h2 id="ticket-heading">All-Access Conference Pass</h2>
+                        </div>
+                        <div class="ticket-qr" aria-hidden="true">QR</div>
+                    </header>
+                    <div class="ticket-meta">
+                        <span><strong>Attendee</strong>Jordan Rivera</span>
+                        <span><strong>Email</strong>jordan.rivera@email.com</span>
+                        <span><strong>Check-in opens</strong>08:30 AM ET</span>
+                        <span><strong>Seat zone</strong>Creative Ops</span>
+                    </div>
+                    <p style="margin: 0; position: relative; z-index: 1; color: rgba(16, 30, 45, 0.8);">
+                        Show this ticket on arrival with a photo ID. Tap below to add the pass to your
+                        wallet.
+                    </p>
+                    <a class="portal-button" href="#" role="button">Add to Apple Wallet</a>
+                </aside>
+            </main>
+
+            <section aria-labelledby="quick-actions-heading">
+                <div class="portal-subnav">
+                    <h2 id="quick-actions-heading" style="margin: 0; font-family: var(--font-display);">
+                        Quick actions
+                    </h2>
+                    <span>Stay prepared for the big day.</span>
+                </div>
+                <div class="cta-grid" role="list">
+                    <a class="cta-card" href="profile.html" role="listitem">
+                        <span>Profile</span>
+                        <strong>Update dietary needs &amp; pronouns</strong>
+                        <p>Make sure our team has your latest details and arrival plans.</p>
+                    </a>
+                    <a class="cta-card" href="tickets.html" role="listitem">
+                        <span>Tickets</span>
+                        <strong>Purchase an additional pass</strong>
+                        <p>Bring a teammate or partner with discounted companion pricing.</p>
+                    </a>
+                    <a class="cta-card" href="../../index.html#schedule" role="listitem">
+                        <span>Schedule</span>
+                        <strong>Preview the session lineup</strong>
+                        <p>Bookmark the talks and labs that matter most to your team.</p>
+                    </a>
+                    <a class="cta-card" href="contact.html" role="listitem">
+                        <span>Support</span>
+                        <strong>Chat with the concierge team</strong>
+                        <p>Need travel tips or accessibility support? We're here for you.</p>
+                    </a>
+                </div>
+            </section>
+
+            <section aria-labelledby="info-heading">
+                <div class="portal-subnav">
+                    <h2 id="info-heading" style="margin: 0; font-family: var(--font-display);">
+                        Event essentials
+                    </h2>
+                    <a href="tickets.html">Download confirmation</a>
+                </div>
+                <div class="info-grid">
+                    <article class="info-card" aria-labelledby="arrival-heading">
+                        <h3 id="arrival-heading">Arrival &amp; check-in</h3>
+                        <p>
+                            Please bring a photo ID and arrive between 8:30–9:15 AM for badge pickup. Coffee
+                            and light breakfast will be served.
+                        </p>
+                        <p><strong>Venue:</strong> Spring Studios · 50 Varick St, New York, NY</p>
+                    </article>
+                    <article class="info-card" aria-labelledby="travel-heading">
+                        <h3 id="travel-heading">Travel logistics</h3>
+                        <p>
+                            The closest subway stops are Canal St (A/C/E) and Franklin St (1). Valet parking
+                            is available for $25/day with advance notice.
+                        </p>
+                        <a class="portal-button" href="#">Book ground transportation</a>
+                    </article>
+                    <article class="info-card" aria-labelledby="community-heading">
+                        <h3 id="community-heading">Community updates</h3>
+                        <p>
+                            Join the attendee Slack to meet other creative leaders, share resources, and plan
+                            meetups around the event.
+                        </p>
+                        <a class="portal-button" href="#">Request Slack invite</a>
+                    </article>
+                </div>
+            </section>
+        </div>
+        <footer class="portal-footer">Questions? concierge@iveseenthefuture.com · (646) 555-0190</footer>
+        <script>
+            const countdownEl = document.querySelector('[data-countdown]');
+            if (countdownEl) {
+                const target = new Date(countdownEl.dataset.countdown).getTime();
+                const parts = {
+                    days: countdownEl.querySelector('[data-countdown-days]'),
+                    hours: countdownEl.querySelector('[data-countdown-hours]'),
+                    minutes: countdownEl.querySelector('[data-countdown-minutes]'),
+                    seconds: countdownEl.querySelector('[data-countdown-seconds]'),
+                };
+
+                const tick = () => {
+                    const now = Date.now();
+                    const diff = Math.max(target - now, 0);
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                    const seconds = Math.floor((diff / 1000) % 60);
+
+                    if (parts.days) parts.days.textContent = String(days);
+                    if (parts.hours) parts.hours.textContent = String(hours).padStart(2, '0');
+                    if (parts.minutes) parts.minutes.textContent = String(minutes).padStart(2, '0');
+                    if (parts.seconds) parts.seconds.textContent = String(seconds).padStart(2, '0');
+
+                    if (diff > 0) {
+                        setTimeout(tick, 1000);
+                    }
+                };
+
+                tick();
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>INTERPOLATIONS Portal — Support</title>
+        <meta
+            name="description"
+            content="Get concierge support for the INTERPOLATIONS conference, from travel planning to accessibility assistance."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../auto-style.css" />
+        <link rel="stylesheet" href="portal.css" />
+    </head>
+    <body class="portal-body">
+        <div class="portal-shell">
+            <header class="portal-nav" role="banner">
+                <a class="portal-brand" href="home.html">
+                    <img src="../../assets/interpolations-icon-portal-sorbet.png" alt="Interpolations icon" />
+                    <span>Interpolations Portal</span>
+                </a>
+                <nav class="portal-nav-links" aria-label="Portal navigation">
+                    <a href="home.html">Home</a>
+                    <a href="profile.html">My details</a>
+                    <a href="tickets.html">My tickets</a>
+                    <a href="contact.html" aria-current="page">Support</a>
+                    <a class="primary-link" href="index.html">Sign out</a>
+                </nav>
+            </header>
+
+            <section class="support-card" aria-labelledby="support-heading">
+                <h1 id="support-heading">Concierge support</h1>
+                <p>
+                    Our team is here for anything you need before, during, and after INTERPOLATIONS. Reach
+                    out and we'll respond within one business day.
+                </p>
+                <div class="support-actions" role="list">
+                    <a href="mailto:concierge@iveseenthefuture.com" role="listitem">
+                        <strong>Email the concierge</strong>
+                        concierge@iveseenthefuture.com
+                    </a>
+                    <a href="tel:+16465550190" role="listitem">
+                        <strong>Call or text</strong>
+                        +1 (646) 555-0190 · 9 AM – 7 PM ET
+                    </a>
+                    <a href="#" role="listitem">
+                        <strong>Live chat</strong>
+                        Message us directly from the portal (beta)
+                    </a>
+                    <a href="https://maps.app.goo.gl/" role="listitem">
+                        <strong>Venue directions</strong>
+                        Spring Studios · 50 Varick St · New York, NY 10013
+                    </a>
+                </div>
+
+                <form class="portal-form" action="#" method="post" aria-labelledby="message-heading">
+                    <h2 id="message-heading" style="margin: 0; font-family: var(--font-display);">
+                        Send us a note
+                    </h2>
+                    <label for="topic">
+                        <span>Topic</span>
+                        <select id="topic" name="topic">
+                            <option>Travel logistics</option>
+                            <option>Accessibility &amp; inclusion</option>
+                            <option>Ticket or billing</option>
+                            <option>Programming question</option>
+                            <option>Something else</option>
+                        </select>
+                    </label>
+                    <label for="message">
+                        <span>How can we help?</span>
+                        <textarea id="message" name="message" placeholder="Share details so we can assist."></textarea>
+                    </label>
+                    <button type="submit">Send message</button>
+                    <p class="form-footnote">
+                        We typically respond within a few hours. For urgent needs call or text the concierge.
+                    </p>
+                </form>
+            </section>
+        </div>
+        <footer class="portal-footer">Looking for FAQs? Visit the <a href="../../index.html#faq">event site</a>.</footer>
+    </body>
+</html>
