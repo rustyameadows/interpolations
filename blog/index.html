@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Interpolations Blog — Ideas for Creative Teams</title>
+        <meta
+            name="description"
+            content="The Interpolations blog shares ideas, tools, and events for creative teams experimenting with AI."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="blog.css" />
+    </head>
+    <body class="blog-index">
+        <header class="blog-hero blog-hero--index">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <p class="eyebrow">Interpolations Journal</p>
+                <h1>Fresh perspectives on creative work &amp; AI tools</h1>
+                <p class="hero-dek">
+                    Follow along as we document experiments, share resources, and highlight the community shaping the future of creative practice.
+                </p>
+            </div>
+        </header>
+        <main class="container">
+            <section class="post-grid" aria-label="Blog posts">
+                <article class="post-card">
+                    <a class="post-card__link" href="exploring-creative-possibilities.html">
+                        <div class="post-card__body">
+                            <p class="post-card__eyebrow">Field Notes</p>
+                            <h2 class="post-card__title">Exploring Creative Possibilities with Interpolations</h2>
+                            <p class="post-card__excerpt">
+                                How a new community, directory, and conference are helping creative professionals navigate emerging AI tools.
+                            </p>
+                        </div>
+                        <footer class="post-card__meta">
+                            <span>October 24, 2025</span>
+                            <span>6 min read</span>
+                        </footer>
+                    </a>
+                </article>
+            </section>
+        </main>
+        <footer class="blog-footer">
+            <div class="container footer-content">
+                <p class="footer-title">Interpolations</p>
+                <p class="footer-copy">Design &amp; AI conversations for curious creative teams.</p>
+                <p class="footer-meta">© <span id="year"></span> Interpolations. All rights reserved.</p>
+            </div>
+        </footer>
+        <script>
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
+    </body>
+</html>
