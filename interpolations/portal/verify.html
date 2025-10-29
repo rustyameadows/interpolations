@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>INTERPOLATIONS Portal — Verify Code</title>
+        <meta
+            name="description"
+            content="Enter the email sign-in code sent to you to unlock the INTERPOLATIONS attendee portal."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../auto-style.css" />
+        <link rel="stylesheet" href="portal.css" />
+    </head>
+    <body class="portal-body">
+        <div class="portal-shell" style="gap: var(--space-6);">
+            <a class="portal-brand" href="index.html">
+                <img src="../../assets/interpolations-icon-portal-sorbet.png" alt="Interpolations icon" />
+                <span>Interpolations Portal</span>
+            </a>
+            <main class="portal-form-wrapper" aria-labelledby="verify-heading">
+                <h1 id="verify-heading">Check your inbox for the code</h1>
+                <p>
+                    We emailed a one-time six digit code. Enter it below to continue to your personal
+                    event hub.
+                </p>
+                <form class="portal-form" action="home.html" method="get">
+                    <label for="code">
+                        <span>Verification code</span>
+                        <input
+                            type="text"
+                            id="code"
+                            name="code"
+                            pattern="[0-9]{6}"
+                            inputmode="numeric"
+                            autocomplete="one-time-code"
+                            placeholder="123456"
+                            required
+                        />
+                    </label>
+                    <button type="submit">Confirm and continue</button>
+                    <p class="form-footnote">
+                        Haven't seen the email? <a href="index.html">Resend the code</a> or visit the
+                        <a href="home.html#support">support section</a> for help.
+                    </p>
+                </form>
+            </main>
+        </div>
+        <footer class="portal-footer">Need help? Email concierge@iveseenthefuture.com</footer>
+    </body>
+</html>
