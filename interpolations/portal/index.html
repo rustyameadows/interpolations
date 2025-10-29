@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>INTERPOLATIONS Portal — Sign In</title>
+        <meta
+            name="description"
+            content="Access your INTERPOLATIONS attendee portal to view tickets, update details, and stay informed about the event."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../auto-style.css" />
+        <link rel="stylesheet" href="portal.css" />
+    </head>
+    <body class="portal-body">
+        <div class="portal-shell" style="gap: var(--space-6);">
+            <a class="portal-brand" href="../../index.html">
+                <img src="../../assets/interpolations-icon-portal-sorbet.png" alt="Interpolations icon" />
+                <span>Interpolations Portal</span>
+            </a>
+            <main class="portal-form-wrapper" aria-labelledby="sign-in-heading">
+                <h1 id="sign-in-heading">Sign in to your attendee portal</h1>
+                <p>
+                    Enter the email you used to register and we'll send a magic link with a one-time
+                    access code. No passwords to remember.
+                </p>
+                <form class="portal-form" action="verify.html" method="get">
+                    <label for="email">
+                        <span>Email address</span>
+                        <input type="email" id="email" name="email" placeholder="you@email.com" required />
+                    </label>
+                    <button type="submit">Email me a sign-in code</button>
+                    <p class="form-footnote">
+                        Already have a code? <a href="verify.html">Enter it here</a> or go back to the
+                        <a href="../../index.html">event website</a>.
+                    </p>
+                    <p class="form-footnote">
+                        Organizing team? <a href="admin/index.html">Open the admin console</a>.
+                    </p>
+                </form>
+            </main>
+        </div>
+        <footer class="portal-footer">Made for INTERPOLATIONS attendees — October 24, 2025 · NYC</footer>
+    </body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>INTERPOLATIONS Admin — Attendees</title>
+        <meta
+            name="description"
+            content="Browse the INTERPOLATIONS attendee roster, monitor check-in progress, and manage ticket transfers."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../../auto-style.css" />
+        <link rel="stylesheet" href="../portal.css" />
+    </head>
+    <body class="portal-body admin-body">
+        <div class="portal-shell">
+            <header class="portal-nav admin-nav" role="banner">
+                <a class="portal-brand" href="index.html">
+                    <img src="../../../assets/interpolations-icon-portal-sorbet.png" alt="Interpolations icon" />
+                    <span>Interpolations Admin</span>
+                </a>
+                <nav class="portal-nav-links" aria-label="Admin navigation">
+                    <a href="index.html">Dashboard</a>
+                    <a href="attendees.html" aria-current="page">Attendees</a>
+                    <a href="event.html">Event settings</a>
+                    <a class="portal-signout" href="../home.html">View attendee side</a>
+                </nav>
+            </header>
+
+            <main class="portal-main admin-main">
+                <section class="portal-section admin-section" aria-labelledby="roster-heading" id="roster">
+                    <div class="section-heading">
+                        <h1 id="roster-heading">Attendee roster</h1>
+                        <p>Search, filter, and export the latest guest list before doors open.</p>
+                    </div>
+                    <form class="admin-filters" action="#" method="get">
+                        <label for="search">
+                            <span class="visually-hidden">Search attendee</span>
+                            <input type="search" id="search" name="search" placeholder="Search by name or email" />
+                        </label>
+                        <label for="status">
+                            <span class="visually-hidden">Filter by status</span>
+                            <select id="status" name="status">
+                                <option value="all">All statuses</option>
+                                <option value="confirmed">Confirmed</option>
+                                <option value="pending">Pending</option>
+                                <option value="vip">VIP</option>
+                            </select>
+                        </label>
+                        <label for="ticket">
+                            <span class="visually-hidden">Filter by ticket type</span>
+                            <select id="ticket" name="ticket">
+                                <option value="all">All tickets</option>
+                                <option value="all-access">All-Access</option>
+                                <option value="workshop">Workshop add-on</option>
+                                <option value="virtual">Virtual</option>
+                            </select>
+                        </label>
+                        <button type="submit">Apply</button>
+                        <a class="admin-secondary-action" href="#">Export CSV</a>
+                    </form>
+
+                    <div class="admin-table" role="region" aria-live="polite">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Ticket</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Check-in</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Jordan Rivera</td>
+                                    <td>jordan.rivera@email.com</td>
+                                    <td>All-Access</td>
+                                    <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                                    <td>Mobile pass</td>
+                                    <td><a class="inline-link" href="#">Resend ticket</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Alex Chen</td>
+                                    <td>alex.chen@email.com</td>
+                                    <td>Workshop add-on</td>
+                                    <td><span class="status-pill status-pending">Pending</span></td>
+                                    <td>Needs ID upload</td>
+                                    <td><a class="inline-link" href="#">Send reminder</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Priya Patel</td>
+                                    <td>priya.patel@email.com</td>
+                                    <td>VIP All-Access</td>
+                                    <td><span class="status-pill status-vip">VIP</span></td>
+                                    <td>Will-call</td>
+                                    <td><a class="inline-link" href="#">Assign escort</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Morgan Lee</td>
+                                    <td>morgan.lee@email.com</td>
+                                    <td>Virtual</td>
+                                    <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                                    <td>Online</td>
+                                    <td><a class="inline-link" href="#">View engagement</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Casey Nguyen</td>
+                                    <td>casey.nguyen@email.com</td>
+                                    <td>All-Access</td>
+                                    <td><span class="status-pill status-waitlist">Waitlist</span></td>
+                                    <td>Pending upgrade</td>
+                                    <td><a class="inline-link" href="#">Approve upgrade</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="portal-section admin-section" aria-labelledby="checkins-heading" id="checkins">
+                    <div class="section-heading">
+                        <h2 id="checkins-heading">Check-in readiness</h2>
+                        <p>Ensure front-of-house has everything needed to move the line quickly.</p>
+                    </div>
+                    <div class="admin-checklist" role="list">
+                        <div class="admin-checklist-item" role="listitem">
+                            <input type="checkbox" id="badge-print" checked disabled />
+                            <label for="badge-print">Printed on-site badge batches</label>
+                        </div>
+                        <div class="admin-checklist-item" role="listitem">
+                            <input type="checkbox" id="scanner-test" checked />
+                            <label for="scanner-test">Tested QR scanners with sample passes</label>
+                        </div>
+                        <div class="admin-checklist-item" role="listitem">
+                            <input type="checkbox" id="staff-brief" />
+                            <label for="staff-brief">Brief check-in staff on VIP arrivals</label>
+                        </div>
+                        <div class="admin-checklist-item" role="listitem">
+                            <input type="checkbox" id="signage" />
+                            <label for="signage">Confirm wayfinding signage install</label>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <footer class="portal-footer">Organizer view · INTERPOLATIONS 2025</footer>
+    </body>
+</html>

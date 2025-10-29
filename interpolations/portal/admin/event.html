@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>INTERPOLATIONS Admin — Event Settings</title>
+        <meta
+            name="description"
+            content="Edit the INTERPOLATIONS event hero, schedule highlights, and automated communications sent to attendees."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../../auto-style.css" />
+        <link rel="stylesheet" href="../portal.css" />
+    </head>
+    <body class="portal-body admin-body">
+        <div class="portal-shell">
+            <header class="portal-nav admin-nav" role="banner">
+                <a class="portal-brand" href="index.html">
+                    <img src="../../../assets/interpolations-icon-portal-sorbet.png" alt="Interpolations icon" />
+                    <span>Interpolations Admin</span>
+                </a>
+                <nav class="portal-nav-links" aria-label="Admin navigation">
+                    <a href="index.html">Dashboard</a>
+                    <a href="attendees.html">Attendees</a>
+                    <a href="event.html" aria-current="page">Event settings</a>
+                    <a class="portal-signout" href="../home.html">Preview attendee view</a>
+                </nav>
+            </header>
+
+            <main class="portal-main admin-main">
+                <section class="portal-section admin-section" aria-labelledby="hero-settings" id="hero">
+                    <div class="section-heading">
+                        <h1 id="hero-settings">Event hero & key info</h1>
+                        <p>Control what appears at the top of the attendee homepage and on confirmation emails.</p>
+                    </div>
+                    <form class="admin-form" action="#" method="post">
+                        <div class="form-grid">
+                            <label for="event-name">
+                                <span>Event name</span>
+                                <input type="text" id="event-name" name="event-name" value="INTERPOLATIONS 2025" />
+                            </label>
+                            <label for="event-datetime">
+                                <span>Date & time</span>
+                                <input type="text" id="event-datetime" name="event-datetime" value="October 24, 2025 · 9:30 AM" />
+                            </label>
+                            <label for="event-location">
+                                <span>Location</span>
+                                <input type="text" id="event-location" name="event-location" value="Spring Studios · NYC" />
+                            </label>
+                            <label class="form-span-2" for="hero-headline">
+                                <span>Hero headline</span>
+                                <input
+                                    type="text"
+                                    id="hero-headline"
+                                    name="hero-headline"
+                                    value="The future of creative technology, together"
+                                />
+                            </label>
+                            <label class="form-span-2" for="hero-subhead">
+                                <span>Hero supporting copy</span>
+                                <textarea id="hero-subhead" name="hero-subhead" rows="3">Gather with 500 creative leaders shaping what comes next. Downloadable assets update instantly on attendee dashboards.</textarea>
+                            </label>
+                            <label for="hero-cta-text">
+                                <span>Primary CTA label</span>
+                                <input type="text" id="hero-cta-text" name="hero-cta-text" value="Review arrival plan" />
+                            </label>
+                            <label for="hero-cta-url">
+                                <span>Primary CTA link</span>
+                                <input type="url" id="hero-cta-url" name="hero-cta-url" value="https://interpolations.com/plan" />
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit">Save hero updates</button>
+                            <p>Changes publish instantly to the attendee homepage.</p>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="portal-section admin-section" aria-labelledby="schedule-highlight" id="schedule">
+                    <div class="section-heading">
+                        <h2 id="schedule-highlight">Schedule highlights</h2>
+                        <p>Spotlight priority sessions and let attendees plan their day.</p>
+                    </div>
+                    <div class="admin-cards" role="list">
+                        <article class="admin-card" role="listitem">
+                            <h3>Morning keynote</h3>
+                            <p>Give your creative operations superpowers</p>
+                            <p class="admin-card-meta">9:30 AM · Studio B</p>
+                            <a class="inline-link" href="#">Edit</a>
+                        </article>
+                        <article class="admin-card" role="listitem">
+                            <h3>Immersive lab tours</h3>
+                            <p>Guided walkthrough of partner installations</p>
+                            <p class="admin-card-meta">12:15 PM · Floors 3 & 4</p>
+                            <a class="inline-link" href="#">Edit</a>
+                        </article>
+                        <article class="admin-card" role="listitem">
+                            <h3>Founders circle reception</h3>
+                            <p>Exclusive networking for VIP guests</p>
+                            <p class="admin-card-meta">5:30 PM · Rooftop lounge</p>
+                            <a class="inline-link" href="#">Edit</a>
+                        </article>
+                    </div>
+                    <a class="admin-secondary-action" href="#">Add highlight</a>
+                </section>
+
+                <section class="portal-section admin-section" aria-labelledby="notifications-heading" id="notifications">
+                    <div class="section-heading">
+                        <h2 id="notifications-heading">Automated notifications</h2>
+                        <p>Configure reminder cadence leading up to the event.</p>
+                    </div>
+                    <form class="admin-form" action="#" method="post">
+                        <div class="form-grid">
+                            <label for="reminder-1">
+                                <span>Reminder #1</span>
+                                <input type="text" id="reminder-1" name="reminder-1" value="Two weeks before" />
+                            </label>
+                            <label for="reminder-2">
+                                <span>Reminder #2</span>
+                                <input type="text" id="reminder-2" name="reminder-2" value="Three days before" />
+                            </label>
+                            <label for="reminder-3">
+                                <span>Reminder #3</span>
+                                <input type="text" id="reminder-3" name="reminder-3" value="Morning of event" />
+                            </label>
+                            <label class="form-span-2" for="reminder-template">
+                                <span>Email template</span>
+                                <textarea id="reminder-template" name="reminder-template" rows="4">Hey there {{ first_name }}, we're getting close! Doors open at 8:30 AM and programming begins promptly at 9:30. Reply if you have any last-minute needs.</textarea>
+                            </label>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit">Save notification plan</button>
+                            <p>We'll queue an approval request for the concierge team.</p>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </div>
+        <footer class="portal-footer">Organizer view · INTERPOLATIONS 2025</footer>
+    </body>
+</html>
